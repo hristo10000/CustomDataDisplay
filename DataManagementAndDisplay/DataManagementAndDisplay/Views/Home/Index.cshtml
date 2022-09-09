@@ -5,15 +5,25 @@
 
 <div class="text-center">
     <h1 style="class">Custom Data Manager</h1>
-    <h3>We are currently keeping track of @Model.ToList().Count operations!</h3>
     <button class="btn-outline-dark" onclick="location.reload()">Refresh</button>
     <table class="table-bordered" width="1000px">
         <tr>
-            <td>Date</td>
-            <td>User</td>
-            <td>Operation</td>
-            <td>Result</td>
-            <td>GUID</td>
+            <th>№</th>
+            <th>Date</th>
+            <th>User</th>
+            <th>Operation</th>
+            <th>Result</th>
+            <th>GUID</th>
         </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td></td>
+        @foreach (var data in item)
+        {
+            <td>@data.Value</td>
+        }
+    </tr>        
+        }
     </table>
 </div>

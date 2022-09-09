@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mIAbu24R0n1rdUC4vuSuvGtFEDQV/s02Axxm7p0sfRJ0Dw6Fin2ORALbYt8DDl2Ap5/rJp02EQ68rszvlRfNYg==",
+  "dgSpecHash": "lHA1/6oFjyrDJMe6XjyyCGBzNaBZs4MWUZ/sh+MI5cAf4+jsWPVD8mT0TCX137RunFQaIlJSNzXzqdnnAinHuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\DataFillProject\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
+  "projectFilePath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Viktor Milanov\\.nuget\\packages\\microsoft.applicationinsights\\2.21.0\\microsoft.applicationinsights.2.21.0.nupkg.sha512",
     "C:\\Users\\Viktor Milanov\\.nuget\\packages\\microsoft.azure.applicationinsights.query\\1.0.0\\microsoft.azure.applicationinsights.query.1.0.0.nupkg.sha512",

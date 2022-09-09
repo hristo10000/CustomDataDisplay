@@ -33,12 +33,13 @@ namespace DataManagementAndDisplay.Controllers
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
                 "| where timestamp > ago(8h) " +
-                "| extend Date = customDimensions.Date, " +
+                "| project Date = customDimensions.Date, " +
                 "User = customDimensions.User, " +
                 "Result = customDimensions.Result, " +
                 "Operation = customDimensions.Operation, " +
                 "Guid = customDimensions.Guid";
             var response =  await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
+            IEnumerable<IDictionary<string, object>> data = response.Body.Results;
             return View(response.Body.Results);
         }
 
