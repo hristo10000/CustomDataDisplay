@@ -1,28 +1,75 @@
-﻿@model IEnumerable<IDictionary<string, object>>
+﻿@model Controllers.MultipleModels
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 style="class">Custom Data Manager</h1>
-    <table class="table-bordered" width="1000px">
-        <tr>
-            <th>№</th>
-            <th>Date</th>
-            <th>User</th>
-            <th>Result</th>
-            <th>Operation</th>
-            <th>GUID</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td></td>
-        @foreach (var data in item)
-        {
-            <td>@data.Value</td>
-        }
-    </tr>        
-        }
-    </table>
+    <div class="home-page">
+        <div class="search">
+            <h2>Search</h2>
+
+            <form asp-action="SearchResult">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    Time
+                    <select asp-for="@Model.searchModel.Time" class="form-control">
+                        <option>30 minutes ago</option>
+                        <option>1 hour ago</option>
+                        <option>3 hours ago</option>
+                        <option>8 hours ago</option>
+                        <option>12 hours ago</option>
+                        <option>24 hours ago</option>
+                    </select>
+                    <span asp-validation-for="@Model.searchModel.Time" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.searchModel.User" class="control-label"></label>
+                    <input asp-for="@Model.searchModel.User" class="form-control" />
+                    <span asp-validation-for="@Model.searchModel.User" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.searchModel.Operation" class="control-label"></label>
+                    <input asp-for="@Model.searchModel.Operation" class="form-control" />
+                    <span asp-validation-for="@Model.searchModel.Operation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.searchModel.Result" class="control-label"></label>
+                    <input asp-for="@Model.searchModel.Result" class="form-control" />
+                    <span asp-validation-for="@Model.searchModel.Result" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.searchModel.Guid" class="control-label"></label>
+                    <input asp-for="@Model.searchModel.Guid" class="form-control" />
+                    <span asp-validation-for="@Model.searchModel.Guid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input style="width:318px;" type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="list">
+            <table class="table-bordered" width="1000px">
+                <tr>
+                    <th>№</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Result</th>
+                    <th>Operation</th>
+                    <th>GUID</th>
+                </tr>
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td></td>
+                        @foreach (var data in item)
+                        {
+                            <td>@data.Value</td>
+                        }
+                    </tr>
+
+                }
+            </table>
+        </div>
+    </div>
 </div>
