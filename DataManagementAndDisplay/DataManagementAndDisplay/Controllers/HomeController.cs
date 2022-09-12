@@ -30,7 +30,7 @@ namespace Controllers
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
-                "| where timestamp > ago(8h) " +
+                "| where timestamp > ago(2h) " +
                 "| project Date = customDimensions.Date, " +
                 "User = customDimensions.User, " +
                 "Result = customDimensions.Result, " +
@@ -43,18 +43,20 @@ namespace Controllers
 
         public IActionResult Search()
         {
-            return View(new SearchModel { Time = "", User = "", Operation = "", Result = "" });
+            return View(new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" });
         }
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
+            string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var user = Convert.ToString(collection["User"]);
             string operation = Convert.ToString(collection["Operation"]);
             string result = Convert.ToString(collection["Result"]);
             string time = Convert.ToString(collection["Time"]);
+            string guid = Convert.ToString(collection["Guid"]);
             var query = "customEvents " +
-               "| where timestamp > ago(8h) ";
+               "| where timestamp > ago(2h) ";
             if (user != "")
             {
                 query +=
@@ -69,6 +71,41 @@ namespace Controllers
             {
                 query +=
                $"| where customDimensions.Operation == '{operation}' ";
+            }
+            if (guid != "")
+            {
+                query +=
+               $"| where customDimensions.Guid == '{guid}' ";
+            }
+            if ( time == "30 minutes ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) > datetime({yesterday} 23:29:59.0)";
+            }
+            else if (time == "1 hour ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) > datetime({yesterday} 22:59:59.0)";
+            }
+            else if (time == "3 hours ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) > datetime({yesterday} 20:59:59.0)";
+            }
+            else if (time == "8 hours ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) > datetime({yesterday} 15:59:59.0)";
+            }
+            else if (time == "12 hours ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) > datetime({yesterday} 11:59:59.0)";
+            }
+            else if (time == "12 hours ago")
+            {
+                query +=
+              $"| where todatetime(customDimensions.Date) >= datetime({yesterday} 00:00:00.0)";
             }
             query += "| project Date = customDimensions.Date, " +
                "User = customDimensions.User, " +
