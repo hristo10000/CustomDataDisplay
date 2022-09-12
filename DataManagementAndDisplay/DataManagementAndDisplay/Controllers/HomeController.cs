@@ -14,21 +14,19 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
+        string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public async Task<IActionResult> Index()
-        {
             var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
             {
                 InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
             };
+        }
 
-            string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
-            string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
+        public async Task<IActionResult> Index()
+        {
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
@@ -49,57 +47,25 @@ namespace Controllers
         }
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
+            var credentials = new ApiKeyClientCredentials(key);
+            var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var user = Convert.ToString(collection["User"]);
             string operation = Convert.ToString(collection["Operation"]);
             string result = Convert.ToString(collection["Result"]);
             string time = Convert.ToString(collection["Time"]);
-            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
-            {
-                InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
-            };
-
-            string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
-            string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
-            var credentials = new ApiKeyClientCredentials(key);
-            var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
                "| where timestamp > ago(8h) ";
-            if (user != "" && operation != "" && result != "")
-            {
-                query +=
-               $"| where customDimensions.User == '{user}' " +
-               $"| where customDimensions.Operation == '{operation}' " +
-               $"| where customDimensions.Result == '{result}' ";
-            }
-             else if (user == "" && operation != "" && result != "")
-            {
-                query +=
-               $"| where customDimensions.Operation == '{operation}' " +
-               $"| where customDimensions.Result == '{result}' ";
-            }
-            else if (user != "" && operation == "" && result != "")
-            {
-                query +=
-               $"| where customDimensions.User == '{user}' " +
-               $"| where customDimensions.Result == '{result}' ";
-            }
-            else if (user != "" && operation != "" && result == "")
-            {
-                query +=
-               $"| where customDimensions.User == '{user}' " +
-               $"| where customDimensions.Operation == '{operation}' ";
-            }
-            else if (user == "" && operation == "" && result != "")
-            {
-                query +=
-               $"| where customDimensions.Result == '{result}' ";
-            }
-            else if (user != "" && operation == "" && result == "")
+            if (user != "")
             {
                 query +=
                $"| where customDimensions.User == '{user}' ";
             }
-            else if (user == "" && operation != "" && result == "")
+            if (result != "")
+            {
+                query +=
+               $"| where customDimensions.Result == '{result}' ";
+            }
+            if ( operation != "")
             {
                 query +=
                $"| where customDimensions.Operation == '{operation}' ";
