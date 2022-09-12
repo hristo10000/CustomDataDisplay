@@ -41,10 +41,6 @@ namespace Controllers
             return View(new MultipleModels(data, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" } ));
         }
 
-       /* public IActionResult Search()
-        {
-           // return View(new MultipleModels ( ));
-        }*/
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
@@ -114,7 +110,7 @@ namespace Controllers
                "Guid = customDimensions.Guid";
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            return View("Index",new MultipleModels(data));
+            return View("Index",new MultipleModels(data, new SearchModel {Time = time, User = user, Operation = operation, Result = result, Guid = guid }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
