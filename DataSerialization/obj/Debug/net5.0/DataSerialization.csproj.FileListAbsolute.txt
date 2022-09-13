@@ -1,0 +1,16 @@
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.exe
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.deps.json
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.runtimeconfig.json
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.runtimeconfig.dev.json
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\ref\DataSerialization.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataSerialization.pdb
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.csproj.AssemblyReference.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.AssemblyInfoInputs.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.AssemblyInfo.cs
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.csproj.CoreCompileInputs.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\ref\DataSerialization.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.pdb
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.genruntimeconfig.cache

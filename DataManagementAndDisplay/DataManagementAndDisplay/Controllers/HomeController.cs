@@ -30,7 +30,7 @@ namespace Controllers
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
-                "| where timestamp > ago(5h) " +
+                "| where timestamp > ago(24h) " +
                 "| project Date = customDimensions.Date, " +
                 "User = customDimensions.User, " +
                 "Result = customDimensions.Result, " +
@@ -52,7 +52,7 @@ namespace Controllers
             string time = Convert.ToString(collection["searchModel.Time"]);
             string guid = Convert.ToString(collection["searchModel.Guid"]);
             var query = "customEvents " +
-               "| where timestamp > ago(5h) ";
+               "| where timestamp > ago(24h) ";
             if (user != "")
             {
                 query +=
