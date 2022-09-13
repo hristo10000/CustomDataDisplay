@@ -8,7 +8,6 @@
     <div class="style">
         <div class="search">
             <h2>Search</h2>
-
             <form asp-action="SearchResult">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -43,6 +42,7 @@
                     <input asp-for="@Model.searchModel.Guid" class="form-control" />
                     <span asp-validation-for="@Model.searchModel.Guid" class="text-danger"></span>
                 </div>
+                <button class="btn btn-success" type="reset">Clear</button>
                 <div class="form-group">
                     <input style="width:318px;" type="submit" value="Search" class="btn btn-primary" />
                 </div>

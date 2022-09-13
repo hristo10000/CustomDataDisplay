@@ -98,7 +98,7 @@ namespace Controllers
                 query +=
               $"| where todatetime(customDimensions.Date) > datetime({yesterday} 11:59:59.0)";
             }
-            else if (time == "12 hours ago")
+            else if (time == "24 hours ago")
             {
                 query +=
               $"| where todatetime(customDimensions.Date) >= datetime({yesterday} 00:00:00.0)";
