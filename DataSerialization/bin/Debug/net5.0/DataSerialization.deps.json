@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "DataSerialization/1.0.0": {
+        "dependencies": {
+          "DataModel": "1.0.0"
+        },
         "runtime": {
           "DataSerialization.dll": {}
+        }
+      },
+      "DataModel/1.0.0": {
+        "runtime": {
+          "DataModel.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DataSerialization/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -30,3 +30,6 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\ref\DataSerialization.dll
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.pdb
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.genruntimeconfig.cache
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataModel.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataModel.pdb
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.csproj.CopyComplete

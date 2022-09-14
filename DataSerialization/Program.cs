@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataModel;
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -44,9 +45,12 @@ namespace SerilisationLearning
                 InternalName = "timestamp",
                 fieldType = FieldType.DateTime
             });
-            var filePath = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string filePath = AppDomain.CurrentDomain.BaseDirectory;
             XmlSerializer serializer = new(typeof(Model));
-            using TextWriter writer = new StreamWriter($"{filePath}\\Model.xml");
+            filePath =  Path.Combine(filePath, "Model.xml");
+            var path = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            path = path.Parent.Parent.Parent.Parent.CreateSubdirectory("Model.");
+            using TextWriter writer = new StreamWriter(path.ToString());
             serializer.Serialize(writer, model);
         }
     }

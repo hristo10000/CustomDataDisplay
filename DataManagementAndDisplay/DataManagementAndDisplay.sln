@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagementAndDisplay", "DataManagementAndDisplay\DataManagementAndDisplay.csproj", "{66E299B7-B8B7-4197-AD32-0688DFE7D9EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{5B04B0AD-F237-40E9-B081-DBFD6957549D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\DataModel.csproj", "{5B04B0AD-F237-40E9-B081-DBFD6957549D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataSerialization", "..\DataSerialization\DataSerialization.csproj", "{BE828619-8C78-42CA-80CB-846B0F1DFE5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5B04B0AD-F237-40E9-B081-DBFD6957549D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B04B0AD-F237-40E9-B081-DBFD6957549D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B04B0AD-F237-40E9-B081-DBFD6957549D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE828619-8C78-42CA-80CB-846B0F1DFE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE828619-8C78-42CA-80CB-846B0F1DFE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE828619-8C78-42CA-80CB-846B0F1DFE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE828619-8C78-42CA-80CB-846B0F1DFE5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

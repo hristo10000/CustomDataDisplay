@@ -1,0 +1,12 @@
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.AssemblyInfoInputs.cache
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.AssemblyInfo.cs
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.deps.json
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\ref\DataModel.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.pdb
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\ref\DataModel.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.pdb
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.csproj.AssemblyReference.cache

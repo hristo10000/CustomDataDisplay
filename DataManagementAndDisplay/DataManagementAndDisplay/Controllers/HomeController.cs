@@ -17,6 +17,7 @@ namespace Controllers
         private readonly ILogger<HomeController> _logger;
         string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
         string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -28,6 +29,7 @@ namespace Controllers
 
         public async Task<IActionResult> Index()
         {
+            
             Model model = ModelReader.GetModel();
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
