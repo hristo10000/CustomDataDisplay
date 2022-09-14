@@ -1864,16 +1864,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "DataModel/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/DataModel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataModel.dll": {}
-        }
       }
     }
   },
@@ -6325,35 +6315,29 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "DataModel/1.0.0": {
-      "type": "project",
-      "path": "../DataModel/DataModel.csproj",
-      "msbuildProject": "../DataModel/DataModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "DataModel >= 1.0.0",
       "Microsoft.ApplicationInsights >= 2.21.0",
       "Microsoft.Azure.ApplicationInsights.Query >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Viktor Milanov\\.nuget\\packages\\": {}
+    "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay.csproj",
+      "projectUniqueName": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay.csproj",
       "projectName": "DataManagementAndDisplay",
-      "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay.csproj",
-      "packagesPath": "C:\\Users\\Viktor Milanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\obj\\",
+      "projectPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay.csproj",
+      "packagesPath": "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataManagementAndDisplay\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Viktor Milanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hristo Ivanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6366,11 +6350,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj": {
-              "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -6414,7 +6394,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
   }
