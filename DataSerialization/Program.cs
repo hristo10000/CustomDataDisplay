@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-
-
 
 namespace SerilisationLearning
 {
@@ -14,7 +8,7 @@ namespace SerilisationLearning
     {
         public static void Main(string[] args)
         {
-            Model model = new Model();
+            Model model = new();
             model.fields.Add(new Field { 
                 DisplayName = "User", 
                 InternalName = "customDimentions.User", 
@@ -51,11 +45,9 @@ namespace SerilisationLearning
                 fieldType = FieldType.DateTime
             });
             var filePath = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            XmlSerializer serializer = new XmlSerializer(typeof(Model));
-            using (TextWriter writer = new StreamWriter($"{filePath}\\Model.xml"))
-            {
-                serializer.Serialize(writer, model);
-            }
+            XmlSerializer serializer = new(typeof(Model));
+            using TextWriter writer = new StreamWriter($"{filePath}\\Model.xml");
+            serializer.Serialize(writer, model);
         }
     }
 }
