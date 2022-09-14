@@ -45,12 +45,11 @@ namespace SerilisationLearning
                 InternalName = "timestamp",
                 fieldType = FieldType.DateTime
             });
-            string filePath = AppDomain.CurrentDomain.BaseDirectory;
             XmlSerializer serializer = new(typeof(Model));
-            filePath =  Path.Combine(filePath, "Model.xml");
             var path = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            path = path.Parent.Parent.Parent.Parent.CreateSubdirectory("Model.");
-            using TextWriter writer = new StreamWriter(path.ToString());
+            path = path.Parent.Parent.Parent.Parent;
+            string filePath = Path.Combine(path.ToString(), "DataManagementAndDisplay", "DataManagementAndDisplay", "Model.xml");
+            using TextWriter writer = new StreamWriter(filePath.ToString());
             serializer.Serialize(writer, model);
         }
     }
