@@ -3,27 +3,27 @@
   <fields>
     <Field>
       <DisplayName>User</DisplayName>
-      <InternalName>customDimentions.User</InternalName>
+      <InternalName>customDimensions.User</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
       <DisplayName>Date</DisplayName>
-      <InternalName>customDimentions.Date</InternalName>
+      <InternalName>customDimensions.Date</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
       <DisplayName>Result</DisplayName>
-      <InternalName>customDimentions.Result</InternalName>
+      <InternalName>customDimensions.Result</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
       <DisplayName>Operation</DisplayName>
-      <InternalName>customDimentions.Operation</InternalName>
+      <InternalName>customDimensions.Operation</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
       <DisplayName>Guid</DisplayName>
-      <InternalName>customDimentions.Guid</InternalName>
+      <InternalName>customDimensions.Guid</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>

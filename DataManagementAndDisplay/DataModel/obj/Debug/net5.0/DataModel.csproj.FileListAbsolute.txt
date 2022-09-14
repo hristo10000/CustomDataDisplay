@@ -10,3 +10,15 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDispl
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\ref\DataModel.dll
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.pdb
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.csproj.AssemblyReference.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.deps.json
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\ref\DataModel.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\bin\Debug\net5.0\DataModel.pdb
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.csproj.AssemblyReference.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.AssemblyInfoInputs.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.AssemblyInfo.cs
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\ref\DataModel.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataModel\obj\Debug\net5.0\DataModel.pdb

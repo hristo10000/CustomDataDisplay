@@ -12,31 +12,31 @@ namespace SerilisationLearning
             Model model = new();
             model.fields.Add(new Field { 
                 DisplayName = "User", 
-                InternalName = "customDimentions.User", 
+                InternalName = "customDimensions.User", 
                 fieldType = FieldType.String 
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Date",
-                InternalName = "customDimentions.Date",
+                InternalName = "customDimensions.Date",
                 fieldType = FieldType.String
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Result",
-                InternalName = "customDimentions.Result",
+                InternalName = "customDimensions.Result",
                 fieldType = FieldType.String
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Operation",
-                InternalName = "customDimentions.Operation",
+                InternalName = "customDimensions.Operation",
                 fieldType = FieldType.String
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Guid",
-                InternalName = "customDimentions.Guid",
+                InternalName = "customDimensions.Guid",
                 fieldType = FieldType.String
             });
             model.fields.Add(new Field
