@@ -50,10 +50,9 @@ namespace SerilisationLearning
                 InternalName = "timestamp",
                 fieldType = FieldType.DateTime
             });
-            string fileName = "Model.xml";
-            string fullname = Path.GetFullPath(fileName);
+            var filePath = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             XmlSerializer serializer = new XmlSerializer(typeof(Model));
-            using (TextWriter writer = new StreamWriter($"{fullname}"))
+            using (TextWriter writer = new StreamWriter($"{filePath}\\Model.xml"))
             {
                 serializer.Serialize(writer, model);
             }
