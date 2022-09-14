@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DataManagementAndDisplay.Models;
 using Microsoft.Azure.ApplicationInsights.Query;
 using Microsoft.AspNetCore.Http;
+using DataModel;
 
 namespace Controllers
 {
@@ -27,6 +28,7 @@ namespace Controllers
 
         public async Task<IActionResult> Index()
         {
+            Model model = ModelReader.GetModel();
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             var query = "customEvents " +
