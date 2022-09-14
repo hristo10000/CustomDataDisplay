@@ -1864,6 +1864,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "DataModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/DataModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataModel.dll": {}
+        }
       }
     }
   },
@@ -6315,10 +6325,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "DataModel/1.0.0": {
+      "type": "project",
+      "path": "../DataModel/DataModel.csproj",
+      "msbuildProject": "../DataModel/DataModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "DataModel >= 1.0.0",
       "Microsoft.ApplicationInsights >= 2.21.0",
       "Microsoft.Azure.ApplicationInsights.Query >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2"
@@ -6350,7 +6366,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj": {
+              "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

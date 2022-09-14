@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Controllers;
+using System;
 
 namespace DataModel
 {
     public class ModelReader
     {
-       /* public static Model GetModel()
+        public static Model GetModel()
         {
 
-        }*/ 
+        }
     }
 }
