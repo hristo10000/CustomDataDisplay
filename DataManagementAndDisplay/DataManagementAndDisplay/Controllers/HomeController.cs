@@ -45,7 +45,12 @@ namespace Controllers
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            return View(new MultipleModels(data, model, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" }));
+            var newList = new List<string>();
+            for(int i = 1; i < fields.Count; i++)
+            {
+                newList.Add(" ");
+            }
+            return View(new MultipleModels(data, model, new SearchModel { Time = "", Fields = newList }));
         }
 
         public async Task<IActionResult> SearchResult(IFormCollection collection)
@@ -116,7 +121,7 @@ namespace Controllers
             {
                 newList.Add(item);
             }
-            return View("Index", new MultipleModels(data, model, new SearchModel { Fields = newList, IsFirstLoad = false }));
+            return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
