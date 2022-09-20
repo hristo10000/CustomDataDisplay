@@ -110,7 +110,7 @@ namespace Controllers
                 query +=
               $"| where todatetime({fields[1].InternalName}) >= datetime({yesterday} 00:00:00.0)";
             }
-            query += $"| {fields[1].DisplayName} = {fields[1].InternalName}, " +
+            query += $"| project {fields[1].DisplayName} = {fields[1].InternalName}, " +
                $"{fields[0].DisplayName} = {fields[0].InternalName}, " +
                $"{fields[2].DisplayName} = {fields[2].InternalName}, " +
                $"{fields[3].DisplayName} = {fields[3].InternalName}, " +
