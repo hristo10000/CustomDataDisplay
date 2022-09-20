@@ -7,13 +7,13 @@
   </timeField>
   <fields>
     <Field>
-      <DisplayName>User</DisplayName>
-      <InternalName>customDimensions.User</InternalName>
+      <DisplayName>Date</DisplayName>
+      <InternalName>customDimensions.Date</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
-      <DisplayName>Date</DisplayName>
-      <InternalName>customDimensions.Date</InternalName>
+      <DisplayName>User</DisplayName>
+      <InternalName>customDimensions.User</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>

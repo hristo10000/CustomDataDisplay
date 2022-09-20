@@ -10,16 +10,16 @@ namespace SerilisationLearning
         public static void Main(string[] args)
         {
             Model model = new();
-            model.fields.Add(new Field { 
-                DisplayName = "User", 
-                InternalName = "customDimensions.User", 
-                fieldType = FieldType.String 
-            });
             model.fields.Add(new Field
             {
                 DisplayName = "Date",
                 InternalName = "customDimensions.Date",
                 fieldType = FieldType.String
+            });
+            model.fields.Add(new Field { 
+                DisplayName = "User", 
+                InternalName = "customDimensions.User", 
+                fieldType = FieldType.String 
             });
             model.fields.Add(new Field
             {

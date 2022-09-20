@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timeField>
+    <DisplayName>DateOfAdding</DisplayName>
+    <InternalName>timestamp</InternalName>
+    <fieldType>DateTime</fieldType>
+  </timeField>
   <fields>
-    <Field>
-      <DisplayName>User</DisplayName>
-      <InternalName>customDimensions.User</InternalName>
-      <fieldType>String</fieldType>
-    </Field>
     <Field>
       <DisplayName>Date</DisplayName>
       <InternalName>customDimensions.Date</InternalName>
+      <fieldType>String</fieldType>
+    </Field>
+    <Field>
+      <DisplayName>User</DisplayName>
+      <InternalName>customDimensions.User</InternalName>
       <fieldType>String</fieldType>
     </Field>
     <Field>
@@ -25,11 +30,6 @@
       <DisplayName>Guid</DisplayName>
       <InternalName>customDimensions.Guid</InternalName>
       <fieldType>String</fieldType>
-    </Field>
-    <Field>
-      <DisplayName>DateOfAdding</DisplayName>
-      <InternalName>timestamp</InternalName>
-      <fieldType>DateTime</fieldType>
     </Field>
   </fields>
 </Model>
