@@ -51,6 +51,7 @@ namespace Controllers
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
             Model model = ModelReader.GetModel();
+            var vs = collection["searchModel.Fields"];
             List<Field> fields = model.fields;
             StringBuilder sb = new();
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
