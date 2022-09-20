@@ -8,6 +8,7 @@ namespace Controllers
     public class MultipleModels
     {
         public IEnumerable<IDictionary<string, object>> Data;
+        public DataModel.Model Model;
         public SearchModel searchModel;
         public MultipleModels(IEnumerable<IDictionary<string, object>> data)
         {
@@ -22,5 +23,6 @@ namespace Controllers
             Data = data;
             searchModel = data1;
         }
+
     }
 }
