@@ -51,58 +51,57 @@ namespace Controllers
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
             Model model = ModelReader.GetModel();
-            var vs = collection["searchModel.Fields"];
+            var userInput = collection["searchModel.Fields"];
+            var time = collection["searchModel.Time"];
             List<Field> fields = model.fields;
             StringBuilder sb = new();
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             List<string> info = new();
-            foreach (var item in collection)
+            foreach (var item in userInput)
             {
-                info.Add(item.Value);
+                info.Add(item.ToString());
             }
             info.RemoveAt(info.Count - 1);
             sb.Append($"customEvents | where {model.timeField.InternalName} > ago(24h) ");
             for (int i = 0; i < info.Count; i++)
             {
-                if (info[i].Contains("ago"))
+                if (info[i] != "")
                 {
-                    if (info[i] == "30 minutes ago")
-                    {
-                        sb.Append(
-                       $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 23:29:59.0)");
-                    }
-                    else if (info[i] == "1 hour ago")
-                    {
-                        sb.Append(
-                      $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 22:59:59.0)");
-                    }
-                    else if (info[i] == "3 hours ago")
-                    {
-                        sb.Append(
-                      $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 20:59:59.0)");
-                    }
-                    else if (info[i] == "8 hours ago")
-                    {
-                        sb.Append(
-                      $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 15:59:59.0)");
-                    }
-                    else if (info[i] == "12 hours ago")
-                    {
-                        sb.Append(
-                      $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 11:59:59.0)");
-                    }
-                    else if (info[i] == "24 hours ago")
-                    {
-                        sb.Append(
-                      $"| where todatetime({fields[0].InternalName}) >= datetime({yesterday} 00:00:00.0)");
-                    }
+                    sb.Append($"| where {fields[i + 1].InternalName} == '{info[i]}' ");
                 }
-                else if (info[i] != "")
-                {
-                    sb.Append($"| where {fields[i].InternalName} == '{info[i]}' ");
-                }
+            }
+
+            if (time == "30 minutes ago")
+            {
+                sb.Append(
+               $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 23:29:59.0)");
+            }
+            else if (time == "1 hour ago")
+            {
+                sb.Append(
+              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 22:59:59.0)");
+            }
+            else if (time == "3 hours ago")
+            {
+                sb.Append(
+              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 20:59:59.0)");
+            }
+            else if (time == "8 hours ago")
+            {
+                sb.Append(
+              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 15:59:59.0)");
+            }
+            else if (time == "12 hours ago")
+            {
+                sb.Append(
+              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 11:59:59.0)");
+            }
+            else if (time == "24 hours ago")
+            {
+                sb.Append(
+              $"| where todatetime({fields[0].InternalName}) >= datetime({yesterday} 00:00:00.0)");
             }
             sb.Append("| project ");
             foreach (var field in fields)
