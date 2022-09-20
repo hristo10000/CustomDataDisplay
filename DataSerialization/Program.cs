@@ -39,12 +39,12 @@ namespace SerilisationLearning
                 InternalName = "customDimensions.Guid",
                 fieldType = FieldType.String
             });
-            model.fields.Add(new Field
+            model.timeField = new Field
             {
                 DisplayName = "DateOfAdding",
                 InternalName = "timestamp",
                 fieldType = FieldType.DateTime
-            });
+            };
             XmlSerializer serializer = new(typeof(Model));
             var path = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             path = path.Parent.Parent.Parent.Parent;

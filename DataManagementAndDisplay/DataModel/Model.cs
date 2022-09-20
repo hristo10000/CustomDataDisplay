@@ -4,6 +4,7 @@ namespace DataModel
 {
     public class Model
     {
+        public Field timeField;
         public List<Field> fields;
         public Model()
         {
