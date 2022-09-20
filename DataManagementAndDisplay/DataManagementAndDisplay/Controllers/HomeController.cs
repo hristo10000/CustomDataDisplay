@@ -34,7 +34,7 @@ namespace Controllers
 
             Model model = ModelReader.GetModel();
             List<Field> fields = model.fields;
-            StringBuilder sb = new StringBuilder("customEvents");
+            StringBuilder sb = new("customEvents");
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             sb.Append($"| where {model.timeField.InternalName} > ago(24h) | project ");
@@ -45,14 +45,14 @@ namespace Controllers
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            return View(new MultipleModels(data, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" }));
+            return View(new MultipleModels(data, model, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" }));
         }
 
         public async Task<IActionResult> SearchResult(IFormCollection collection)
         {
             Model model = ModelReader.GetModel();
             List<Field> fields = model.fields;
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
@@ -111,7 +111,7 @@ namespace Controllers
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            return View("Index", new MultipleModels(data, new SearchModel { Time = info[0], User = info[1], Operation = info[2], Result = info[3], Guid = info[4] }));
+            return View("Index", new MultipleModels(data, model, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

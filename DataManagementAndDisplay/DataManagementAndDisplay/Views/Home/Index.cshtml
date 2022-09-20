@@ -21,14 +21,14 @@
                         <option>12 hours ago</option>
                         <option>24 hours ago</option>
                     </select>
-                    <span asp-validation-for="@Model.searchModel.Time" class="text-danger"></span>
+                    <span asp-validation-for="@Model.searchModel.Fields" class="text-danger"></span>
                 </div>
-                @foreach (var field in Model.Model.fields)
+                @for (int i = 1; i < Model.Model.fields.Count; i++)
                 {
+                    
                     <div class="form-group">
-                        <label asp-for="@field" class="control-label"></label>
-                        <input asp-for="@field" class="form-control" />
-                        <span asp-validation-for="@field" class="text-danger"></span>
+                        <label asp-for="@Model.searchModel.Fields" class="control-label">@Model.Model.fields[i].DisplayName</label>
+                        <input asp-for="@Model.searchModel.Fields" class="form-control" value=""/>
                     </div>
                 }
 
