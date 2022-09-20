@@ -111,7 +111,12 @@ namespace Controllers
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            return View("Index", new MultipleModels(data, model, new SearchModel { Time = "", User = "", Operation = "", Result = "", Guid = "" }));
+            var newList = new List<string>();
+            foreach(var item in userInput)
+            {
+                newList.Add(item);
+            }
+            return View("Index", new MultipleModels(data, model, new SearchModel { Fields = newList, IsFirstLoad = false }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

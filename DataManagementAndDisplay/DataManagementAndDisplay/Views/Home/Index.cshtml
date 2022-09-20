@@ -24,10 +24,17 @@
                 </div>
                 @for (int i = 1; i < Model.Model.fields.Count; i++)
                 {
-                    
+
                     <div class="form-group">
                         <label asp-for="@Model.searchModel.Fields" class="control-label">@Model.Model.fields[i].DisplayName</label>
-                        <input asp-for="@Model.searchModel.Fields" class="form-control" value=""/>
+                        @if (Model.searchModel.IsFirstLoad)
+                        {
+                            <input asp-for="@Model.searchModel.Fields" class="form-control" value="" />
+                        }
+                        else
+                        {
+                            <input asp-for="@Model.searchModel.Fields" class="form-control" value="@Model.searchModel.Fields[i-1]" />
+                        }
                     </div>
                 }
 
