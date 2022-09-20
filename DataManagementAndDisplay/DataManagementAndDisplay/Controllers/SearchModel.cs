@@ -11,5 +11,6 @@ namespace Controllers
         public string Result { get; set; }
         public string Guid { get; set; }
         public List<string> Fields { get; set; }
+        public bool IsFirstLoad { get; set; } = true;
     }
 }
