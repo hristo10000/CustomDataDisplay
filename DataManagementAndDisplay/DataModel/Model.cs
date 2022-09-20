@@ -11,7 +11,6 @@ namespace DataModel
             fields = new List<Field>();
         }
     }
-
     public class Field
     {
         public string DisplayName { get; set; }

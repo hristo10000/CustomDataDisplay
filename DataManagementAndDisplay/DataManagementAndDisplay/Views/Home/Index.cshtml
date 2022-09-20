@@ -23,26 +23,15 @@
                     </select>
                     <span asp-validation-for="@Model.searchModel.Time" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="@Model.searchModel.User" class="control-label"></label>
-                    <input asp-for="@Model.searchModel.User" class="form-control" />
-                    <span asp-validation-for="@Model.searchModel.User" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.searchModel.Result" class="control-label"></label>
-                    <input asp-for="@Model.searchModel.Result" class="form-control" />
-                    <span asp-validation-for="@Model.searchModel.Result" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.searchModel.Operation" class="control-label"></label>
-                    <input asp-for="@Model.searchModel.Operation" class="form-control" />
-                    <span asp-validation-for="@Model.searchModel.Operation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.searchModel.Guid" class="control-label"></label>
-                    <input asp-for="@Model.searchModel.Guid" class="form-control" />
-                    <span asp-validation-for="@Model.searchModel.Guid" class="text-danger"></span>
-                </div>
+                @foreach (var field in Model.Model.fields)
+                {
+                    <div class="form-group">
+                        <label asp-for="@field" class="control-label"></label>
+                        <input asp-for="@field" class="form-control" />
+                        <span asp-validation-for="@field" class="text-danger"></span>
+                    </div>
+                }
+
                 <div class="form-group">
                     <input style="width:318px;" type="submit" value="Search" class="btn btn-primary" />
                 </div>

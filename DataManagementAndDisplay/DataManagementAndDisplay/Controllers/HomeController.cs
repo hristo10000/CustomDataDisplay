@@ -16,9 +16,10 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
-        string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
+        readonly string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
+        readonly string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
 
+        [Obsolete]
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;

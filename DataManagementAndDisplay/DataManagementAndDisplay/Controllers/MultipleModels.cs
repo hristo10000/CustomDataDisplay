@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Controllers
 {
     public class MultipleModels
     {
         public IEnumerable<IDictionary<string, object>> Data;
+        public DataModel.Model Model;
         public SearchModel searchModel;
         public MultipleModels(IEnumerable<IDictionary<string, object>> data)
         {
