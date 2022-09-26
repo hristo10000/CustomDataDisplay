@@ -1,5 +1,6 @@
 ﻿@model Controllers.MultipleModels
 @{
+   
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,7 +9,7 @@
     <div class="style">
         <div class="search">
             <h2>Search</h2>
-            <form asp-action="SearchResult">
+            <form asp-action="SearchResult" id="form">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     Time
@@ -39,14 +40,14 @@
                 }
 
                 <div class="form-group">
-                    <input style="width:318px;" type="submit" value="Search" class="btn btn-primary" />
+                    <input style="width:318px;" id="btnGet" type="submit" value="Search" class="btn btn-primary" />
                 </div>
                 <div class="form-group">
                     <button style="width:318px;" class="btn btn-success" asp-action="Index">Clear</button>
                 </div>
             </form>
         </div>
-        <div class="list">
+        <div class="list" id="AjaxResults">
             <table class="table-bordered" width="1000px">
                 <tr>
                     <th>№</th>
@@ -68,6 +69,30 @@
 
                 }
             </table>
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $("#form").submit(function (e) {
+                        console.log("here")
+                        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                        var form = $(this);
+                        var actionUrl = form.attr('action');
+
+                        $.ajax({
+                            type: "POST",
+                            url: actionUrl,
+                            data: form.serialize(), // serializes the form's elements.
+                            success: function (data) {
+                                alert(data); // show response from the php script.
+                            }
+                        });
+
+                    });
+                });
+            </script>
         </div>
     </div>
 </div>
