@@ -1,11 +1,11 @@
 ﻿@model Controllers.MultipleModels
 @{
-   
+
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 style="class">Custom Data Manager</h1>
+    <h1>Custom Data Manager</h1>
     <div class="style">
         <div class="search">
             <h2>Search</h2>
@@ -78,12 +78,18 @@
                     var form = document.getElementById("form");
                     form.addEventListener("keyup", function (event) {
                         event.preventDefault();
-                        var search = document.getElementById("form").value;
                         $.ajax({
                             type: "GET",
                             url: "Home/Search",
-                            success: function (object) {
-                                console.log(object);
+                            success: function (JsonData) {
+                                var data = JSON.stringify(JsonData);
+                                for (var i = 0; i < data.length; i++) {
+                                    var oneLogData = data[i];
+                                    for (var j = 0; j < oneLogData.length; j++) {
+                                        oneLogData[j];
+                                        $(".text-center").html(oneLogData[j]);
+                                    }
+                                }
                             }
                         });
                     });
