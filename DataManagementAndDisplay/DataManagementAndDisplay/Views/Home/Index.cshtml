@@ -81,7 +81,7 @@
                         var search = document.getElementById("form").value;
                         $.ajax({
                             type: "GET",
-                            url: "Home/Search?search=" + search,
+                            url: "Home/Search",
                             success: function (object) {
                                 console.log(object);
                             }
