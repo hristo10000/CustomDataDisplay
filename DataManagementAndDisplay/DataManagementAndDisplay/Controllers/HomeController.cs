@@ -53,7 +53,8 @@ namespace Controllers
             return View(new MultipleModels(data, model, new SearchModel { Time = "", Fields = newList }));
         }
 
-        public async Task<IActionResult> SearchResult(IFormCollection collection)
+        [Route("~/Search")]
+        public async Task<IActionResult> SearchResult([FromQuery] IFormCollection collection)
         {
             Model model = ModelReader.GetModel();
             var userInput = collection["searchModel.Fields"];
@@ -121,7 +122,8 @@ namespace Controllers
             {
                 newList.Add(item);
             }
-            return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
+            return Ok(data);
+            // return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
