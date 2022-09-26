@@ -72,26 +72,23 @@
             <script src="~/lib/jquery/dist/jquery.min.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
-            <script type="text/javascript">
-                $(function () {
-                    $("#form").submit(function (e) {
-                        console.log("here")
-                        e.preventDefault(); // avoid to execute the actual submit of the form.
-
-                        var form = $(this);
-                        var actionUrl = form.attr('action');
-
+            <script>
+                $(document).ready(function () {
+                    var form = document.getElementById("form");
+                    form.addEventListener("keyup", function (event) {
+                        event.preventDefault();
+                        var search = document.getElementById("form").value;
                         $.ajax({
-                            type: "POST",
-                            url: actionUrl,
-                            data: form.serialize(), // serializes the form's elements.
-                            success: function (data) {
-                                alert(data); // show response from the php script.
+                            type: "GET",
+                            url: "Home/Search?search=" + search,
+                            success: function (object) {
+                                console.log(object);
                             }
                         });
-
                     });
+
                 });
+
             </script>
         </div>
     </div>
