@@ -23,7 +23,7 @@ namespace Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
             {
                 InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
             };
@@ -117,13 +117,18 @@ namespace Controllers
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            var newList = new List<string>();
+            List<string> newList = new();
             foreach(var item in userInput)
             {
                 newList.Add(item);
+<<<<<<< HEAD
             }*/
             return Json("1"/*data*/);
             // return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
+=======
+            }
+            return Ok(data);
+>>>>>>> ecb90ad5abf86f5e1bd19ccc0539998a0e494f4e
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

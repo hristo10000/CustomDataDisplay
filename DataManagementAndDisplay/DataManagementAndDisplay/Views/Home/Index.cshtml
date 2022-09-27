@@ -38,7 +38,6 @@
                         }
                     </div>
                 }
-
                 <div class="form-group">
                     <input style="width:318px;" id="btnGet" type="submit" value="Search" class="btn btn-primary" />
                 </div>
@@ -66,38 +65,52 @@
                             <td>@data.Value</td>
                         }
                     </tr>
-
                 }
             </table>
             <script src="~/lib/jquery/dist/jquery.min.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
             <script>
+<<<<<<< HEAD
                 $(document).ready(function () {
                     $("#form").submit(function (event) {
+=======
+                console.log('here')
+                $(document).ready(function () {
+                    var form = document.getElementById('form');
+                    form.addEventListener('keyup', function (event) {
+>>>>>>> ecb90ad5abf86f5e1bd19ccc0539998a0e494f4e
                         event.preventDefault();
                         var form_data = $("#form").serialize();
                         console.log(form_data.type)
                         $.ajax({
+<<<<<<< HEAD
                             type: "GET",
                             url: "/Search",
                             data: form_data,
                             success: function (JsonData) {
                                 console.log("here")
                                 var data = JSON.stringify(JsonData);
+=======
+                            type: 'GET',
+                            url: 'Home/Search',
+                            success: function (data) {
+>>>>>>> ecb90ad5abf86f5e1bd19ccc0539998a0e494f4e
                                 for (var i = 0; i < data.length; i++) {
                                     var oneLogData = data[i];
                                     for (var j = 0; j < oneLogData.length; j++) {
                                         oneLogData[j];
+<<<<<<< HEAD
                                         $("tr").html(oneLogData[j]);
+=======
+                                        $('.text-center').html(oneLogData[j]);
+>>>>>>> ecb90ad5abf86f5e1bd19ccc0539998a0e494f4e
                                     }
                                 }
                             }
                         });
                     });
-
                 });
-
             </script>
         </div>
     </div>
