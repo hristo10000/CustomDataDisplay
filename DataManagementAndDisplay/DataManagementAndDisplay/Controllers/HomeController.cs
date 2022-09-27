@@ -23,7 +23,7 @@ namespace Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
             {
                 InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
             };

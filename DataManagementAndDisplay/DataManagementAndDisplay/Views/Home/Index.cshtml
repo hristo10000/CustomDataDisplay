@@ -38,7 +38,6 @@
                         }
                     </div>
                 }
-
                 <div class="form-group">
                     <input style="width:318px;" id="btnGet" type="submit" value="Search" class="btn btn-primary" />
                 </div>
@@ -66,36 +65,32 @@
                             <td>@data.Value</td>
                         }
                     </tr>
-
                 }
             </table>
             <script src="~/lib/jquery/dist/jquery.min.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
             <script>
-                console.log("here")
+                console.log('here')
                 $(document).ready(function () {
-                    var form = document.getElementById("form");
-                    form.addEventListener("keyup", function (event) {
+                    var form = document.getElementById('form');
+                    form.addEventListener('keyup', function (event) {
                         event.preventDefault();
                         $.ajax({
-                            type: "GET",
-                            url: "Home/Search",
-                            success: function (JsonData) {
-                                var data = JSON.stringify(JsonData);
+                            type: 'GET',
+                            url: 'Home/Search',
+                            success: function (data) {
                                 for (var i = 0; i < data.length; i++) {
                                     var oneLogData = data[i];
                                     for (var j = 0; j < oneLogData.length; j++) {
                                         oneLogData[j];
-                                        $(".text-center").html(oneLogData[j]);
+                                        $('.text-center').html(oneLogData[j]);
                                     }
                                 }
                             }
                         });
                     });
-
                 });
-
             </script>
         </div>
     </div>
