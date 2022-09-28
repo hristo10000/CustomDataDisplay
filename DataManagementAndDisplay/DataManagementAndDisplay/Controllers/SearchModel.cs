@@ -4,12 +4,18 @@ namespace Controllers
 {
     public class SearchModel
     {
-        public string Time { get; set; }
-        public string User { get; set; }
-        public string Operation { get; set; }
-        public string Result { get; set; }
-        public string Guid { get; set; }
-        public List<string> Fields { get; set; }
-        public bool IsFirstLoad { get; set; } = true;
+        public SearchField Time { get; set; }
+        public string a;
+        public List<SearchField> Fields { get; set; }
+        public SearchModel()
+        {
+            Fields = new List<SearchField>();
+        }
+    }
+    public class SearchField
+    {
+        public string InternalName;
+        public string Value;
+
     }
 }

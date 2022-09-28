@@ -12,8 +12,9 @@ using DataModel;
 using System.Text;
 using System.Web.Helpers;
 using System.Web;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Controllers
 {
@@ -52,9 +53,25 @@ namespace Controllers
         }
 
         [Route("~/Search")]
-        [HttpGet]
-        public async Task<IActionResult> Search(string jsonObject)
+        public IActionResult Search(SearchModel model)
         {
+            SearchModel m = new SearchModel();
+            m.Time = new SearchField()
+            {
+                InternalName = "time",
+                Value = "3d"
+            };
+            m.Fields.Add(new SearchField()
+            {
+                InternalName = "name",
+                Value = "Ime"
+            });
+            m.Fields.Add(new SearchField()
+            {
+                InternalName = "age",
+                Value = "15"
+            });
+            var a = JsonConvert.SerializeObject(m, Formatting.Indented);
             var queryString = this.Request.QueryString.ToString();
             
             /*Model model = ModelReader.GetModel();
