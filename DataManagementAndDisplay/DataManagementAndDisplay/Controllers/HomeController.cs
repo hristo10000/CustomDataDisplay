@@ -37,7 +37,7 @@ namespace Controllers
         {
 
             Model model = ModelReader.GetModel();
-            List<Field> fields = model.fields;
+/*            List<Field> fields = model.fields;
             StringBuilder sb = new("customEvents");
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
@@ -47,21 +47,15 @@ namespace Controllers
                 sb.Append($"{ field.DisplayName} = { field.InternalName},");
             }
             var query = sb.ToString().Trim(',');
-            var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
-            IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            var newList = new List<string>();
-            for(int i = 1; i < fields.Count; i++)
-            {
-                newList.Add(" ");
-            }
-            return View(new MultipleModels(data, model, new SearchModel { Time = "", Fields = newList }));
+            var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);*/
+            return View(model);
         }
 
         [Route("~/Search")]
         [HttpGet]
         public async Task<IActionResult> Search(string jsonObject)
         {
-            var queryString = this.Request.QueryString.ToString().Replace("%22", "'");
+            var queryString = this.Request.QueryString.ToString();
             
             /*Model model = ModelReader.GetModel();
             var userInput = collection["searchModel.Fields"];

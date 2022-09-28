@@ -1,4 +1,4 @@
-﻿@model Controllers.MultipleModels
+﻿@model DataModel.Model
 @{
 
     ViewData["Title"] = "Home Page";
@@ -13,7 +13,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     Time
-                    <select asp-for="@Model.searchModel.Time" class="form-control">
+                    <select asp-for="@{Model.timeField.InternalName;}" class="form-control">
                         <option disabled selected></option>
                         <option>30 minutes ago</option>
                         <option>1 hour ago</option>
@@ -23,19 +23,12 @@
                         <option>24 hours ago</option>
                     </select>
                 </div>
-                @for (int i = 1; i < Model.Model.fields.Count; i++)
+                @for (int i = 1; i < Model.fields.Count; i++)
                 {
 
                     <div class="form-group">
-                        <label asp-for="@Model.searchModel.Fields" class="control-label">@Model.Model.fields[i].DisplayName</label>
-                        @if (Model.searchModel.IsFirstLoad)
-                        {
-                            <input asp-for="@Model.searchModel.Fields" class="form-control" value="" />
-                        }
-                        else
-                        {
-                            <input asp-for="@Model.searchModel.Fields" class="form-control" value="@Model.searchModel.Fields[i-1]" />
-                        }
+                        <label class="control-label">@Model.fields[i].DisplayName</label>
+                            <input asp-for="@{Model.fields[i].InternalName}" class="form-control" value="" />
                     </div>
                 }
 
@@ -49,7 +42,7 @@
         </div>
         <div class="list" id="AjaxResults">
             <table class="table-bordered" width="1000px">
-                <tr>
+                @*<tr>
                     <th>№</th>
                     <th>Date</th>
                     <th>User</th>
@@ -65,7 +58,7 @@
                         {
                             <td>@data.Value</td>
                         }
-                    </tr>
+                    </tr>*@
 
                 }
             </table>
@@ -76,28 +69,31 @@
                 $(document).ready(function () {
                     $("#form").submit(function (event) {
                         event.preventDefault();
-                        var form_data = JSON.stringify($("#form").serializeArray());
-                        console.log(form_data);
-                        $.ajax({
-                            type: "GET",
-                            url: "/Search",
-                            data: form_data,
-                            success: function (JsonData) {
-                                console.log("here")
-                                var data = JSON.stringify(JsonData);
-                                for (var i = 0; i < data.length; i++) {
-                                    var oneLogData = data[i];
-                                    for (var j = 0; j < oneLogData.length; j++) {
-                                        oneLogData[j];
-                                        $("tr").html(oneLogData[j]);
-                                    }
-                                }
-                            }
-                        });
+                        SearchAndDisplay();
                     });
-
+                    SearchAndDisplay();
                 });
 
+                function SearchAndDisplay() {
+                    console.log("here");
+                    var form_data = JSON.stringify($("#form").serializeArray());
+                    console.log(form_data);
+                    $.ajax({
+                        type: "GET",
+                        url: "/Search",
+                        data: form_data,
+                        success: function (JsonData) {
+                            var data = JSON.stringify(JsonData);
+                            for (var i = 0; i < data.length; i++) {
+                                var oneLogData = data[i];
+                                for (var j = 0; j < oneLogData.length; j++) {
+                                    oneLogData[j];
+                                    $("tr").html(oneLogData[j]);
+                                }
+                            }
+                        }
+                    });
+                }
             </script>
         </div>
     </div>
