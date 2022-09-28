@@ -10,6 +10,9 @@ using Microsoft.Azure.ApplicationInsights.Query;
 using Microsoft.AspNetCore.Http;
 using DataModel;
 using System.Text;
+using System.Web.Helpers;
+using System.Web;
+using Newtonsoft.Json;
 
 namespace Controllers
 {
@@ -54,8 +57,11 @@ namespace Controllers
         }
 
         [Route("~/Search")]
-        public async Task<IActionResult> SearchResult(MultipleModels models)
+        [HttpGet]
+        public async Task<IActionResult> Search(string jsonObject)
         {
+            var queryString = this.Request.QueryString.ToString();
+            var parsedString = HttpUtility.HtmlDecode(queryString);
             /*Model model = ModelReader.GetModel();
             var userInput = collection["searchModel.Fields"];
             var time = collection["searchModel.Time"];
@@ -121,14 +127,10 @@ namespace Controllers
             foreach(var item in userInput)
             {
                 newList.Add(item);
-<<<<<<< HEAD
             }*/
             return Json("1"/*data*/);
             // return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
-=======
-            }
-            return Ok(data);
->>>>>>> ecb90ad5abf86f5e1bd19ccc0539998a0e494f4e
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
