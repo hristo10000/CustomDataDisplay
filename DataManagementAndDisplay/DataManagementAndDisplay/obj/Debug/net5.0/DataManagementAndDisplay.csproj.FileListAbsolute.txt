@@ -360,3 +360,9 @@ C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisp
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.WebPages.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.Razor.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.Helpers.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Web.WebPages.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll

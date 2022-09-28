@@ -13,6 +13,7 @@ using System.Text;
 using System.Web.Helpers;
 using System.Web;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Controllers
 {
@@ -60,8 +61,8 @@ namespace Controllers
         [HttpGet]
         public async Task<IActionResult> Search(string jsonObject)
         {
-            var queryString = this.Request.QueryString.ToString();
-            var parsedString = HttpUtility.HtmlDecode(queryString);
+            var queryString = this.Request.QueryString.ToString().Replace("%22", "'");
+            
             /*Model model = ModelReader.GetModel();
             var userInput = collection["searchModel.Fields"];
             var time = collection["searchModel.Time"];
