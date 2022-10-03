@@ -5,7 +5,6 @@ namespace Controllers
     public class SearchModel
     {
         public SearchField Time { get; set; }
-        public string a;
         public List<SearchField> Fields { get; set; }
         public SearchModel()
         {
@@ -14,8 +13,8 @@ namespace Controllers
     }
     public class SearchField
     {
-        public string InternalName;
-        public string Value;
+        public string InternalName { get; set; }
+        public string Value { get; set; }
 
     }
 }

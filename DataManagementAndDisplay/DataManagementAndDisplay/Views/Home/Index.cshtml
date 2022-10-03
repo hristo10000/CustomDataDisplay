@@ -79,9 +79,11 @@
                     var form_data = GetData();
                     console.log(form_data);
                     $.ajax({
-                        type: "GET",
+                        type: "POST",
                         url: "/Search",
-                        data: form_data,
+                        data: JSON.stringify(form_data),
+                        contentType: 'application/json',
+                        dataType: 'json',
                         success: function (JsonData) {
                             var data = JSON.stringify(JsonData);
                             for (var i = 0; i < data.length; i++) {
@@ -96,14 +98,22 @@
                 }
 
                 function GetData() {
-                    var objectA = {};
+                    var SearchModel = {};
                     var timeControl = $(".time-control");
-                    const Time = {};
+                    var Time = {};
+                    var Field1 = {};
+                    var Field2 = {};
                     Time["InternalName"] = timeControl.attr('id');
                     Time["Value"] = timeControl.val();
-                    objectA.Time = Time;
-                    objectA.a = "he";
-                    return objectA;
+                    Field1["InternalName"] = "1";
+                    Field1["Value"] = "1";
+                    Field2["InternalName"] = "1";
+                    Field2["Value"] = "1";
+                    SearchModel.Time = Time;
+                    SearchModel.Fields = [];
+                    SearchModel.Fields[0] = Field1;
+                    SearchModel.Fields[1] = Field2;
+                    return SearchModel;
                 }
             </script>
         </div>

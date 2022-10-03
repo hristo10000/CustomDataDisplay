@@ -14,36 +14,36 @@ namespace SerilisationLearning
             {
                 DisplayName = "Date",
                 InternalName = "customDimensions.Date",
-                fieldType = FieldType.String
+                FieldType = FieldType.String
             });
             model.fields.Add(new Field { 
                 DisplayName = "User", 
                 InternalName = "customDimensions.User", 
-                fieldType = FieldType.String 
+                FieldType = FieldType.String 
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Result",
                 InternalName = "customDimensions.Result",
-                fieldType = FieldType.String
+                FieldType = FieldType.String
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Operation",
                 InternalName = "customDimensions.Operation",
-                fieldType = FieldType.String
+                FieldType = FieldType.String
             });
             model.fields.Add(new Field
             {
                 DisplayName = "Guid",
                 InternalName = "customDimensions.Guid",
-                fieldType = FieldType.String
+                FieldType = FieldType.String
             });
             model.timeField = new Field
             {
                 DisplayName = "DateOfAdding",
                 InternalName = "timestamp",
-                fieldType = FieldType.DateTime
+                FieldType = FieldType.DateTime
             };
             XmlSerializer serializer = new(typeof(Model));
             var path = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);

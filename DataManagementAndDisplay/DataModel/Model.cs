@@ -15,7 +15,7 @@ namespace DataModel
     {
         public string DisplayName { get; set; }
         public string InternalName { get; set; }
-        public FieldType fieldType { get; set; }
+        public FieldType FieldType { get; set; }
     }
     public enum FieldType
     {

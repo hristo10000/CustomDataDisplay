@@ -52,8 +52,9 @@ namespace Controllers
             return View(model);
         }
 
+        [HttpPost]
         [Route("~/Search")]
-        public IActionResult Search(SearchModel model)
+        public IActionResult Search([FromBody] SearchModel model)
         {
             SearchModel m = new SearchModel();
             m.Time = new SearchField()
