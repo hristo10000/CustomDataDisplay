@@ -13,9 +13,9 @@ namespace DataFillingPoject
             var random = new Random();
             string user, operation, result, guid;
             DateTime dateTime;
-            List<string> users = new List<string>{ "Viktor", "Hristo", "Slavi", "Vilian", "Martin", "Daniel" };
-            List<string> operations = new List<string> { "Delete", "Add", "Update", "View" };
-            List<string> results = new List<string> { "Success", "Warning", "Fail"};
+            List<string> users = new() { "Viktor", "Hristo", "Slavi", "Vilian", "Martin", "Daniel" };
+            List<string> operations = new() { "Delete", "Add", "Update", "View" };
+            List<string> results = new() { "Success", "Warning", "Fail"};
             var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
             {
                 InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
