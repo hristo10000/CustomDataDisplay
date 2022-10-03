@@ -85,7 +85,7 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
-                            var data = JSON.stringify(JsonData);
+                            console.log(JsonData);
                             for (var i = 0; i < data.length; i++) {
                                 var oneLogData = data[i];
                                 for (var j = 0; j < oneLogData.length; j++) {

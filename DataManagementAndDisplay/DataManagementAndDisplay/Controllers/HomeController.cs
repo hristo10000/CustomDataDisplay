@@ -54,95 +54,64 @@ namespace Controllers
 
         [HttpPost]
         [Route("~/Search")]
-        public IActionResult Search([FromBody] SearchModel model)
+        public async Task<IActionResult> Search([FromBody] SearchModel model)
         {
-            SearchModel m = new();
-            m.Time = new SearchField()
-            {
-                InternalName = "time",
-                Value = "3d"
-            };
-            m.Fields.Add(new SearchField()
-            {
-                InternalName = "name",
-                Value = "Ime"
-            });
-            m.Fields.Add(new SearchField()
-            {
-                InternalName = "age",
-                Value = "15"
-            });
-            var a = JsonConvert.SerializeObject(m, Formatting.Indented);
-            var queryString = this.Request.QueryString.ToString();
-            
-            /*Model model = ModelReader.GetModel();
-            var userInput = collection["searchModel.Fields"];
-            var time = collection["searchModel.Time"];
-            List<Field> fields = model.fields;
+            var time = model.Time;
+            string date = "customDimensions.Date";
+            List<SearchField> fields = model.Fields;
             StringBuilder sb = new();
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
-            List<string> info = new();
-            foreach (var item in userInput)
+            sb.Append($"customEvents | where {time.InternalName} > ago(24h) ");
+            for (int i = 0; i < fields.Count; i++)
             {
-                info.Add(item.ToString());
-            }
-            info.RemoveAt(info.Count - 1);
-            sb.Append($"customEvents | where {model.timeField.InternalName} > ago(24h) ");
-            for (int i = 0; i < info.Count; i++)
-            {
-                if (info[i] != "")
+                if (fields[i].Value != "")
                 {
-                    sb.Append($"| where {fields[i + 1].InternalName} == '{info[i]}' ");
+                    sb.Append($"| where {fields[i].InternalName} == '{fields[i].Value}' ");
                 }
             }
 
-            if (time == "30 minutes ago")
+            if (time.Value == "30 minutes ago")
             {
                 sb.Append(
-               $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 23:29:59.0)");
+               $"| where todatetime({date}) > datetime({yesterday} 23:29:59.0)");
             }
-            else if (time == "1 hour ago")
+            else if (time.Value == "1 hour ago")
             {
                 sb.Append(
-              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 22:59:59.0)");
+              $"| where todatetime({date}) > datetime({yesterday} 22:59:59.0)");
             }
-            else if (time == "3 hours ago")
+            else if (time.Value == "3 hours ago")
             {
                 sb.Append(
-              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 20:59:59.0)");
+              $"| where todatetime({date}) > datetime({yesterday} 20:59:59.0)");
             }
-            else if (time == "8 hours ago")
+            else if (time.Value == "8 hours ago")
             {
                 sb.Append(
-              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 15:59:59.0)");
+              $"| where todatetime({date}) > datetime({yesterday} 15:59:59.0)");
             }
-            else if (time == "12 hours ago")
+            else if (time.Value == "12 hours ago")
             {
                 sb.Append(
-              $"| where todatetime({fields[0].InternalName}) > datetime({yesterday} 11:59:59.0)");
+              $"| where todatetime({date}) > datetime({yesterday} 11:59:59.0)");
             }
-            else if (time == "24 hours ago")
+            else if (time.Value == "24 hours ago")
             {
                 sb.Append(
-              $"| where todatetime({fields[0].InternalName}) >= datetime({yesterday} 00:00:00.0)");
+              $"| where todatetime({date}) >= datetime({yesterday} 00:00:00.0)");
             }
             sb.Append("| project ");
             foreach (var field in fields)
             {
-                sb.Append($"{ field.DisplayName} = { field.InternalName},");
+                sb.Append($"{ field.InternalName},");
             }
+            sb.Append($"{date}");
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
-            List<string> newList = new();
-            foreach(var item in userInput)
-            {
-                newList.Add(item);
-            }*/
-            return Json("1"/*data*/);
-            // return View("Index", new MultipleModels(data, model, new SearchModel {Time = time, Fields = newList, IsFirstLoad = false }));
+            return Json(data);
 
         }
 
