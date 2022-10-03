@@ -56,7 +56,7 @@ namespace Controllers
         [Route("~/Search")]
         public IActionResult Search([FromBody] SearchModel model)
         {
-            SearchModel m = new SearchModel();
+            SearchModel m = new();
             m.Time = new SearchField()
             {
                 InternalName = "time",
