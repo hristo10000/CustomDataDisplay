@@ -27,8 +27,8 @@
                 {
 
                     <div class="form-group">
-                        <label id="data" class="control-label">@Model.fields[i].DisplayName</label>
-                        <input asp-for="@Model.fields[i].InternalName" class="form-control" value="" />
+                        <label class="control-label">@Model.fields[i].DisplayName</label>
+                        <input class="form-control data-control@(i)" asp-for="@Model.fields[i].Value" value="@Model.fields[i].Value" />
                     </div>
                 }
 
@@ -110,8 +110,10 @@
                     {
                         <text>
                         var Field = { };
-                        Field["InternalName"] = "@Model.fields[i].InternalName";
-                        SearchModel.Fields[@i] = Field;
+                    Field["InternalName"] = "@Model.fields[i].InternalName";
+                    var dataControl = $(".data-control@(i)");
+                    Field["Value"] = dataControl.val();;
+                        SearchModel.Fields[@i-1] = Field;
                         </text>
 
                     }
