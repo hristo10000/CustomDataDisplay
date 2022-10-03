@@ -27,8 +27,8 @@
                 {
 
                     <div class="form-group">
-                        <label class="control-label">@Model.fields[i].DisplayName</label>
-                            <input asp-for="@Model.fields[i].InternalName" class="form-control" value="" />
+                        <label id="data" class="control-label">@Model.fields[i].DisplayName</label>
+                        <input asp-for="@Model.fields[i].InternalName" class="form-control" value="" />
                     </div>
                 }
 
@@ -43,22 +43,22 @@
         <div class="list" id="AjaxResults">
             <table class="table-bordered" width="1000px">
                 @*<tr>
-                    <th>№</th>
-                    <th>Date</th>
-                    <th>User</th>
-                    <th>Result</th>
-                    <th>Operation</th>
-                    <th>GUID</th>
-                </tr>
-                @foreach (var item in Model.Data)
-                {
-                    <tr>
-                        <td></td>
-                        @foreach (var data in item)
-                        {
-                            <td>@data.Value</td>
-                        }
-                    </tr>*@
+                        <th>№</th>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Result</th>
+                        <th>Operation</th>
+                        <th>GUID</th>
+                    </tr>
+                    @foreach (var item in Model.Data)
+                    {
+                        <tr>
+                            <td></td>
+                            @foreach (var data in item)
+                            {
+                                <td>@data.Value</td>
+                            }
+                        </tr>*@
 
                 }
             </table>
@@ -101,18 +101,20 @@
                     var SearchModel = {};
                     var timeControl = $(".time-control");
                     var Time = {};
-                    var Field1 = {};
-                    var Field2 = {};
+                    SearchModel.Fields = [];
                     Time["InternalName"] = timeControl.attr('id');
                     Time["Value"] = timeControl.val();
-                    Field1["InternalName"] = "1";
-                    Field1["Value"] = "1";
-                    Field2["InternalName"] = "1";
-                    Field2["Value"] = "1";
                     SearchModel.Time = Time;
-                    SearchModel.Fields = [];
-                    SearchModel.Fields[0] = Field1;
-                    SearchModel.Fields[1] = Field2;
+
+                    @for (int i = 1; i < Model.fields.Count; i++)
+                    {
+                        <text>
+                        var Field = { };
+                        Field["InternalName"] = "@Model.fields[i].InternalName";
+                        SearchModel.Fields[@i] = Field;
+                        </text>
+
+                    }
                     return SearchModel;
                 }
             </script>
