@@ -42,30 +42,27 @@
         </div>
         <div class="list" id="AjaxResults">
             <table class="table-bordered" width="1000px">
-                @*<tr>
-                        <th>№</th>
-                        <th>Date</th>
-                        <th>User</th>
-                        <th>Result</th>
-                        <th>Operation</th>
-                        <th>GUID</th>
+                <tr>
+                    <th>№</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Result</th>
+                    <th>Operation</th>
+                    <th>GUID</th>
+                </tr>
+                @foreach (var field in Model.fields)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@field.Value</td>
                     </tr>
-                    @foreach (var item in Model.Data)
-                    {
-                        <tr>
-                            <td></td>
-                            @foreach (var data in item)
-                            {
-                                <td>@data.Value</td>
-                            }
-                        </tr>*@
-
                 }
-            </table>
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            <script>
+                </table>
+                
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+                <script>
                 $(document).ready(function () {
                     $("#form").submit(function (event) {
                         event.preventDefault();
@@ -86,11 +83,11 @@
                         dataType: 'json',
                         success: function (JsonData) {
                             console.log(JsonData);
-                            for (var i = 0; i < data.length; i++) {
+                            for (var i = 0; i < data.length-1; i++) {
                                 var oneLogData = data[i];
                                 for (var j = 0; j < oneLogData.length; j++) {
                                     oneLogData[j];
-                                    $("tr").html(oneLogData[j]); 
+                                    $("tr").html(oneLogData[j]);
                                 }
                             }
                         }
@@ -119,7 +116,7 @@
                     }
                     return SearchModel;
                 }
-            </script>
+                </script>
+            </div>
         </div>
     </div>
-</div>
