@@ -70,7 +70,7 @@
                         success: function (JsonData) {
                             if (JsonData.length == 0) {
                                 var p = $('<p>').addClass();
-                                p.append("There isn't results")
+                                p.append("Sorry, we didn't find any results that match these search criterias!").css('font-size', '30px').css('font-style', 'italic');
                                 $(".tableToBeReplaced").replaceWith(p);
                             }
                             else{
