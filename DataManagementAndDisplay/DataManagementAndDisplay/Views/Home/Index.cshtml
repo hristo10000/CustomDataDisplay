@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label class="control-label">@Model.fields[i].DisplayName</label>
-                        <input class="form-control data-control@(i)" asp-for="@Model.fields[i].Value" value="@Model.fields[i].Value" />
+                        <input class="form-control data-control" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
                     </div>
                 }
 
@@ -68,48 +68,40 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
+
                             if (JsonData.length == 0) {
-                                var p = $('<p>').addClass();
+                                var p = $('<p>').addClass("tableToBeReplaced");
                                 p.append("Sorry, we didn't find any results that match these search criterias!").css('font-size', '30px').css('font-style', 'italic');
                                 $(".tableToBeReplaced").replaceWith(p);
+                                return;
                             }
-                            else{
+
                             var tableNames = [];
                             tableNames = Object.getOwnPropertyNames(JsonData[0]);
-                            console.log(tableNames);
-                            var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px');
+                            var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');
                             row = '<tr><th>' + '№' + '</th>';
                             for (var i = 0; i < tableNames.length; i++) {
-                                var dispayName = tableNames[i].replace("customDimensions_", "");
+                                var dispayName = tableNames[i].replace("customDimensions_", "");// to do: get displayName
                                 row += '<th>' + dispayName + '</th>';
                             }
-                                var tableNames = [];
-                                tableNames = Object.getOwnPropertyNames(JsonData[0]);
-                                var table = $('<table>').addClass('table-bordered tableToBeReplaced');
-                                row = '<tr><th>' + '№' + '</th>';
-                                for (var i = 0; i < tableNames.length; i++) {
-                                    var dispayName = tableNames[i].replace("customDimensions_", "");
-                                    row += '<th>' + dispayName + '</th>';
-                                }
-                                row += "</tr>";
-                                table.append(row);
-                                for (i = 0; i < JsonData.length; i++) {
-                                    row = '<tr><td></td>';
-                                    for (var j = 0; j < tableNames.length; j++) {
-                                        if (tableNames[j] == "customDimensions_Date") {
-                                            var date = new Date(JsonData[i][tableNames[j]]);
-                                            row += '<td>' + formatDate(date) + '</td>';
-                                        }
-                                        else {
-                                            row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
-                                        }
+                            row += "</tr>";
+                            table.append(row);
+                            for (i = 0; i < JsonData.length; i++) {
+                                row = '<tr><td></td>';
+                                for (var j = 0; j < tableNames.length; j++) {
+                                    if (tableNames[j] == "customDimensions_Date") {
+                                        var date = new Date(JsonData[i][tableNames[j]]);
+                                        row += '<td>' + formatDate(date) + '</td>';
                                     }
-                                    row += '</tr>'
-                                    table.append(row);
-                                    $('#table-result').append(table);
+                                    else {
+                                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
+                                    }
                                 }
-                                $(".tableToBeReplaced").replaceWith(table);
+                                row += '</tr>'
+                                table.append(row);
+                                $('#table-result').append(table);
                             }
+                            $(".tableToBeReplaced").replaceWith(table);
                         }
                     });
                 }
@@ -137,17 +129,13 @@
                     Time["Value"] = timeControl.val();
                     SearchModel.Time = Time;
 
-                    @for (int i = 1; i < Model.fields.Count; i++)
-                    {
-                        <text>
-                        var Field = { };
-                    Field["InternalName"] = "@Model.fields[i].InternalName";
-                    var dataControl = $(".data-control@(i)");
-                    Field["Value"] = dataControl.val();;
-                        SearchModel.Fields[@i-1] = Field;
-                        </text>
-
-                    }
+                    var fields = $(".data-control")
+                    $.each(fields, function (id, value) {
+                        var Field = {};
+                        Field["InternalName"] = value.id;
+                        Field["Value"] = value.value;
+                        SearchModel.Fields[id] = Field;
+                    });
                     return SearchModel;
                 }
             </script>
