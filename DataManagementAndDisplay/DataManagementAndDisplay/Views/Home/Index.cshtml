@@ -4,9 +4,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center margin">
     <h1>Custom Data Manager</h1>
-    <div class="style">
+    <div class="style  ">
         <div class="search">
             <h2>Search</h2>
             <form id="form">
@@ -40,6 +40,7 @@
                 </div>
             </form>
         </div>
+
         <div id="table-result">
             <table class="tableToBeReplaced">
             </table>
@@ -72,7 +73,7 @@
                             var tableNames = [];
                             tableNames = Object.getOwnPropertyNames(JsonData[0]);
                             console.log(tableNames);
-                            var table = $('<table>').addClass('table-bordered tableToBeReplaced');
+                            var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px');
                             row = '<tr><th>' + '№' + '</th>';
                             for (var i = 0; i < tableNames.length; i++) {
                                 var dispayName = tableNames[i].replace("customDimensions_", "");
