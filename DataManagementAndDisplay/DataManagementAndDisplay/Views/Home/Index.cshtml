@@ -40,29 +40,16 @@
                 </div>
             </form>
         </div>
+        <div id="table-result">
+            <table class="tableToBeReplaced">
+            </table>
+        </div>
         <div class="list" id="AjaxResults">
-            <table class="table-bordered" width="1000px">
-                <tr>
-                    <th>№</th>
-                    <th>Date</th>
-                    <th>User</th>
-                    <th>Result</th>
-                    <th>Operation</th>
-                    <th>GUID</th>
-                </tr>
-                @foreach (var field in Model.fields)
-                {
-                    <tr>
-                        <td></td>
-                        <td>@field.Value</td>
-                    </tr>
-                }
-                </table>
-                
-                <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="~/js/site.js" asp-append-version="true"></script>
-                <script>
+
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script>
                 $(document).ready(function () {
                     $("#form").submit(function (event) {
                         event.preventDefault();
@@ -82,18 +69,75 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
-                            console.log(JsonData);
-                            for (var i = 0; i < data.length-1; i++) {
-                                var oneLogData = data[i];
+                            var tableNames = [];
+                            tableNames = Object.getOwnPropertyNames(JsonData[0]);
+                            console.log(tableNames);
+                            var table = $('<table>').addClass('table-bordered tableToBeReplaced');
+                            row = '<tr><th>' + '№' + '</th>';
+                            for (var i = 0; i < tableNames.length; i++) {
+                                var dispayName = tableNames[i].replace("customDimensions_", "");
+                                row += '<th>' + dispayName + '</th>';
+                            }
+                            row += "</tr>";
+                            table.append(row);
+                            for (i = 0; i < JsonData.length; i++) {
+                                row = '<tr><td></td>';
+                                for (var j = 0; j < tableNames.length; j++) {
+                                    if (tableNames[j] == "customDimensions_Date") {
+                                        var date = new Date(JsonData[i][tableNames[j]]);
+                                        row += '<td>' + formatDate(date) + '</td>';
+                                    }
+                                    else {
+                                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
+                                    }
+                                }
+                                row += '</tr>'
+                                table.append(row);
+                                $('#table-result').append(table);
+                            }
+                            $(".tableToBeReplaced").replaceWith(table);
+                            @*<table class="table-bordered" width="1000px">
+                <tr>
+                    <th>№</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Result</th>
+                    <th>Operation</th>
+                    <th>GUID</th>
+                </tr>
+                @foreach (var field in Model.fields)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@field.Value</td>
+                    </tr>
+                }
+                </table>
+                            for (var i = 0; i < JsonData.length; i++) {
+                                var oneLogData = JsonData[i];
                                 for (var j = 0; j < oneLogData.length; j++) {
                                     oneLogData[j];
                                     $("tr").html(oneLogData[j]);
                                 }
-                            }
+                            }*@
                         }
                     });
                 }
-
+                function formatDate(date) {
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var seconds = date.getSeconds();
+                    if (hours < 10) {
+                        hours = "0" + hours;
+                    }
+                    if (minutes < 10) {
+                        minutes = "0" + minutes;
+                    }
+                    if (seconds < 10) {
+                        seconds = "0" + seconds;
+                    }
+                    return (date.toLocaleDateString() + " " + hours + ":" + minutes + ":" + seconds);
+                }
                 function GetData() {
                     var SearchModel = {};
                     var timeControl = $(".time-control");
@@ -116,7 +160,7 @@
                     }
                     return SearchModel;
                 }
-                </script>
-            </div>
+            </script>
         </div>
     </div>
+</div>
