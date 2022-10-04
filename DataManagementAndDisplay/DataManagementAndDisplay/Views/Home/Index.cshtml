@@ -59,9 +59,7 @@
                 });
 
                 function SearchAndDisplay() {
-                    console.log("here");
                     var form_data = GetData();
-                    console.log(form_data);
                     $.ajax({
                         type: "POST",
                         url: "/Search",
@@ -69,57 +67,39 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
-                            var tableNames = [];
-                            tableNames = Object.getOwnPropertyNames(JsonData[0]);
-                            console.log(tableNames);
-                            var table = $('<table>').addClass('table-bordered tableToBeReplaced');
-                            row = '<tr><th>' + '№' + '</th>';
-                            for (var i = 0; i < tableNames.length; i++) {
-                                var dispayName = tableNames[i].replace("customDimensions_", "");
-                                row += '<th>' + dispayName + '</th>';
+                            if (JsonData.length == 0) {
+                                var p = $('<p>').addClass();
+                                p.append("There isn't results")
+                                $(".tableToBeReplaced").replaceWith(p);
                             }
-                            row += "</tr>";
-                            table.append(row);
-                            for (i = 0; i < JsonData.length; i++) {
-                                row = '<tr><td></td>';
-                                for (var j = 0; j < tableNames.length; j++) {
-                                    if (tableNames[j] == "customDimensions_Date") {
-                                        var date = new Date(JsonData[i][tableNames[j]]);
-                                        row += '<td>' + formatDate(date) + '</td>';
-                                    }
-                                    else {
-                                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
-                                    }
+                            else {
+                                var tableNames = [];
+                                tableNames = Object.getOwnPropertyNames(JsonData[0]);
+                                var table = $('<table>').addClass('table-bordered tableToBeReplaced');
+                                row = '<tr><th>' + '№' + '</th>';
+                                for (var i = 0; i < tableNames.length; i++) {
+                                    var dispayName = tableNames[i].replace("customDimensions_", "");
+                                    row += '<th>' + dispayName + '</th>';
                                 }
-                                row += '</tr>'
+                                row += "</tr>";
                                 table.append(row);
-                                $('#table-result').append(table);
-                            }
-                            $(".tableToBeReplaced").replaceWith(table);
-                            @*<table class="table-bordered" width="1000px">
-                <tr>
-                    <th>№</th>
-                    <th>Date</th>
-                    <th>User</th>
-                    <th>Result</th>
-                    <th>Operation</th>
-                    <th>GUID</th>
-                </tr>
-                @foreach (var field in Model.fields)
-                {
-                    <tr>
-                        <td></td>
-                        <td>@field.Value</td>
-                    </tr>
-                }
-                </table>
-                            for (var i = 0; i < JsonData.length; i++) {
-                                var oneLogData = JsonData[i];
-                                for (var j = 0; j < oneLogData.length; j++) {
-                                    oneLogData[j];
-                                    $("tr").html(oneLogData[j]);
+                                for (i = 0; i < JsonData.length; i++) {
+                                    row = '<tr><td></td>';
+                                    for (var j = 0; j < tableNames.length; j++) {
+                                        if (tableNames[j] == "customDimensions_Date") {
+                                            var date = new Date(JsonData[i][tableNames[j]]);
+                                            row += '<td>' + formatDate(date) + '</td>';
+                                        }
+                                        else {
+                                            row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
+                                        }
+                                    }
+                                    row += '</tr>'
+                                    table.append(row);
+                                    $('#table-result').append(table);
                                 }
-                            }*@
+                                $(".tableToBeReplaced").replaceWith(table);
+                            }
                         }
                     });
                 }
