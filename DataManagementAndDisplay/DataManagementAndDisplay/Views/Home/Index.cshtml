@@ -80,9 +80,11 @@
                             tableNames = Object.getOwnPropertyNames(JsonData[0]);
                             var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');
                             row = '<tr><th>' + '№' + '</th>';
-                            for (var i = 0; i < tableNames.length; i++) {
-                                var dispayName = tableNames[i].replace("customDimensions_", "");// to do: get displayName
-                                row += '<th>' + dispayName + '</th>';
+                            @for (int i = 1; i < @Model.fields.Count; i++)
+                            {
+                                <text>
+                                    row += '<th>' + "@Model.fields[i].DisplayName" + '</th>';
+                                </text>
                             }
                             row += "</tr>";
                             table.append(row);
