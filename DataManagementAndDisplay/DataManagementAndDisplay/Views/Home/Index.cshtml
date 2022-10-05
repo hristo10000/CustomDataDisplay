@@ -83,45 +83,26 @@
                             @for (int i = 1; i < @Model.fields.Count; i++)
                             {
                                 <text>
-                                    row += '<th>' + "@Model.fields[i].DisplayName" + '</th>';
+                            row += '<th>' + "@Model.fields[i].DisplayName" + '</th>';
                                 </text>
                             }
+                            row += '<th>' + "@Model.timeField.DisplayName" + '</th>';
                             row += "</tr>";
                             table.append(row);
                             for (i = 0; i < JsonData.length; i++) {
                                 row = '<tr><td></td>';
                                 for (var j = 0; j < tableNames.length; j++) {
-                                    if (tableNames[j] == "customDimensions_Date") {
-                                        var date = new Date(JsonData[i][tableNames[j]]);
-                                        row += '<td>' + formatDate(date) + '</td>';
-                                    }
-                                    else {
-                                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
-                                    }
+                                    row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
                                 }
-                                row += '</tr>'
-                                table.append(row);
-                                $('#table-result').append(table);
                             }
+                            row += '</tr>'
+                            table.append(row);
+                            $('#table-result').append(table);
                             $(".tableToBeReplaced").replaceWith(table);
                         }
                     });
                 }
-                function formatDate(date) {
-                    var hours = date.getHours();
-                    var minutes = date.getMinutes();
-                    var seconds = date.getSeconds();
-                    if (hours < 10) {
-                        hours = "0" + hours;
-                    }
-                    if (minutes < 10) {
-                        minutes = "0" + minutes;
-                    }
-                    if (seconds < 10) {
-                        seconds = "0" + seconds;
-                    }
-                    return (date.toLocaleDateString() + " " + hours + ":" + minutes + ":" + seconds);
-                }
+             
                 function GetData() {
                     var SearchModel = {};
                     var timeControl = $(".time-control");
