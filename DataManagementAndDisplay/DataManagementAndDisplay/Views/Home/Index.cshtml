@@ -40,7 +40,7 @@
                 </div>
             </form>
         </div>
-
+        <div class="loading"><img src="loading.gif"> Loading...</div>
         <div id="table-result">
             <table class="tableToBeReplaced">
             </table>
@@ -61,6 +61,9 @@
 
                 function SearchAndDisplay() {
                     var form_data = GetData();
+                    var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');
+                    $(".tableToBeReplaced").replaceWith(table);
+                    $(".loading").show();
                     $.ajax({
                         type: "POST",
                         url: "/Search",
@@ -68,7 +71,7 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
-
+                            $(".loading").hide();
                             if (JsonData.length == 0) {
                                 var p = $('<p>').addClass("tableToBeReplaced");
                                 p.append("Sorry, we didn't find any results that match these search criterias!").css('font-size', '30px').css('font-style', 'italic');
@@ -94,15 +97,15 @@
                                 for (var j = 0; j < tableNames.length; j++) {
                                     row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
                                 }
+                                row += '</tr>'
+                                table.append(row);
                             }
-                            row += '</tr>'
-                            table.append(row);
                             $('#table-result').append(table);
                             $(".tableToBeReplaced").replaceWith(table);
                         }
                     });
                 }
-             
+
                 function GetData() {
                     var SearchModel = {};
                     var timeControl = $(".time-control");
