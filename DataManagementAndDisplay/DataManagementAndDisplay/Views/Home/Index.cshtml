@@ -40,17 +40,23 @@
                 </div>
             </form>
         </div>
-        <div class="loading"><img src="loading.gif"> Loading...</div>
-        <div id="table-result">
-            <table class="tableToBeReplaced">
-            </table>
-        </div>
-        <div class="list" id="AjaxResults">
+            <div class="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="table-result">
+                <table class="tableToBeReplaced">
+                </table>
+            </div>
+            <div class="list" id="AjaxResults">
 
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            <script>
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+                <script>
                 $(document).ready(function () {
                     $("#form").submit(function (event) {
                         event.preventDefault();
@@ -124,7 +130,7 @@
                     });
                     return SearchModel;
                 }
-            </script>
+                </script>
+            </div>
         </div>
-    </div>
 </div>
