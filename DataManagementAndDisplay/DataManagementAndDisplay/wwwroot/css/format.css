@@ -2,18 +2,39 @@
     counter-reset: rowNumber;
 }
 
-    table tr {
-        counter-increment: rowNumber;
+
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
     }
 
-        table tr td:first-child::before {
-            content: counter(rowNumber);
-            min-width: 1em;
-            margin-right: 0.5em;
-        }
+
+
+.tableToBeReplaced > tr > th {
+    text-align: center;
+}
+
+
+
+.tableToBeReplaced > tr > td {
+    justify-items: baseline;
+}
+
+
+
 .loading {
     display: none;
 }
+
+
 
 .loading {
     left: 40%;
@@ -24,6 +45,8 @@
     position: relative;
     display: inline-block;
 }
+
+
 
     .loading div {
         border-radius: 50%;
@@ -40,11 +63,15 @@
         box-sizing: border-box;
     }
 
+
+
         .loading div:nth-child(1) {
             height: 20%;
             width: 20%;
             animation-delay: 0.05s;
         }
+
+
 
         .loading div:nth-child(2) {
             height: 40%;
@@ -52,11 +79,15 @@
             animation-delay: .1s;
         }
 
+
+
         .loading div:nth-child(3) {
             height: 60%;
             width: 60%;
             animation-delay: .15s;
         }
+
+
 
         .loading div:nth-child(4) {
             height: 80%;
@@ -64,11 +95,15 @@
             animation-delay: .2s;
         }
 
+
+
         .loading div:nth-child(5) {
             height: 100%;
             width: 100%;
             animation-delay: .25s;
         }
+
+
 
 @keyframes rotateTest1 {
     50% {
