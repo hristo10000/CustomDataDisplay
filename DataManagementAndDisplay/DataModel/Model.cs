@@ -5,6 +5,7 @@ namespace DataModel
     public class Model
     {
         public Field timeField;
+        public List<(string, string)> timestamps { get; set; }
         public List<Field> fields;
         public Model()
         {
