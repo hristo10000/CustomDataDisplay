@@ -15,12 +15,11 @@
                     @Model.timeField.DisplayName
                     <select id="@Model.timeField.InternalName" class="form-control time-control">
                         <option disabled selected></option>
-                        <option>30 minutes ago</option>
-                        <option>1 hour ago</option>
-                        <option>3 hours ago</option>
-                        <option>8 hours ago</option>
-                        <option>12 hours ago</option>
-                        <option>24 hours ago</option>
+                        @for (int i = 0; i < Model.fields.Count; i++)
+                        {
+                            <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
+
+                        }
                     </select>
                 </div>
                 @for (int i = 1; i < Model.fields.Count; i++)

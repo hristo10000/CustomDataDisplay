@@ -1,35 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <timeField>
-    <DisplayName>Date</DisplayName>
+    <DisplayName>DateOfAdding</DisplayName>
     <InternalName>timestamp</InternalName>
-    <fieldType>DateTime</fieldType>
+    <FieldType>DateTime</FieldType>
   </timeField>
+  <timestamps>
+    <TimeFieldOption>
+      <InternalName>30m</InternalName>
+      <DisplayName>30 minutes ago</DisplayName>
+    </TimeFieldOption>
+    <TimeFieldOption>
+      <InternalName>1h</InternalName>
+      <DisplayName>1 hour ago</DisplayName>
+    </TimeFieldOption>
+    <TimeFieldOption>
+      <InternalName>3h</InternalName>
+      <DisplayName>3 hours ago</DisplayName>
+    </TimeFieldOption>
+    <TimeFieldOption>
+      <InternalName>8h</InternalName>
+      <DisplayName>8 hours ago</DisplayName>
+    </TimeFieldOption>
+    <TimeFieldOption>
+      <InternalName>12h</InternalName>
+      <DisplayName>12 hours ago</DisplayName>
+    </TimeFieldOption>
+    <TimeFieldOption>
+      <InternalName>1d</InternalName>
+      <DisplayName>24 hours ago</DisplayName>
+    </TimeFieldOption>
+  </timestamps>
   <fields>
     <Field>
       <DisplayName>Date</DisplayName>
       <InternalName>customDimensions.Date</InternalName>
-      <fieldType>String</fieldType>
+      <FieldType>String</FieldType>
     </Field>
     <Field>
       <DisplayName>User</DisplayName>
       <InternalName>customDimensions.User</InternalName>
-      <fieldType>String</fieldType>
+      <FieldType>String</FieldType>
     </Field>
     <Field>
       <DisplayName>Result</DisplayName>
       <InternalName>customDimensions.Result</InternalName>
-      <fieldType>String</fieldType>
+      <FieldType>String</FieldType>
     </Field>
     <Field>
       <DisplayName>Operation</DisplayName>
       <InternalName>customDimensions.Operation</InternalName>
-      <fieldType>String</fieldType>
+      <FieldType>String</FieldType>
     </Field>
     <Field>
       <DisplayName>Guid</DisplayName>
       <InternalName>customDimensions.Guid</InternalName>
-      <fieldType>String</fieldType>
+      <FieldType>String</FieldType>
     </Field>
   </fields>
 </Model>

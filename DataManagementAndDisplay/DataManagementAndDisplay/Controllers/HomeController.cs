@@ -38,17 +38,6 @@ namespace Controllers
         {
 
             Model model = ModelReader.GetModel();
-/*            List<Field> fields = model.fields;
-            StringBuilder sb = new("customEvents");
-            var credentials = new ApiKeyClientCredentials(key);
-            var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
-            sb.Append($"| where {model.timeField.InternalName} > ago(24h) | project ");
-            foreach (var field in fields)
-            {
-                sb.Append($"{ field.DisplayName} = { field.InternalName},");
-            }
-            var query = sb.ToString().Trim(',');
-            var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);*/
             return View(model);
         }
 
@@ -72,32 +61,32 @@ namespace Controllers
                 }
             }
 
-            if (time.Value == "30 minutes ago")
+            if (time.Value == "30m")
             {
                 sb.Append(
                $"| where todatetime({date}) > datetime({yesterday} 23:29:59.0)");
             }
-            else if (time.Value == "1 hour ago")
+            else if (time.Value == "1h")
             {
                 sb.Append(
               $"| where todatetime({date}) > datetime({yesterday} 22:59:59.0)");
             }
-            else if (time.Value == "3 hours ago")
+            else if (time.Value == "3h")
             {
                 sb.Append(
               $"| where todatetime({date}) > datetime({yesterday} 20:59:59.0)");
             }
-            else if (time.Value == "8 hours ago")
+            else if (time.Value == "8h")
             {
                 sb.Append(
               $"| where todatetime({date}) > datetime({yesterday} 15:59:59.0)");
             }
-            else if (time.Value == "12 hours ago")
+            else if (time.Value == "12h")
             {
                 sb.Append(
               $"| where todatetime({date}) > datetime({yesterday} 11:59:59.0)");
             }
-            else if (time.Value == "24 hours ago")
+            else if (time.Value == "1d")
             {
                 sb.Append(
               $"| where todatetime({date}) >= datetime({yesterday} 00:00:00.0)");

@@ -5,11 +5,12 @@ namespace DataModel
     public class Model
     {
         public Field timeField;
-        public List<(string, string)> timestamps { get; set; }
+        public List<TimeFieldOption> timestamps;
         public List<Field> fields;
         public Model()
         {
             fields = new List<Field>();
+            timestamps = new List<TimeFieldOption>();
         }
     }
     public class Field
@@ -25,5 +26,14 @@ namespace DataModel
         Int,
         DateTime,
         Double
+    }
+    public class TimeFieldOption
+    {
+        public TimeFieldOption()
+        {
+                    
+        }
+        public string InternalName { get; set; }
+        public string DisplayName { get; set; }
     }
 }
