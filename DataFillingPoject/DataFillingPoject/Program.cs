@@ -27,7 +27,7 @@ namespace DataFillingPoject
                 operation = operations[random.Next(operations.Count)];
                 result = results[random.Next(results.Count)];
                 guid = Guid.NewGuid().ToString();
-                ai.TrackEvent($"Index", new Dictionary<string, string>() { { "User", user }, { "Operation", operation }, { "Result", result }, { "Date", $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1} {random.Next(0, 23)}:{random.Next(0, 59)}:{random.Next(0, 59)}.{random.Next(0, 999)}" }, { "Guid", guid } });
+                ai.TrackEvent($"Index", new Dictionary<string, string>() { { "User", user }, { "Operation", operation }, { "Result", result }, { "Date", $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day} {random.Next(0, 23)}:{random.Next(0, 59)}:{random.Next(0, 59)}.{random.Next(0, 999)}" }, { "Guid", guid } });
             }
             ai.Flush();
         }

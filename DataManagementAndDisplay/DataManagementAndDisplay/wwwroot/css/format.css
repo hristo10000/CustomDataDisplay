@@ -12,7 +12,11 @@ table tr td:first-child::before {
     margin-right: 0.5em;
 }
 
-.tableToBeReplaced>tr>th {
+.tableToBeReplaced{
+    margin-left: 350px;
+}
+
+.tableToBeReplaced > tr > th {
     text-align: center;
 }
 
@@ -22,11 +26,8 @@ table tr td:first-child::before {
 
 .loading {
     display: none;
-}
-
-.loading {
-    left: 40%;
-    align-self: center;
+    left: 48%;
+    top: 40%;
     height: 48px;
     width: 48px;
     color: #5a5a5a;

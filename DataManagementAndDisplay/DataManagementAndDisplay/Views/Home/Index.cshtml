@@ -8,19 +8,20 @@
     <h1>Custom Data Manager</h1>
     <div class="style  ">
         <div class="search">
-            <h2>Search</h2>
-            <form id="form">
+            
+            <form id="form" style="position: fixed;">
+                <h2>Search</h2>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     @Model.timeField.DisplayName
                     <select id="@Model.timeField.InternalName" class="form-control time-control">
                         <option disabled selected></option>
-                        <option>30 minutes ago</option>
-                        <option>1 hour ago</option>
-                        <option>3 hours ago</option>
-                        <option>8 hours ago</option>
-                        <option>12 hours ago</option>
-                        <option>24 hours ago</option>
+                        <option value="30m">30 minutes ago</option>
+                        <option value="1h">1 hour ago</option>
+                        <option value="3h">3 hours ago</option>
+                        <option value="8h">8 hours ago</option>
+                        <option value="12h">12 hours ago</option>
+                        <option value="1d">24 hours ago</option>
                     </select>
                 </div>
                 @for (int i = 1; i < Model.fields.Count; i++)
@@ -40,14 +41,14 @@
                 </div>
             </form>
         </div>
-        <div class="loading">
+        <div class="loading"  style="position: fixed;">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-            <div id="table-result">
+            <div id="table-result" >
                 <table class="tableToBeReplaced">
                 </table>
             </div>
