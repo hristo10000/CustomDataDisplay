@@ -16,9 +16,9 @@ namespace DataFillingPoject
             List<string> users = new() { "Viktor", "Hristo", "Slavi", "Vilian", "Martin", "Daniel" };
             List<string> operations = new() { "Delete", "Add", "Update", "View" };
             List<string> results = new() { "Success", "Warning", "Fail"};
-            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
+            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
             {
-                InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
+                InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
             };
             for(int i = 0; i < 200; i++)
             {
