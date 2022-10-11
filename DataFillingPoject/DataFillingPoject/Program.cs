@@ -22,7 +22,7 @@ namespace DataFillingPoject
             };
             for(int i = 0; i < 200; i++)
             {
-                dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, random.Next(0, 23), random.Next(0, 59), random.Next(0, 59), random.Next(0, 999));
+                dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 1, random.Next(0, 23), random.Next(0, 59), random.Next(0, 59), random.Next(0, 999));
                 user = users[random.Next(users.Count)];
                 operation = operations[random.Next(operations.Count)];
                 result = results[random.Next(results.Count)];
