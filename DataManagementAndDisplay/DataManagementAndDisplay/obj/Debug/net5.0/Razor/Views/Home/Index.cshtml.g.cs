@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma checksum "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "fc127a6f0861c94647df870e21406937e1ae8142"
+=======
+#pragma checksum "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "78dffe271d989eb388ae44c87db790d7b55fbb01"
+>>>>>>> parent of d918873 (some changes)
 =======
 #pragma checksum "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "78dffe271d989eb388ae44c87db790d7b55fbb01"
 >>>>>>> parent of d918873 (some changes)
@@ -31,7 +35,11 @@ using DataManagementAndDisplay.Models;
 #line hidden
 #nullable disable
 <<<<<<< HEAD
+<<<<<<< HEAD
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fc127a6f0861c94647df870e21406937e1ae8142", @"/Views/Home/Index.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78dffe271d989eb388ae44c87db790d7b55fbb01", @"/Views/Home/Index.cshtml")]
+>>>>>>> parent of d918873 (some changes)
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78dffe271d989eb388ae44c87db790d7b55fbb01", @"/Views/Home/Index.cshtml")]
 >>>>>>> parent of d918873 (some changes)
@@ -98,6 +106,9 @@ using DataManagementAndDisplay.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb016169", async() => {
                 WriteLiteral("\r\n                ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb016443", async() => {
+<<<<<<< HEAD
+>>>>>>> parent of d918873 (some changes)
+=======
 >>>>>>> parent of d918873 (some changes)
                 }
                 );
@@ -105,7 +116,11 @@ using DataManagementAndDisplay.Models;
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper);
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 14 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 13 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 13 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -126,7 +141,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 WriteLiteral("\r\n                <div class=\"form-group\">\r\n                    ");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 16 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 15 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 15 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -139,9 +158,12 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginWriteAttribute("id", " id=\"", 503, "\"", 537, 1);
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 17 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 WriteAttributeValue("", 508, Model.timeField.InternalName, 508, 29, false);
 =======
+=======
+>>>>>>> parent of d918873 (some changes)
 #line 16 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
 >>>>>>> parent of d918873 (some changes)
@@ -152,7 +174,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"form-control time-control\">\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814211192", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb019060", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb019060", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -175,7 +201,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814212832", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0110699", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0110699", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -185,8 +215,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_1.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -198,7 +231,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814214088", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0111746", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0111746", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -208,8 +245,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_2.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -221,7 +261,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814215340", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0112789", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0112789", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -231,8 +275,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_3.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -244,7 +291,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814216593", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0113833", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0113833", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -254,8 +305,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_4.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_4);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -267,7 +321,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814217846", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0114877", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0114877", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -277,8 +335,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_5.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_5);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -290,7 +351,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814219100", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0115922", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0115922", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -300,8 +365,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper.Value = (string)__tagHelperAttribute_6.Value;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_6);
+=======
+>>>>>>> parent of d918873 (some changes)
 =======
 >>>>>>> parent of d918873 (some changes)
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
@@ -314,7 +382,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 WriteLiteral("\r\n                    </select>\r\n                </div>\r\n");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 27 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 26 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 26 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -328,7 +400,11 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
                 WriteLiteral("                    <div class=\"form-group\">\r\n                        <label class=\"control-label\">");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 31 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 30 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 30 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -339,10 +415,17 @@ WriteAttributeValue("", 465, Model.timeField.InternalName, 465, 29, false);
 #nullable disable
                 WriteLiteral("</label>\r\n                        <input class=\"form-control data-control\"");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 BeginWriteAttribute("id", " id=\"", 1372, "\"", 1406, 1);
 #nullable restore
 #line 32 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 WriteAttributeValue("", 1377, Model.fields[i].InternalName, 1377, 29, false);
+=======
+                BeginWriteAttribute("id", " id=\"", 1261, "\"", 1295, 1);
+#nullable restore
+#line 31 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+WriteAttributeValue("", 1266, Model.fields[i].InternalName, 1266, 29, false);
+>>>>>>> parent of d918873 (some changes)
 =======
                 BeginWriteAttribute("id", " id=\"", 1261, "\"", 1295, 1);
 #nullable restore
@@ -355,10 +438,17 @@ WriteAttributeValue("", 1266, Model.fields[i].InternalName, 1266, 29, false);
 #nullable disable
                 EndWriteAttribute();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 BeginWriteAttribute("value", " value=\"", 1407, "\"", 1437, 1);
 #nullable restore
 #line 32 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 WriteAttributeValue("", 1415, Model.fields[i].Value, 1415, 22, false);
+=======
+                BeginWriteAttribute("value", " value=\"", 1296, "\"", 1326, 1);
+#nullable restore
+#line 31 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
+>>>>>>> parent of d918873 (some changes)
 =======
                 BeginWriteAttribute("value", " value=\"", 1296, "\"", 1326, 1);
 #nullable restore
@@ -373,7 +463,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
                 WriteLiteral(" data-type=\"");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 32 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 31 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 31 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -385,7 +479,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
                 WriteLiteral("\" />\r\n                    </div>\r\n");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 34 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 33 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 33 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -434,7 +532,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
 
                 ");
 <<<<<<< HEAD
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814224783", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0121284", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0121284", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -452,7 +554,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
 <<<<<<< HEAD
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814225839", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0122340", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0122340", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -470,7 +576,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
 <<<<<<< HEAD
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc127a6f0861c94647df870e21406937e1ae814226896", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0123396", async() => {
+>>>>>>> parent of d918873 (some changes)
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dffe271d989eb388ae44c87db790d7b55fbb0123396", async() => {
 >>>>>>> parent of d918873 (some changes)
@@ -484,7 +594,11 @@ WriteAttributeValue("", 1304, Model.fields[i].Value, 1304, 22, false);
             __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_11);
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 59 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 58 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 58 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -539,7 +653,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
 ");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 93 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 92 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 92 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -553,7 +671,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("\r\n                            row += \'<th>\' + \"");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 96 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 95 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 95 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -565,7 +687,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("\" + \'</th>\';\r\n                                ");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 97 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 96 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 96 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
@@ -578,7 +704,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("                            row += \'<th>\' + \"");
 #nullable restore
 <<<<<<< HEAD
+<<<<<<< HEAD
 #line 99 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+=======
+#line 98 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
+>>>>>>> parent of d918873 (some changes)
 =======
 #line 98 "C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\Views\Home\Index.cshtml"
 >>>>>>> parent of d918873 (some changes)
