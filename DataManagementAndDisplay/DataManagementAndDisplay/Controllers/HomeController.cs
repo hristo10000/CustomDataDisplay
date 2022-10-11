@@ -21,16 +21,16 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        readonly string applicationId = "a52e0aef-82df-4a0d-bdb2-3523c8c35aea";
-        readonly string key = "aj5xbtiii1ejyszyftbie3xzss2ogto82bs8jj1d";
+        readonly string applicationId = "e2f68eac-26bf-4a8a-b0b8-e486fa6c4084";
+        readonly string key = "iav7mz1i7cjiir2pcazxmw3pz54o3ks3c03cq1c0";
 
         [Obsolete]
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453" })
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
             {
-                InstrumentationKey = "e4259d2b-709c-4167-8900-71dd5c51a453"
+                InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
             };
         }
 
@@ -54,11 +54,12 @@ namespace Controllers
 
         [HttpPost]
         [Route("~/Search")]
-        public async Task<IActionResult> Search([FromBody] SearchModel model)
+        public async Task<IActionResult> Search([FromBody] SearchModel searchModel)
         {
-            var time = model.Time;
+            Model model = ModelReader.GetModel();
+            var time = searchModel.Time;
             string date = "customDimensions.Date";
-            List<SearchField> fields = model.Fields;
+            List<SearchField> fields = searchModel.Fields;
             StringBuilder sb = new();
             string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
@@ -71,8 +72,15 @@ namespace Controllers
                     sb.Append($"| where {fields[i].InternalName} == '{fields[i].Value}' ");
                 }
             }
-
-            if (time.Value == "30 minutes ago")
+            for (int i = 0; i < model.timestamps.Count; i++)
+            {
+                if (time.Value == model.timestamps[i].InternalName)
+                {
+                    sb.Append(
+                   $"| where todatetime({date}) > ago({model.timestamps[i].InternalName})");
+                }
+            }
+           /* if (time.Value == "30 minutes ago")
             {
                 sb.Append(
                $"| where todatetime({date}) > datetime({yesterday} 23:29:59.0)");
@@ -101,7 +109,7 @@ namespace Controllers
             {
                 sb.Append(
               $"| where todatetime({date}) >= datetime({yesterday} 00:00:00.0)");
-            }
+            }*/
             sb.Append("| project ");
             foreach (var field in fields)
             {
