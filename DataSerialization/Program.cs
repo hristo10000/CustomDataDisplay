@@ -45,36 +45,6 @@ namespace SerilisationLearning
                 InternalName = "timestamp",
                 FieldType = FieldType.DateTime
             };
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "30m",
-                DisplayName = "30 minutes ago"
-            }) ;
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "1h",
-                DisplayName = "1 hour ago"
-            });
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "3h",
-                DisplayName = "3 hours ago"
-            });
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "8h",
-                DisplayName = "8 hours ago"
-            });
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "12h",
-                DisplayName = "12 hours ago"
-            });
-            model.timestamps.Add(new TimeFieldOption
-            {
-                InternalName = "1d",
-                DisplayName = "24 hours ago"
-            });
             XmlSerializer serializer = new(typeof(Model));
             var path = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             path = path.Parent.Parent.Parent.Parent;

@@ -35,4 +35,3 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.csproj.CopyComplete
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataModel.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\bin\Debug\net5.0\DataModel.pdb
-C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataSerialization\obj\Debug\net5.0\DataSerialization.csproj.CopyComplete
