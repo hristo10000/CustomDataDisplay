@@ -54,7 +54,7 @@
                         {
                             <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
                         }
-                        <th class="custom-table-heading">@Model.timeField.DisplayName</thclass="custom-table-heading">
+                        <th class="custom-table-heading">@Model.timeField.DisplayName</th>
                     </tr>
                 </table>
         </div>
@@ -62,73 +62,6 @@
                 <script src="~/lib/jquery/dist/jquery.min.js"></script>
                 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="~/js/site.js" asp-append-version="true"></script>
-                <script>
-                $(document).ready(function () {
-                    $("#form").submit(function (event) {
-                        event.preventDefault();
-                        SearchAndDisplay();
-                    });
-                    SearchAndDisplay();
-                });
-
-                function SearchAndDisplay() {
-                    var form_data = GetData();
-                    $(".loading").show();
-                    $(".tableToBeHidden").hide();
-                    $(".messageToBeHidden").hide();
-                    $.ajax({
-                        type: "POST",
-                        url: "/Search",
-                        data: JSON.stringify(form_data),
-                        contentType: 'application/json',
-                        dataType: 'json',
-                        success: function (JsonData) {
-                            @*var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');*@
-                            $('.data-row').remove();
-                            $(".loading").hide();
-                            if (JsonData.length == 0) {
-                                $(".messageToBeHidden").show();
-                                return;
-                            }
-                            $(".messageToBeHidden").hide();
-                            $("#table-result").show();
-                            var tableNames = [];
-                            tableNames = Object.getOwnPropertyNames(JsonData[0]);
-                           @* var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');*@
-                            @*var tr = $('<tr>')*@
-                            for (i = 0; i < JsonData.length; i++) {
-                                row = '<tr class="data-row"><td></td>';
-                                for (var j = 0; j < tableNames.length; j++) {
-                                    row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
-                                }
-                                row += '</tr>'
-                                $('#table-result').append(row);
-                            }
-                            
-                            @*$(".tableToBeReplaced").replaceWith(table);*@
-                        }
-                    });
-                }
-
-                function GetData() {
-                    var SearchModel = {};
-                    var timeControl = $(".time-control");
-                    var Time = {};
-                    SearchModel.Fields = [];
-                    Time["InternalName"] = timeControl.attr('id');
-                    Time["Value"] = timeControl.val();
-                    SearchModel.Time = Time;
-
-                    var fields = $(".data-control")
-                    $.each(fields, function (id, value) {
-                        var Field = {};
-                        Field["InternalName"] = value.id;
-                        Field["Value"] = value.value;
-                        SearchModel.Fields[id] = Field;
-                    });
-                    return SearchModel;
-                }
-                </script>
             </div>
         </div>
 </div>
