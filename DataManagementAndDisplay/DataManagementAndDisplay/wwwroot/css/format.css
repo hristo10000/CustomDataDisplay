@@ -85,3 +85,9 @@ table tr td:first-child::before {
         transform: rotate(360deg);
     }
 }
+.tableToBeHidden {
+    display: none;
+}
+.messageToBeHidden {
+    display: none;
+}

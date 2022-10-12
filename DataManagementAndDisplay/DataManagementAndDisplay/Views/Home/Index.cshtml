@@ -45,8 +45,9 @@
             <div></div>
             <div></div>
         </div>
-            <div id="table-result" >
-                <table class="tableToBeReplaced">
+        <div>
+            <p class="messageToBeHidden"> Sorry, we didn't find any results that match these search criterias! </p>
+                <table id="table-result" class="table-bordered justify-content-between tableToBeHidden">
                     <tr>
                         <th>№</th>
                         @for (int i = 1; i < @Model.fields.Count; i++)
@@ -54,11 +55,9 @@
                             <th>@Model.fields[i].DisplayName</th>
                         }
                         <th>@Model.timeField.DisplayName</th>
-
                     </tr>
-                    <div class="ToBeReplaced"></div>
                 </table>
-            </div>
+        </div>
             <div class="list" id="AjaxResults">
                 <script src="~/lib/jquery/dist/jquery.min.js"></script>
                 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -74,9 +73,9 @@
 
                 function SearchAndDisplay() {
                     var form_data = GetData();
-                    var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');
-                    $(".tableToBeReplaced").replaceWith(table);
                     $(".loading").show();
+                    $(".tableToBeHidden").hide();
+                    $(".messageToBeHidden").hide();
                     $.ajax({
                         type: "POST",
                         url: "/Search",
@@ -84,37 +83,29 @@
                         contentType: 'application/json',
                         dataType: 'json',
                         success: function (JsonData) {
+                            @*var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');*@
+                            $('.data-row').remove();
                             $(".loading").hide();
                             if (JsonData.length == 0) {
-                                var p = $('<p>').addClass("tableToBeReplaced");
-                                p.append("Sorry, we didn't find any results that match these search criterias!").css('font-size', '30px').css('font-style', 'italic');
-                                $(".tableToBeReplaced").replaceWith(p);
+                                $(".messageToBeHidden").show();
                                 return;
                             }
-
+                            $(".messageToBeHidden").hide();
+                            $("#table-result").show();
                             var tableNames = [];
                             tableNames = Object.getOwnPropertyNames(JsonData[0]);
-                            var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');
-                           @* row = '<tr><th>' + '№' + '</th>';
-                            @for (int i = 1; i < @Model.fields.Count; i++)
-                            {
-                                <text>
-                            row += '<th>' + "@Model.fields[i].DisplayName" + '</th>';
-                                </text>
-                            }
-                            row += '<th>' + "@Model.timeField.DisplayName" + '</th>';
-                            row += "</tr>";
-                            table.append(row);*@
+                           @* var table = $('<table>').addClass('table-bordered tableToBeReplaced justify-content-between').css('width', '1000px').css('text-align', 'left').css('align-content', 'center');*@
+                            @*var tr = $('<tr>')*@
                             for (i = 0; i < JsonData.length; i++) {
-                                row = '<tr><td></td>';
+                                row = '<tr class="data-row"><td></td>';
                                 for (var j = 0; j < tableNames.length; j++) {
                                     row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
                                 }
                                 row += '</tr>'
-                                table.append(row);
+                                $('#table-result').append(row);
                             }
-                            $('#table-result').append(table);
-                            $(".ToBeReplaced").replaceWith(table);
+                            
+                            @*$(".tableToBeReplaced").replaceWith(table);*@
                         }
                     });
                 }
