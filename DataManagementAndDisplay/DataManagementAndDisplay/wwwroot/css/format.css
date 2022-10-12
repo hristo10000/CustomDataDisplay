@@ -6,21 +6,23 @@ table tr {
     counter-increment: rowNumber;
 }
 
-table tr td:first-child::before {
-    content: counter(rowNumber);
-    min-width: 1em;
-    margin-right: 0.5em;
-}
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
 
-.tableToBeReplaced{
+.tableToBeHidden {
     margin-left: 350px;
+    width: 1000px;
+    vertical-align: top;
 }
 
-.tableToBeReplaced > tr > th {
+.data-row{
     text-align: center;
 }
 
-.tableToBeReplaced>tr>td {
+.custom-table-heading{
     text-align: center;
 }
 
@@ -35,59 +37,61 @@ table tr td:first-child::before {
     display: inline-block;
 }
 
-.loading div {
-    border-radius: 50%;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 3px solid;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    animation: rotateTest1 1s linear infinite;
-    box-sizing: border-box;
-}
+    .loading div {
+        border-radius: 50%;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 3px solid;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        animation: rotateTest1 1s linear infinite;
+        box-sizing: border-box;
+    }
 
-.loading div:nth-child(1) {
-    height: 20%;
-    width: 20%;
-    animation-delay: 0.05s;
-}
+        .loading div:nth-child(1) {
+            height: 20%;
+            width: 20%;
+            animation-delay: 0.05s;
+        }
 
-.loading div:nth-child(2) {
-    height: 40%;
-    width: 40%;
-    animation-delay: .1s;
-}
+        .loading div:nth-child(2) {
+            height: 40%;
+            width: 40%;
+            animation-delay: .1s;
+        }
 
-.loading div:nth-child(3) {
-    height: 60%;
-    width: 60%;
-    animation-delay: .15s;
-}
+        .loading div:nth-child(3) {
+            height: 60%;
+            width: 60%;
+            animation-delay: .15s;
+        }
 
-.loading div:nth-child(4) {
-    height: 80%;
-    width: 80%;
-    animation-delay: .2s;
-}
+        .loading div:nth-child(4) {
+            height: 80%;
+            width: 80%;
+            animation-delay: .2s;
+        }
 
-.loading div:nth-child(5) {
-    height: 100%;
-    width: 100%;
-    animation-delay: .25s;
-}
+        .loading div:nth-child(5) {
+            height: 100%;
+            width: 100%;
+            animation-delay: .25s;
+        }
 
 @keyframes rotateTest1 {
     50% {
         transform: rotate(360deg);
     }
 }
+
 .tableToBeHidden {
     display: none;
 }
+
 .messageToBeHidden {
     display: none;
 }

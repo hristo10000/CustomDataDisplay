@@ -47,14 +47,14 @@
         </div>
         <div>
             <p class="messageToBeHidden"> Sorry, we didn't find any results that match these search criterias! </p>
-                <table id="table-result" class="table-bordered justify-content-between tableToBeHidden">
-                    <tr>
+                <table id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left;align-content:center;">
+                    <tr >
                         <th>№</th>
                         @for (int i = 1; i < @Model.fields.Count; i++)
                         {
-                            <th>@Model.fields[i].DisplayName</th>
+                            <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
                         }
-                        <th>@Model.timeField.DisplayName</th>
+                        <th class="custom-table-heading">@Model.timeField.DisplayName</thclass="custom-table-heading">
                     </tr>
                 </table>
         </div>
