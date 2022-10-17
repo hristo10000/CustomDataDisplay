@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj": {}
+    "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj": {
+    "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
+        "projectUniqueName": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
         "projectName": "DataFillingPoject",
-        "projectPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
-        "packagesPath": "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\obj\\",
+        "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\DataFillingPoject.csproj",
+        "packagesPath": "C:\\Users\\Viktor Milanov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataFillingPoject\\DataFillingPoject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hristo Ivanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Viktor Milanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

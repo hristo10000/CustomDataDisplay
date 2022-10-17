@@ -33,8 +33,14 @@ function SearchAndDisplay() {
             for (i = 0; i < JsonData.length; i++) {
                 row = '<tr class="data-row"><td></td>';
                 for (var j = 0; j < tableNames.length; j++) {
-                    row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
-                }
+                    if (j == tableNames.length - 1) {
+                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
+                    }
+                    else {
+                        var a = JsonData[i][tableNames[j]]
+                        row += '<td class="data-field" onclick="selectMe()">' + a + '</td>';
+                    }
+                    }
                 row += '</tr>'
                 $('#table-result').append(row);
             }
@@ -60,4 +66,9 @@ function GetData() {
     });
     return SearchModel;
 }
-// Write your JavaScript code.
+
+function selectMe() {
+    if (window.event.ctrlKey) {
+        console.log("it's working " + $(".data-field"))
+    }
+}

@@ -74,6 +74,8 @@ namespace Controllers
                 sb.Append($"{ field.InternalName},");
             }
             sb.Append($"{date}");
+            /*sb.Append(
+                   $"| sort by {date} desc");*/
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
