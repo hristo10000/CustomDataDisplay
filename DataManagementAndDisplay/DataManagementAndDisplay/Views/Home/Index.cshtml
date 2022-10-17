@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                         <label class="control-label">@Model.fields[i].DisplayName</label>
-                        <input class="form-control data-control" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
+                        <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
                     </div>
                 }
 

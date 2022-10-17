@@ -40,7 +40,7 @@ function SearchAndDisplay() {
                     else {
                         var a = JsonData[i][tableNames[j]];
                         var selectedElements = $(`th:nth-child(${j + 2})`);
-                        row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}');">` + a + '</td>';
+                        row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}','${selectedElements.text()}');">` + a + '</td>';
                     }
                     }
                 row += '</tr>'
@@ -68,12 +68,9 @@ function GetData() {
     });
     return SearchModel;
 }
-function GetColumnHeader() {
-        var selectedElements = $('th:nth-child(2)');
-        return selectedElements.text();
-}
 
-function CtrlSelectFromTable(a) {
-    //if(ctrl)
-    console.log(`${a}`);
+function CtrlSelectFromTable(value, columnName) {
+    if (event.ctrlKey) {
+        const overlay = document.querySelector(`.${columnName}`).value = value;
+    }
 }
