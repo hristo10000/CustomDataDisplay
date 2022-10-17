@@ -39,7 +39,8 @@ function SearchAndDisplay() {
                     }
                     else {
                         var a = JsonData[i][tableNames[j]];
-                        row += `<td class="data-field" onclick="console.info('${a}');">` + a + '</td>';
+                        var selectedElements = $(`th:nth-child(${j + 2})`);
+                        row += `<td class="${selectedElements.text()}" onclick="console.info('${a}');">` + a + '</td>';
                     }
                     }
                 row += '</tr>'
@@ -66,4 +67,8 @@ function GetData() {
         SearchModel.Fields[id] = Field;
     });
     return SearchModel;
+}
+function GetColumnHeader() {
+        var selectedElements = $('th:nth-child(2)');
+        return selectedElements.text();
 }
