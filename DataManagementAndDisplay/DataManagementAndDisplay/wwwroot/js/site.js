@@ -9,6 +9,7 @@ $(document).ready(function () {
 });
 
 function SearchAndDisplay() {
+    
     var form_data = GetData();
     $(".loading").show();
     $(".tableToBeHidden").hide();
@@ -37,8 +38,8 @@ function SearchAndDisplay() {
                         row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
                     }
                     else {
-                        var a = JsonData[i][tableNames[j]]
-                        row += '<td class="data-field" onclick="selectMe()">' + a + '</td>';
+                        var a = JsonData[i][tableNames[j]];
+                        row += `<td class="data-field" onclick="console.info('${a}');">` + a + '</td>';
                     }
                     }
                 row += '</tr>'
@@ -65,10 +66,4 @@ function GetData() {
         SearchModel.Fields[id] = Field;
     });
     return SearchModel;
-}
-
-function selectMe() {
-    if (window.event.ctrlKey) {
-        console.log("it's working " + $(".data-field"))
-    }
 }
