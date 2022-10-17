@@ -40,7 +40,7 @@ function SearchAndDisplay() {
                     else {
                         var a = JsonData[i][tableNames[j]];
                         var selectedElements = $(`th:nth-child(${j + 2})`);
-                        row += `<td class="${selectedElements.text()}" onclick="console.info('${a}');">` + a + '</td>';
+                        row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}');">` + a + '</td>';
                     }
                     }
                 row += '</tr>'
@@ -71,4 +71,9 @@ function GetData() {
 function GetColumnHeader() {
         var selectedElements = $('th:nth-child(2)');
         return selectedElements.text();
+}
+
+function CtrlSelectFromTable(a) {
+    //if(ctrl)
+    console.log(`${a}`);
 }
