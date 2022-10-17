@@ -1,5 +1,11 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+
+$("table").mousedown(function (ev) {
+    if (ev.which == 3) {
+        window.alert("opaaa");
+    }
+});
+
 $(document).ready(function () {
     $("#form").submit(function (event) {
         event.preventDefault();
