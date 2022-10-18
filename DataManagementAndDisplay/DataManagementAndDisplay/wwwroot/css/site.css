@@ -75,6 +75,7 @@ table {
 
     .data-row > td:hover {
         background-color: #007bff;
+        color: white;
         border: 1px dashed;
         border-radius: 1px;
     }
