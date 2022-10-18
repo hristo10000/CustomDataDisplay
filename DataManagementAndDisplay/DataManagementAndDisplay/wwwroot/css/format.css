@@ -33,7 +33,7 @@ table tr {
     height: 48px;
     width: 48px;
     color: #5a5a5a;
-    position: relative;
+    position: fixed;
     display: inline-block;
 }
 
@@ -94,4 +94,10 @@ table tr {
 
 .messageToBeHidden {
     display: none;
+}
+
+
+.search{
+    margin: 20px;
+    
 }

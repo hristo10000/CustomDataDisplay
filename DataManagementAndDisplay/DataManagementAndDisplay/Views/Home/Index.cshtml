@@ -4,9 +4,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center margin">
-    <h1>Custom Data Manager</h1>
-    <div class="style  ">
+<h1 style="font-size: 45px; margin: 20px; width: 100%; text-align: center;">Model Name Here</h1>
+<div>
+    <div class="style">
         <div class="search">
             <form id="form" style="position: fixed;">
                 <h2>Search</h2>
@@ -17,13 +17,12 @@
                         <option disabled selected></option>
                         @for (int i = 0; i < Model.timestamps.Count; i++)
                         {
-                    <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
+                            <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
                         }
                     </select>
                 </div>
                 @for (int i = 1; i < Model.fields.Count; i++)
                 {
-
                     <div class="form-group">
                         <label class="control-label">@Model.fields[i].DisplayName</label>
                         <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
@@ -38,7 +37,7 @@
                 </div>
             </form>
         </div>
-        <div class="loading"  style="position: fixed;">
+        <div class="loading">
             <div></div>
             <div></div>
             <div></div>
@@ -46,22 +45,22 @@
             <div></div>
         </div>
         <div>
-            <p class="messageToBeHidden"> Sorry, we didn't find any results that match these search criterias! </p>
-                <table id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left;align-content:center;">
-                    <tr >
-                        <th class="custom-table-heading">№</th>
-                        @for (int i = 1; i < @Model.fields.Count; i++)
-                        {
-                            <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
-                        }
-                        <th class="custom-table-heading">@Model.timeField.DisplayName</th>
-                    </tr>
-                </table>
+            <img class="messageToBeHidden" src="/css/NoResultsImage.png" style="position:absolute; top: 8%; left: 25%;"/>
+            <table id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left;align-content:center;">
+                <tr>
+                    <th class="custom-table-heading">№</th>
+                    @for (int i = 1; i < @Model.fields.Count; i++)
+                    {
+                        <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
+                    }
+                    <th class="custom-table-heading">@Model.timeField.DisplayName</th>
+                </tr>
+            </table>
         </div>
-            <div class="list" id="AjaxResults">
-                <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="~/js/site.js" asp-append-version="true"></script>
-            </div>
+        <div class="list" id="AjaxResults">
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
         </div>
+    </div>
 </div>
