@@ -2,10 +2,8 @@
 var isCustomContextMenuFillInTableOptionSelected = false;
 var currentRightClickedElementClass;
 
-//todo: make it work with td
 $("table").mousedown(function (ev) {
-    console.log(ev.target)
-    if (ev.which == 3) {
+    if (ev.which == 3 && ev.target.classList[0]!="date") {
         currentRightClickedElementClass = ev.target;
         $(".contextMenu").css("display", "block");
         $(".contextMenu").css("top", mouseY(ev) );

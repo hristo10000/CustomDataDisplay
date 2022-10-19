@@ -9,7 +9,7 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-.style {
+.custom-body {
     display: flex;
     flex-direction: row;
 }
@@ -68,10 +68,11 @@ html {
 
 table {
     user-select: none;
-    align-self: center;
 }
 
 .data-row > td {
+    text-align: left;
+    padding: 5px 10px;
     cursor: pointer;
     user-select: none;
 }
@@ -83,19 +84,25 @@ table {
         border-radius: 1px;
     }
 
-#form{
+#form {
     padding: 10px;
     border: solid 2px #007bff;
     border-radius: 10px;
 }
 
-.contextMenu{
+.contextMenu {
     display: none;
     position: absolute;
     border: solid 1px;
     border-radius: 1px;
+    box-shadow: 1px 1px 2px 1px black;
 }
+
 .contextMenuOption {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-items: baseline;
     padding: 5px;
     background-color: white;
     color: black;
@@ -108,3 +115,15 @@ table {
         border: 1px solid;
         border-radius: 1px;
     }
+
+.context-menu-option-emoji{
+    width: 35px;
+}
+
+.context-menu-option-name{
+    width: 215px;
+}
+
+.context-menu-option-shortcut {
+    width: 50px;
+}

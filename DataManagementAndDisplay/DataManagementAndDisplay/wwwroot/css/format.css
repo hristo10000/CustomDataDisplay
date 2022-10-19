@@ -13,9 +13,8 @@ table tr {
     }
 
 .tableToBeHidden {
-    margin-left: 350px;
-    width: 1000px;
     vertical-align: top;
+    display: none;
 }
 
 .data-row{
@@ -88,16 +87,11 @@ table tr {
     }
 }
 
-.tableToBeHidden {
-    display: none;
-}
-
 .messageToBeHidden {
     display: none;
 }
 
-
-.search{
-    margin: 20px;
-    
+.search {
+    position: sticky;
+    margin: 40px;
 }
