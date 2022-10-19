@@ -9,10 +9,6 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-a {
-    color: #0366d6;
-}
-
 .style {
     display: flex;
     flex-direction: row;
@@ -92,3 +88,23 @@ table {
     border: solid 2px #007bff;
     border-radius: 10px;
 }
+
+.contextMenu{
+    display: none;
+    position: absolute;
+    border: solid 1px;
+    border-radius: 1px;
+}
+.contextMenuOption {
+    padding: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+    .contextMenuOption:hover {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid;
+        border-radius: 1px;
+    }

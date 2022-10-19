@@ -6,7 +6,6 @@ namespace DataFillingPoject
 {
     class Program
     {
-        //user, operation, result(success, warning or fail), datetime(random), guid
         [Obsolete]
         static void Main(string[] args)
         {
@@ -20,7 +19,9 @@ namespace DataFillingPoject
             {
                 InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
             };
-            for(int i = 0; i < 200; i++)
+            Console.WriteLine("Number Of Logs:");
+            int n = int.Parse(Console.ReadLine());
+            for(int i = 0; i < n; i++)
             {
                 dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, random.Next(0, 23), random.Next(0, 59), random.Next(0, 59), random.Next(0, 999));
                 user = users[random.Next(users.Count)];
