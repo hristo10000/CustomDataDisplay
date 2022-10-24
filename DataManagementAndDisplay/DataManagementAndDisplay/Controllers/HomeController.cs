@@ -10,11 +10,6 @@ using Microsoft.Azure.ApplicationInsights.Query;
 using Microsoft.AspNetCore.Http;
 using DataModel;
 using System.Text;
-using System.Web.Helpers;
-using System.Web;
-using System.Text.Json;
-using System.Linq;
-using Newtonsoft.Json;
 using Microsoft.Azure.Cosmos.Table;
 
 namespace Controllers
@@ -37,8 +32,19 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             table.CreateIfNotExistsAsync();
+            var a =InsertTableEntity(table);
         }
+        public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
+        {
+            ResultModel resultModel = new ResultModel() {
+                Name = "Default Model",
+                Description = "This is the default model, which is displayed when the application is first opened.",
+                XmlModel = System.IO.File.ReadAllText("Model.xml")
+            };
+            TableOperation insertOperation = TableOperation.InsertOrMerge((ITableEntity)resultModel);
+            return await p_tbl.ExecuteAsync(insertOperation);
 
+        }
         public async Task<IActionResult> Index()
         {
             Model model = ModelReader.GetModel();
