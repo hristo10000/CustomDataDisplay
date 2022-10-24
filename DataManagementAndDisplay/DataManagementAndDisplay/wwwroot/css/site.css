@@ -73,11 +73,11 @@ table {
 .data-row > td {
     text-align: left;
     padding: 5px 10px;
-    cursor: pointer;
     user-select: none;
 }
 
-    .data-row > td:hover {
+    .data-row > td:hover:not(:first-child) {
+        cursor: pointer;
         background-color: #007bff;
         color: white;
         border: 1px dashed;

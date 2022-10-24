@@ -93,5 +93,7 @@ table tr {
 
 .search {
     position: sticky;
+    top: 0;
+    align-self: flex-start;
     margin: 40px;
 }
