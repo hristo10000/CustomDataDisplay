@@ -373,3 +373,10 @@ C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisp
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Spatial.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Cosmos.CRTCompat.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Azure.Cosmos.Table.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Azure.DocumentDB.Core.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.OData.Core.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.OData.Edm.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Spatial.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Cosmos.CRTCompat.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Microsoft.Azure.Documents.ServiceInterop.dll
