@@ -3,18 +3,6 @@
 
     ViewData["Title"] = "Home Page";
 }
-<div class="contextMenu">
-    <div class="contextMenuOption contextMenuOptionFillInTable">
-        <div class="context-menu-option-emoji">🔎</div>
-        <div class="context-menu-option-name">Use in search</div>
-        <div class="context-menu-option-shortcut">Ctrl+🖱️</div>
-    </div>
-    <div class="contextMenuOption contextMenuOptionGoToTheTop">
-        <div class="context-menu-option-emoji">⬆️</div>
-        <div class="context-menu-option-name">Go to the top</div>
-        <div class="context-menu-option-shortcut">Ctrl+⬆️</div>
-    </div>
-</div>
 
 <h1 class="model-name" style="font-size: 45px; margin: 20px; width: 100%; text-align: center;">Model Name Here</h1>
 
@@ -58,7 +46,7 @@
     </div>
     <div class="results">
         <img class="no-results messageToBeHidden" src="/css/NoResultsImage.png" style="position:absolute; top: 8%; left: 25%;" />
-        <table id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left; align-content:center;">
+        <table oncontextmenu="return false;" id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left; align-content:center;">
             <tr>
                 <th class="custom-table-heading">№</th>
                 @for (int i = 1; i < @Model.fields.Count; i++)
@@ -74,5 +62,20 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/data.js" asp-append-version="true"></script>
         <script src="~/js/context-menu.js" asp-append-version="true"></script>
+    </div>
+</div>
+
+<div class="custom-context-menu-wrapper" oncontextmenu="return false;">
+    <div class="contextMenu">
+        <div class="contextMenuOption contextMenuOptionFillInTable">
+            <div class="context-menu-option-emoji contextMenuOptionFillInTable">🔎</div>
+            <div class="context-menu-option-name contextMenuOptionFillInTable">Use in search</div>
+            <div class="context-menu-option-shortcut contextMenuOptionFillInTable">Ctrl+🖱️</div>
+        </div>
+        <div class="contextMenuOption contextMenuOptionGoToTheTop">
+            <div class="context-menu-option-emoji contextMenuOptionGoToTheTop">⬆️</div>
+            <div class="context-menu-option-name contextMenuOptionGoToTheTop">Go to the top</div>
+            <div class="context-menu-option-shortcut contextMenuOptionGoToTheTop">Ctrl+⬆️</div>
+        </div>
     </div>
 </div>

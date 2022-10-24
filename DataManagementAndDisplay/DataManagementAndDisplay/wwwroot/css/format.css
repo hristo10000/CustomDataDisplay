@@ -17,11 +17,11 @@ table tr {
     display: none;
 }
 
-.data-row{
+.data-row {
     text-align: center;
 }
 
-.custom-table-heading{
+.custom-table-heading {
     text-align: center;
 }
 
@@ -97,3 +97,4 @@ table tr {
     align-self: flex-start;
     margin: 40px;
 }
+

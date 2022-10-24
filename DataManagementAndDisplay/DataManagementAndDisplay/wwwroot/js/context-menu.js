@@ -5,32 +5,34 @@ var currentRightClickedElementClass;
 $("table").mousedown(function (ev) {
     if (ev.which == 3 && ev.target.classList[0] != "date") {
         currentRightClickedElementClass = ev.target;
-        $(".contextMenu").css("display", "block");
+        $(".custom-context-menu-wrapper").css("display", "block");
         $(".contextMenu").css("top", mouseY(ev));
         $(".contextMenu").css("left", mouseX(ev));
         isCustomContextMenuOpened = true;
     }
 });
 
-$(".contextMenuOptionFillInTable").mousedown(function (ev) {
-    if (ev.which == 1) {
-        isCustomContextMenuFillInTableOptionSelected = true;
-        $(currentRightClickedElementClass).click();
-    }
-});
-
-$(".contextMenuOptionGoToTheTop").mousedown(function (ev) {
-    if (ev.which == 1) {
-        window.scrollTo(0, 0);
-    }
-});
-
 $("html").mousedown(function (ev) {
-    if (ev.which == 1 && isCustomContextMenuOpened == true) {
-        $(".contextMenu").css("display", "none");
-        isCustomContextMenuOpened = false;
-        return;
+    console.log("wrapper");
+    if (ev.which != 1) return;
+    switch (ev.target.classList[1]) {
+        case "contextMenuOptionFillInTable":
+            if (ev.which == 1) {
+                isCustomContextMenuFillInTableOptionSelected = true;
+                $(currentRightClickedElementClass).click();
+
+            }
+            break;
+        case "contextMenuOptionGoToTheTop":
+            if (ev.which == 1) {
+                window.scrollTo(0, 0);
+            }
+            break;
+        default:
+            break;
     }
+    $(".custom-context-menu-wrapper").css("display", "none");
+    isCustomContextMenuOpened = false;
 });
 
 function CtrlSelectFromTable(value, columnName) {
