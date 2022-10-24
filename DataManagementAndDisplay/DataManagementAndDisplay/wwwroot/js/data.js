@@ -31,7 +31,7 @@ function SearchAndDisplay() {
             var tableNames = [];
             tableNames = Object.getOwnPropertyNames(JsonData[0]);
             for (i = 0; i < JsonData.length; i++) {
-                row = '<tr class="data-row"><td></td>';
+                row = '<tr class="data-row"><td class="row-number"></td>';
                 for (var j = 0; j < tableNames.length; j++) {
                     var a = JsonData[i][tableNames[j]];
                     var selectedElements = $(`th:nth-child(${j + 2})`);

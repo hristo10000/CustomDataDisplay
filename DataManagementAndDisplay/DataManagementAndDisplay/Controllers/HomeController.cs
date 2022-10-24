@@ -15,6 +15,7 @@ using System.Web;
 using System.Text.Json;
 using System.Linq;
 using Newtonsoft.Json;
+using Microsoft.Azure.Cosmos.Table;
 
 namespace Controllers
 {
@@ -32,6 +33,10 @@ namespace Controllers
             {
                 InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
             };
+            var storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=modelsfortable;AccountKey=TD0YnwTxnH514xOZzMX/2ZQXeE/u80esrCMvdg/sx33iKoNiJ9/aXk/I0caswc2pb5mlJYAr1Xot+ASt/UZGAQ==;EndpointSuffix=core.windows.net");
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            table.CreateIfNotExistsAsync();
         }
 
         public async Task<IActionResult> Index()
