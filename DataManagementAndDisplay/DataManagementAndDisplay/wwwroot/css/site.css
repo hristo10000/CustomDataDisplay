@@ -76,7 +76,7 @@ table {
     user-select: none;
 }
 
-    .data-row > td:hover:not(:first-child) {
+    .data-row > td:hover:not(:first-child):not(.Date) {
         cursor: pointer;
         background-color: #007bff;
         color: white;
