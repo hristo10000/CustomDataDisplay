@@ -116,14 +116,22 @@ table {
         border-radius: 1px;
     }
 
+        .contextMenuOption:hover:not(:first-child) {
+            border-top: solid 2px black;
+        }
+        .contextMenuOption:hover:not(:last-child) {
+            border-bottom: solid 2px black;
+        }
+
+
 .context-menu-option-emoji{
     width: 35px;
 }
 
 .context-menu-option-name{
-    width: 215px;
+    width: 210px;
 }
 
 .context-menu-option-shortcut {
-    width: 50px;
+    width: 55px;
 }

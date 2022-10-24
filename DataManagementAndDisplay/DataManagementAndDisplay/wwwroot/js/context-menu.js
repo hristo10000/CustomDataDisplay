@@ -19,6 +19,12 @@ $(".contextMenuOptionFillInTable").mousedown(function (ev) {
     }
 });
 
+$(".contextMenuOptionGoToTheTop").mousedown(function (ev) {
+    if (ev.which == 1) {
+        window.scrollTo(0, 0);
+    }
+});
+
 $("html").mousedown(function (ev) {
     if (ev.which == 1 && isCustomContextMenuOpened == true) {
         $(".contextMenu").css("display", "none");
@@ -53,6 +59,7 @@ function mouseY(evt) {
         return null;
     }
 }
+
 function NavigateToTop(e) {
     var evtobj = window.event ? event : e
     if (evtobj.keyCode == 38 && evtobj.ctrlKey) window.scrollTo(0, 0);;
