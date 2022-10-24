@@ -5,6 +5,9 @@ var currentRightClickedElementClass;
 $("table").mousedown(function (ev) {
     if (ev.which == 3 && ev.target.classList[0] != "date") {
         currentRightClickedElementClass = ev.target;
+        if (ev.target.classList[0] == "row-number" || ev.target.classList[0] == "Date") {
+
+        }
         $(".custom-context-menu-wrapper").css("display", "block");
         $(".contextMenu").css("top", mouseY(ev));
         $(".contextMenu").css("left", mouseX(ev));
