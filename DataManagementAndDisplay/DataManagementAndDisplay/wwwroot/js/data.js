@@ -33,15 +33,19 @@ function SearchAndDisplay() {
             for (i = 0; i < JsonData.length; i++) {
                 row = '<tr class="data-row"><td></td>';
                 for (var j = 0; j < tableNames.length; j++) {
-                    if (j == tableNames.length - 1) {
-                        row += '<td>' + JsonData[i][tableNames[j]] + '</td>';
+                    /*                    if (j == tableNames.length - 1) {
+                                            row += `<td class="${selectedElements.text()}">` + JsonData[i][tableNames[j]] + '</td>';
+                                        }
+                                        else {*/
+                    var a = JsonData[i][tableNames[j]];
+                    var selectedElements = $(`th:nth-child(${j + 2})`);
+                    if (selectedElements.text() == "Date") {
+                        row += `<td class="${selectedElements.text()}">` + JsonData[i][tableNames[j]] + '</td>';
                     }
                     else {
-                        var a = JsonData[i][tableNames[j]];
-                        var selectedElements = $(`th:nth-child(${j + 2})`);
                         row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}','${selectedElements.text()}');">` + a + '</td>';
                     }
-                    }
+                   }
                 row += '</tr>'
                 $('#table-result').append(row);
             }
