@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    document.onkeydown = NavigateToTop;
     $("#form").submit(function (event) {
         event.preventDefault();
         SearchAndDisplay();

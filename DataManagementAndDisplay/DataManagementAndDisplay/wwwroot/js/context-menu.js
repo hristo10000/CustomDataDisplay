@@ -53,3 +53,7 @@ function mouseY(evt) {
         return null;
     }
 }
+function NavigateToTop(e) {
+    var evtobj = window.event ? event : e
+    if (evtobj.keyCode == 38 && evtobj.ctrlKey) window.scrollTo(0, 0);;
+}
