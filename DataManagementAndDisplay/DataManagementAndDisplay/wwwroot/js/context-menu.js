@@ -35,7 +35,7 @@ $("html").mousedown(function (ev) {
 
 function CtrlSelectFromTable(value, columnName) {
     if (isCustomContextMenuFillInTableOptionSelected || event.ctrlKey) {
-        const overlay = document.querySelector(`.${columnName}`).value = value;
+        document.querySelector(`.${columnName}`).value = value;
         isCustomContextMenuFillInTableOptionSelected = false;
     }
 }
