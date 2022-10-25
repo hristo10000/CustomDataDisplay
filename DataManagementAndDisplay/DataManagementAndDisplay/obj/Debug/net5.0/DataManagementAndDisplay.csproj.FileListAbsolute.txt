@@ -383,3 +383,6 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDispl
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Azure.Core.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Memory.Data.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Memory.Data.dll
+C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.WindowsAzure.Storage.dll

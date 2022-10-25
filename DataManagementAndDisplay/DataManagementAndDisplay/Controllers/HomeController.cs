@@ -40,8 +40,8 @@ namespace Controllers
             resultModel.Name = "Default Model";
             resultModel.Description = "This is the default model, which is displayed when the application is first opened.";
             resultModel.XmlModel = System.IO.File.ReadAllText("Model.xml");
-            resultModel.PartitionKey = "Models";
-            resultModel.RowKey = "1";
+            resultModel.PartitionKey = "Models";// to do
+            resultModel.RowKey = "1";// to do
             TableOperation insertOperation = TableOperation.InsertOrMerge(resultModel);
             return await p_tbl.ExecuteAsync(insertOperation);
 
