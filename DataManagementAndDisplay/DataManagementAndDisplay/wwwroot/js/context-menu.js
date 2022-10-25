@@ -1,11 +1,12 @@
 ﻿var isCustomContextMenuOpened = false;
 var isCustomContextMenuFillInTableOptionSelected = false;
-var currentRightClickedElementClass;
 var isUseInSearchOptionDisabled = false;
+var targetTableCell;
 
 $("table").mousedown(function (ev) {
     if (ev.which == 3) {
-        currentRightClickedElementClass = ev.target;
+        targetTableCell = ev.target;
+        $(targetTableCell).addClass("current-target-for-context-menu");
         if (ev.target.classList[0] == "row-number" || ev.target.classList[0] == "Date" || ev.target.parentElement.classList[0] != "data-row") {
             $(".contextMenuOptionFillInTable").addClass("unavailable-option");
             isUseInSearchOptionDisabled = true;
@@ -34,7 +35,7 @@ $("html").mousedown(function (ev) {
         case "contextMenuOptionFillInTable":
             if (ev.which == 1) {
                 isCustomContextMenuFillInTableOptionSelected = true;
-                $(currentRightClickedElementClass).click();
+                $(targetTableCell).click();
 
             }
             break;
@@ -47,6 +48,7 @@ $("html").mousedown(function (ev) {
             break;
     }
     $(".custom-context-menu-wrapper").css("display", "none");
+    $(targetTableCell).removeClass("current-target-for-context-menu");
     isCustomContextMenuOpened = false;
 });
 
