@@ -380,3 +380,6 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDispl
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Spatial.dll
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Cosmos.CRTCompat.dll
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\runtimes\win7-x64\native\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\System.Memory.Data.dll
+C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.WindowsAzure.Storage.dll
