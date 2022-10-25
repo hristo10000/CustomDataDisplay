@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Http;
 using DataModel;
 using System.Text;
 using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.ApplicationInsights.Query.Models;
+using Microsoft.Azure.Documents;
 
 namespace Controllers
 {
@@ -32,21 +34,26 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             table.CreateIfNotExistsAsync();
-            var a =InsertTableEntity(table);
+            
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
         {
-            ResultModel resultModel = new ResultModel() {
-                Name = "Default Model",
-                Description = "This is the default model, which is displayed when the application is first opened.",
-                XmlModel = System.IO.File.ReadAllText("Model.xml")
-            };
-            TableOperation insertOperation = TableOperation.InsertOrMerge((ITableEntity)resultModel);
+            ResultModel resultModel = new ResultModel();
+            resultModel.Name = "Default Model";
+            resultModel.Description = "This is the default model, which is displayed when the application is first opened.";
+            resultModel.XmlModel = System.IO.File.ReadAllText("Model.xml");
+            resultModel.PartitionKey = "Models";
+            resultModel.RowKey = "1";
+            TableOperation insertOperation = TableOperation.InsertOrMerge(resultModel);
             return await p_tbl.ExecuteAsync(insertOperation);
 
         }
         public async Task<IActionResult> Index()
         {
+            var storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=modelsfortable;AccountKey=TD0YnwTxnH514xOZzMX/2ZQXeE/u80esrCMvdg/sx33iKoNiJ9/aXk/I0caswc2pb5mlJYAr1Xot+ASt/UZGAQ==;EndpointSuffix=core.windows.net");
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            await InsertTableEntity(table);
             Model model = ModelReader.GetModel();
             return View(model);
         }
