@@ -1,11 +1,9 @@
-﻿using Azure;
+﻿using DataManagementAndDisplay.Helpers;
 using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Controllers
+namespace DataManagementAndDisplay.Models
 {
     public class ResultModel : ITableEntity
     {

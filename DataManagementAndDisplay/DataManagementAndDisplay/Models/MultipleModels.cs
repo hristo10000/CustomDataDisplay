@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Controllers
+namespace DataManagementAndDisplay.Models
 {
     public class MultipleModels
     {

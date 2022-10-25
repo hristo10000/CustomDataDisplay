@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Controllers
+namespace DataManagementAndDisplay.Helpers
 {
         public static class TableEntityHelper
         {

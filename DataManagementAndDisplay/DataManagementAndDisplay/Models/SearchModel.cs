@@ -1,7 +1,6 @@
-﻿using Microsoft.Azure.Cosmos.Table;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Controllers
+namespace DataManagementAndDisplay.Models
 {
     public class SearchModel
     {
