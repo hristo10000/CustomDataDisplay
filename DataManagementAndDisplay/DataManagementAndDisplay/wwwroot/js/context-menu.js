@@ -14,8 +14,24 @@ $("table").mousedown(function (ev) {
         isUseInSearchOptionDisabled = false;
         }
         $(".custom-context-menu-wrapper").css("display", "block");
-        $(".contextMenu").css("top", mouseY(ev));
-        $(".contextMenu").css("left", mouseX(ev));
+        console.log("mouse X:", mouseX(ev))
+        console.log("window width:", window.innerWidth)
+        console.log("menu width:", $(".contextMenu").width())
+        console.log(mouseX(ev) + $(".contextMenu").width(), window.innerWidth)
+        //console.log("mouse Y:", mouseY(ev))
+        //console.log("window height:", window.innerHeight)
+        if (mouseX(ev) + $(".contextMenu").width() > window.innerWidth) {
+            console.log("too much to the left");
+            $(".contextMenu").css("left", mouseX(ev) - $(".contextMenu").width());
+        } else {
+            $(".contextMenu").css("left", mouseX(ev));
+        }
+        if (mouseY(ev) + $(".contextMenu").height() > window.innerHeight) {
+            console.log("too much to the bottom");
+            $(".contextMenu").css("top", mouseY(ev) - $(".contextMenu").height());
+        } else {
+            $(".contextMenu").css("top", mouseY(ev));
+        }
         isCustomContextMenuOpened = true;
     }
 });
