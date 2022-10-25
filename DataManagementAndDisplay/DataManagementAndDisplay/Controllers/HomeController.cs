@@ -11,8 +11,6 @@ using Microsoft.AspNetCore.Http;
 using DataModel;
 using System.Text;
 using Microsoft.Azure.Cosmos.Table;
-using Microsoft.Azure.ApplicationInsights.Query.Models;
-using Microsoft.Azure.Documents;
 
 namespace Controllers
 {
