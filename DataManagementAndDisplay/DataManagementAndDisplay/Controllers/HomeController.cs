@@ -28,7 +28,7 @@ namespace Controllers
         {
             config = configuration;
             _logger = logger;
-            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = config.GetSection("InstrumentationKey").Value })
             {
                 InstrumentationKey=config.GetSection("InstrumentationKey").Value
             };
@@ -36,25 +36,28 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             table.CreateIfNotExistsAsync();
-            
+                InstrumentationKey = config.GetSection("InstrumentationKey").Value
+            }; 
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
         {
-            ResultModel resultModel = new ResultModel();
-            resultModel.Name = "Default Model";
-            resultModel.Description = "This is the default model, which is displayed when the application is first opened.";
-            resultModel.XmlModel = System.IO.File.ReadAllText("Model.xml");
-            resultModel.PartitionKey = "Models";
-            resultModel.RowKey = "1";
-            TableOperation insertOperation = TableOperation.InsertOrMerge(resultModel);
-            return await p_tbl.ExecuteAsync(insertOperation);
-
+            ResultModel resultModel = new ResultModel("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
+            TableOperation operation = TableOperation.Retrieve<ResultModel>(resultModel.PartitionKey, resultModel.RowKey);
+            TableResult result = p_tbl.Execute(operation);
+            ResultModel model = result.Result as ResultModel;
+            if (model == null)
+            {
+                TableOperation insertOperation = TableOperation.InsertOrReplace(resultModel);
+                return await p_tbl.ExecuteAsync(insertOperation);
+            }
+            return null;
         }
         public async Task<IActionResult> Index()
         {
             var storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=modelsfortable;AccountKey=TD0YnwTxnH514xOZzMX/2ZQXeE/u80esrCMvdg/sx33iKoNiJ9/aXk/I0caswc2pb5mlJYAr1Xot+ASt/UZGAQ==;EndpointSuffix=core.windows.net");
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
+            await table.CreateIfNotExistsAsync();
             await InsertTableEntity(table);
             Model model = ModelReader.GetModel();
             return View(model);
