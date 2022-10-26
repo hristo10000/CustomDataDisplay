@@ -19,14 +19,17 @@ namespace Controllers
     {
         private readonly IConfiguration config;
         private readonly ILogger<HomeController> _logger;
-        readonly string applicationId = "e2f68eac-26bf-4a8a-b0b8-e486fa6c4084";
-        readonly string key = "iav7mz1i7cjiir2pcazxmw3pz54o3ks3c03cq1c0";
+        readonly string applicationId;
+        readonly string key;
         
 
         [Obsolete]
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
-            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
+            config = configuration;
+            applicationId = config.GetSection("ApplicationId").Value;
+            key = config.GetSection("APIKey").Value;
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = config.GetSection("InstrumentationKey").Value })
             {
                 InstrumentationKey = config.GetSection("InstrumentationKey").Value
             };
