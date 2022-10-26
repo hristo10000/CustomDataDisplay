@@ -18,7 +18,6 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly IConfiguration config;
-        private readonly ILogger<HomeController> _logger;
         readonly string applicationId;
         readonly string key;
         

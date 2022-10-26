@@ -21,12 +21,31 @@
                     }
                 </select>
             </div>
-            @for (int i = 1; i < Model.fields.Count; i++)
+            @for (int i = 0; i < Model.fields.Count; i++)
             {
-                <div class="form-group">
-                    <label class="control-label">@Model.fields[i].DisplayName</label>
-                    <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
-                </div>
+                if (@Model.fields[i].DisplayName != "Date")
+                {
+                    if (@Model.fields[i].PossibleValues.Count == 0)
+                    {
+                        <div class="form-group">
+                            <label class="control-label">@Model.fields[i].DisplayName</label>
+                            <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            @Model.fields[i].DisplayName
+                            <select id="@Model.fields[i].InternalName" class="form-control time-control">
+                                <option disabled selected></option>
+                                @for (int j = 0; j < Model.fields[i].PossibleValues.Count; j++)
+                                {
+                            <option value="@Model.fields[i].PossibleValues[j]">@Model.fields[i].PossibleValues[j]</option>
+                                }
+                            </select>
+                        </div>
+                    }
+                }
             }
 
             <div class="form-group">

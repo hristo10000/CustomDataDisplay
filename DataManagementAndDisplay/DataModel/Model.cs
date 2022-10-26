@@ -14,12 +14,18 @@ public class Model
     }
 }
 public class Field {
-
+        
         public string InternalName { get; set; }
         public string DisplayName { get; set; }
         public string Value { get; set; }
         public FieldType FieldType { get; set; }
+        public List<string> PossibleValues { get; set; }
+        public Field()
+        {
+            PossibleValues = new List<string>();
+        }
     }
+
 
     public enum FieldType
     {

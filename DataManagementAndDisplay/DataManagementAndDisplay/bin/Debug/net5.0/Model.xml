@@ -37,31 +37,45 @@
 		<Field>
 			<DisplayName>Date</DisplayName>
 			<InternalName>customDimensions.Date</InternalName>
-			<fieldType>String</fieldType>
 			<FieldType>String</FieldType>
 		</Field>
 		<Field>
 			<DisplayName>User</DisplayName>
 			<InternalName>customDimensions.User</InternalName>
-			<fieldType>String</fieldType>
 			<FieldType>String</FieldType>
+			<PossibleValues>
+				<string>Viktor</string>
+				<string>Hristo</string>
+				<string>Daniel</string>
+				<string>Martin</string>
+				<string>Vilian</string>
+				<string>Slavi</string>
+			</PossibleValues>
 		</Field>
 		<Field>
 			<DisplayName>Result</DisplayName>
 			<InternalName>customDimensions.Result</InternalName>
-			<fieldType>String</fieldType>
 			<FieldType>String</FieldType>
+			<PossibleValues>
+				<string>Fail</string>
+				<string>Success</string>
+				<string>Warning</string>
+			</PossibleValues>
 		</Field>
 		<Field>
 			<DisplayName>Operation</DisplayName>
 			<InternalName>customDimensions.Operation</InternalName>
-			<fieldType>String</fieldType>
 			<FieldType>String</FieldType>
+			<PossibleValues>
+				<string>Add</string>
+				<string>Update</string>
+				<string>Delete</string>
+				<string>View</string>
+			</PossibleValues>
 		</Field>
 		<Field>
 			<DisplayName>Guid</DisplayName>
 			<InternalName>customDimensions.Guid</InternalName>
-			<fieldType>String</fieldType>
 			<FieldType>String</FieldType>
 		</Field>
 	</fields>
