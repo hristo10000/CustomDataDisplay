@@ -26,9 +26,7 @@ namespace Controllers
         [Obsolete]
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
-            config = configuration;
-            _logger = logger;
-            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = config.GetSection("InstrumentationKey").Value })
+            _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
             {
                 InstrumentationKey = config.GetSection("InstrumentationKey").Value
             };
@@ -39,7 +37,7 @@ namespace Controllers
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
         {
-            ResultModel resultModel = new ResultModel("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
+            ResultModel resultModel = new("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
             TableOperation operation = TableOperation.Retrieve<ResultModel>(resultModel.PartitionKey, resultModel.RowKey);
             TableResult result = p_tbl.Execute(operation);
             ResultModel model = result.Result as ResultModel;

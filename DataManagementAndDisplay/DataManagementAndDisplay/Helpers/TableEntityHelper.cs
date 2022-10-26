@@ -139,7 +139,7 @@ namespace DataManagementAndDisplay.Helpers
 
             public static IDictionary<string, EntityProperty> WriteEntity(ITableEntity entity, OperationContext operationContext)
             {
-                Dictionary<string, EntityProperty> retVals = new Dictionary<string, EntityProperty>();
+                Dictionary<string, EntityProperty> retVals = new();
 
 #if RT
             IEnumerable<PropertyInfo> objectProperties = entity.GetType().GetRuntimeProperties();
