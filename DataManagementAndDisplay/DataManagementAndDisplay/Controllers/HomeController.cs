@@ -30,14 +30,12 @@ namespace Controllers
             _logger = logger;
             _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = config.GetSection("InstrumentationKey").Value })
             {
-                InstrumentationKey=config.GetSection("InstrumentationKey").Value
+                InstrumentationKey = config.GetSection("InstrumentationKey").Value
             };
             var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             table.CreateIfNotExistsAsync();
-                InstrumentationKey = config.GetSection("InstrumentationKey").Value
-            }; 
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
         {
