@@ -14,7 +14,18 @@ namespace DataManagementAndDisplay.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string XmlModel { get; set; }
+        public ResultModel()
+        {
 
+        }
+        public ResultModel(string name, string description, string xmlModel, string rowKey)
+        {
+            PartitionKey = "Models";
+            RowKey = rowKey;
+            Name = name;
+            Description = description;
+            XmlModel = xmlModel;
+        }
         void ITableEntity.ReadEntity(IDictionary<string, EntityProperty> properties, OperationContext operationContext)
         {
             TableEntityHelper.ReadEntity(this, properties, operationContext);
