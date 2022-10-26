@@ -3,98 +3,106 @@
 
     ViewData["Title"] = "Home Page";
 }
-
-<h1 class="model-name" style="font-size: 45px; margin: 20px; width: 100%; text-align: center;">Model Name Here</h1>
-
-<div class="custom-body">
-    <div class="search">
-        <form id="form">
-            <h2>Search</h2>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                @Model.timeField.DisplayName
-                <select id="@Model.timeField.InternalName" class="form-control time-control">
-                    <option disabled selected></option>
-                    @for (int i = 0; i < Model.timestamps.Count; i++)
+<div class="main-div">
+    <div class="view" id="page1">
+        <h1 class="model-name" style="font-size: 45px; margin: 20px; width: 100%; text-align: center;">Model Name Here</h1>
+        <button id="showPage2Btn" data-launch-view="page2">Page 2</button>
+        <div class="custom-body">
+            <div class="search">
+                <form id="form">
+                    <h2>Search</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        @Model.timeField.DisplayName
+                        <select id="@Model.timeField.InternalName" class="form-control time-control">
+                            <option disabled selected></option>
+                            @for (int i = 0; i < Model.timestamps.Count; i++)
+                            {
+                                <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
+                            }
+                        </select>
+                    </div>
+                    @for (int i = 0; i < Model.fields.Count; i++)
                     {
-                        <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
+                        if (@Model.fields[i].DisplayName != "Date")
+                        {
+                            if (@Model.fields[i].PossibleValues.Count == 0)
+                            {
+                                <div class="form-group">
+                                    <label class="control-label">@Model.fields[i].DisplayName</label>
+                                    <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    @Model.fields[i].DisplayName
+                                    <select id="@Model.fields[i].InternalName" class="form-control data-control @Model.fields[i].DisplayName">
+                                        <option disabled selected></option>
+                                        @for (int j = 0; j < Model.fields[i].PossibleValues.Count; j++)
+                                        {
+                                            <option value="@Model.fields[i].PossibleValues[j]">@Model.fields[i].PossibleValues[j]</option>
+                                        }
+                                    </select>
+                                </div>
+                            }
+                        }
                     }
-                </select>
-            </div>
-            @for (int i = 0; i < Model.fields.Count; i++)
-            {
-                if (@Model.fields[i].DisplayName != "Date")
-                {
-                    if (@Model.fields[i].PossibleValues.Count == 0)
-                    {
-                        <div class="form-group">
-                            <label class="control-label">@Model.fields[i].DisplayName</label>
-                            <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="form-group">
-                            @Model.fields[i].DisplayName
-                            <select id="@Model.fields[i].InternalName" class="form-control time-control">
-                                <option disabled selected></option>
-                                @for (int j = 0; j < Model.fields[i].PossibleValues.Count; j++)
-                                {
-                            <option value="@Model.fields[i].PossibleValues[j]">@Model.fields[i].PossibleValues[j]</option>
-                                }
-                            </select>
-                        </div>
-                    }
-                }
-            }
 
-            <div class="form-group">
-                <input style="width:318px;" id="btnGet" type="submit" value="Search" class="btn btn-primary" />
+                    <div class="form-group">
+                        <input style="width:318px;" id="btnGet" type="submit" value="Search" class="btn btn-primary" />
+                    </div>
+                    <div class="form-group">
+                        <button style="width:318px;" class="btn btn-success" type="reset">Clear</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <button style="width:318px;" class="btn btn-success" type="reset">Clear</button>
+            <div class="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-        </form>
+            <div class="results">
+                <img class="no-results messageToBeHidden" src="/css/NoResultsImage.png" style="position:absolute; top: 8%; left: 25%;" />
+                <table oncontextmenu="return false;" id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left; align-content:center;">
+                    <tr>
+                        <th class="custom-table-heading">№</th>
+                        @for (int i = 1; i < @Model.fields.Count; i++)
+                        {
+                            <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
+                        }
+                        <th class="custom-table-heading">@Model.timeField.DisplayName</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="custom-context-menu-wrapper" oncontextmenu="return false;">
+            <div class="contextMenu">
+                <div class="contextMenuOption contextMenuOptionFillInTable">
+                    <div class="context-menu-option-emoji contextMenuOptionFillInTable">🔎</div>
+                    <div class="context-menu-option-name contextMenuOptionFillInTable">Use in search</div>
+                    <div class="context-menu-option-shortcut contextMenuOptionFillInTable">Ctrl+🖱️</div>
+                </div>
+                <div class="contextMenuOption contextMenuOptionGoToTheTop">
+                    <div class="context-menu-option-emoji contextMenuOptionGoToTheTop">⬆️</div>
+                    <div class="context-menu-option-name contextMenuOptionGoToTheTop">Go to the top</div>
+                    <div class="context-menu-option-shortcut contextMenuOptionGoToTheTop">Ctrl+⬆️</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="loading">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="view hide" id="page2">
+        <p>Hey</p>
+        <button id="showPage1Btn" data-launch-view="page1">Page 1</button>
     </div>
-    <div class="results">
-        <img class="no-results messageToBeHidden" src="/css/NoResultsImage.png" style="position:absolute; top: 8%; left: 25%;" />
-        <table oncontextmenu="return false;" id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left; align-content:center;">
-            <tr>
-                <th class="custom-table-heading">№</th>
-                @for (int i = 1; i < @Model.fields.Count; i++)
-                {
-                    <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
-                }
-                <th class="custom-table-heading">@Model.timeField.DisplayName</th>
-            </tr>
-        </table>
-    </div>
-    <div class="list" id="AjaxResults">
+    <div class="scripts">
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/data.js" asp-append-version="true"></script>
         <script src="~/js/context-menu.js" asp-append-version="true"></script>
-    </div>
-</div>
-
-<div class="custom-context-menu-wrapper" oncontextmenu="return false;">
-    <div class="contextMenu">
-        <div class="contextMenuOption contextMenuOptionFillInTable">
-            <div class="context-menu-option-emoji contextMenuOptionFillInTable">🔎</div>
-            <div class="context-menu-option-name contextMenuOptionFillInTable">Use in search</div>
-            <div class="context-menu-option-shortcut contextMenuOptionFillInTable">Ctrl+🖱️</div>
-        </div>
-        <div class="contextMenuOption contextMenuOptionGoToTheTop">
-            <div class="context-menu-option-emoji contextMenuOptionGoToTheTop">⬆️</div>
-            <div class="context-menu-option-name contextMenuOptionGoToTheTop">Go to the top</div>
-            <div class="context-menu-option-shortcut contextMenuOptionGoToTheTop">Ctrl+⬆️</div>
-        </div>
+        <script src="~/js/swap-view.js" asp-append-version="true"></script>
     </div>
 </div>

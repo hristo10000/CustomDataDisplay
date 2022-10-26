@@ -98,3 +98,6 @@ table tr {
     margin: 40px;
 }
 
+.hide {
+    display: none;
+}
