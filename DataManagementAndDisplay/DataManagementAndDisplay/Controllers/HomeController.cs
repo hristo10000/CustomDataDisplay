@@ -16,14 +16,12 @@ namespace Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         readonly string applicationId = "e2f68eac-26bf-4a8a-b0b8-e486fa6c4084";
         readonly string key = "iav7mz1i7cjiir2pcazxmw3pz54o3ks3c03cq1c0";
 
         [Obsolete]
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
             _ = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
             {
                 InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
@@ -31,7 +29,7 @@ namespace Controllers
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
         {
-            ResultModel resultModel = new ResultModel("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
+            ResultModel resultModel = new("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
             TableOperation operation = TableOperation.Retrieve<ResultModel>(resultModel.PartitionKey, resultModel.RowKey);
             TableResult result = p_tbl.Execute(operation);
             ResultModel model = result.Result as ResultModel;
