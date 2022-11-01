@@ -20,16 +20,14 @@ $("html").mousedown(function (ev) {
         $(".navbar").css("display", "none");
         $(".navbar-button").css("display", "flex");
         isNavbarOpen = false;
-    } else if (isCustomContextMenuOpened) {
+    } else if (isCustomContextMenuOpened && ev.which == 1) {
         switch (ev.target.classList[1]) {
             case "contextMenuOptionFillInTable":
-                if (ev.which == 1) {
                     isCustomContextMenuFillInTableOptionSelected = true;
                     $(targetTableCell).click();
-                }
                 break;
             case "contextMenuOptionGoToTheTop":
-                if (ev.which == 1) window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
                 break;
             default:
                 break;
