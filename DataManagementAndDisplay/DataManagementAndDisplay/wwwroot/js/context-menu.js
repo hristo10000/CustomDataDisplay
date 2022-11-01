@@ -29,29 +29,6 @@ $("table").mousedown(function (ev) {
     }
 });
 
-$("html").mousedown(function (ev) {
-    if (ev.which != 1) return;
-    switch (ev.target.classList[1]) {
-        case "contextMenuOptionFillInTable":
-            if (ev.which == 1) {
-                isCustomContextMenuFillInTableOptionSelected = true;
-                $(targetTableCell).click();
-
-            }
-            break;
-        case "contextMenuOptionGoToTheTop":
-            if (ev.which == 1) {
-                window.scrollTo(0, 0);
-            }
-            break;
-        default:
-            break;
-    }
-    $(".custom-context-menu-wrapper").css("display", "none");
-    $(targetTableCell).removeClass("current-target-for-context-menu");
-    isCustomContextMenuOpened = false;
-});
-
 function CtrlSelectFromTable(value, columnName) {
     if (isCustomContextMenuFillInTableOptionSelected || event.ctrlKey) {
         document.querySelector(`.${columnName}`).value = value;

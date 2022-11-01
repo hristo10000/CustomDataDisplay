@@ -154,3 +154,83 @@ table {
     cursor: default;
     background: grey;
 }
+
+.navbar-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    border: 3px solid #007bff;
+    border-radius: 5px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.navbar-button-line {
+    margin-left: 5%;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.navbar-button:hover .navbar-button-line {
+    width: 90%;
+}
+
+.navbar-button-line-first {
+    width: 50%;
+}
+
+.navbar-button-line-second {
+    width: 25%;
+}
+
+.navbar-button-line-third {
+    width: 0%;
+}
+
+.model-name-header {
+    font-size: 45px;
+    margin: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar {
+    padding: 0;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 130px;
+    height: auto;
+    border: solid 3px #007bff;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    border-radius: 5px;
+}
+
+.navbar-option {
+    width: 100%;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    padding: 10px;
+}
+    .navbar-option:first-child {
+        border-bottom: solid 2px #007bff;
+    }
+
+    .navbar-option:hover {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+    }

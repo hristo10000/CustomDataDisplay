@@ -4,9 +4,17 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="main-div">
+    <div class="navbar-button">
+        <div class="navbar-button-line navbar-button-line-first"> </div>
+        <div class="navbar-button-line navbar-button-line-second"> </div>
+        <div class="navbar-button-line navbar-button-line-third"> </div>
+    </div>
+    <div class="navbar">
+        <div class="navbar-option navbar-option-view-model">View Model</div>
+        <div class="navbar-option navbar-option-create-model">Create Model</div>
+    </div>
     <div class="view" id="page1">
-        <h1 class="model-name" style="font-size: 45px; margin: 20px; width: 100%; text-align: center;">Model Name Here</h1>
-        <button id="showPage2Btn" data-launch-view="page2">Page 2</button>
+        <h1 class="model-name-header" style="">Model Name Here</h1>
         <div class="custom-body">
             <div class="search">
                 <form id="form">
@@ -95,8 +103,21 @@
         </div>
     </div>
     <div class="view hide" id="page2">
-        <p>Hey</p>
-        <button id="showPage1Btn" data-launch-view="page1">Page 1</button>
+            <div class="create-model-view">
+                <div class="model-list">
+                    <div class="add-model-button">Add Model</div>
+                     <div class="all-models">
+                        @*list of all existing models*@
+                    </div>
+                </div>
+                <div class="create-model-div">
+                    <div class="added-columns-lsit">
+                        @*add div with js every time user creates column*@
+                    </div>
+                    <div class="add-new-text-column">Add new text column</div>
+                    <div class="add-new-enum-column"> Add new enum column</div>
+                </div>
+            </div>
     </div>
     <div class="scripts">
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -104,5 +125,6 @@
         <script src="~/js/data.js" asp-append-version="true"></script>
         <script src="~/js/context-menu.js" asp-append-version="true"></script>
         <script src="~/js/swap-view.js" asp-append-version="true"></script>
+        <script src="~/js/navbar.js" asp-append-version="true"></script>
     </div>
 </div>

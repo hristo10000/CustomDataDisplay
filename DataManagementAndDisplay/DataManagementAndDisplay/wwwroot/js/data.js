@@ -8,7 +8,6 @@
 });
 
 function SearchAndDisplay() {
-    
     var form_data = GetData();
     $(".loading").show();
     $(".tableToBeHidden").hide();
