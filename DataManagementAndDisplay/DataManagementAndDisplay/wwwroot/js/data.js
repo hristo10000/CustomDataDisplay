@@ -61,3 +61,15 @@ function GetData() {
     });
     return SearchModel;
 }
+
+
+function GetAllModels() {
+    console.log("b");
+    $.ajax({
+        type: "GET",
+        url: "/Models",
+        success: function (JsonData) {
+            console.log(JsonData);
+        }
+    });
+}

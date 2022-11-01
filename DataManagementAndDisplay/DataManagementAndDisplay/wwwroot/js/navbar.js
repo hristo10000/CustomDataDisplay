@@ -12,7 +12,10 @@ $("html").mousedown(function (ev) {
                 if (ev.which == 1) showView('page1');
                 break;
             case "navbar-option-create-model":
-                if (ev.which == 1) showView('page2');
+                if (ev.which == 1) {
+                    showView('page2');
+                    GetAllModels();
+                }
                 break;
             default:
                 break;

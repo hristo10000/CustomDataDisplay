@@ -12,6 +12,7 @@ using DataModel;
 using System.Text;
 using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
 
 namespace Controllers
 {
@@ -100,6 +101,17 @@ namespace Controllers
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
             return Json(data);
 
+        }
+
+        [HttpGet]
+        [Route("~/Models")]
+        public List<ResultModel> GetAllModels()
+        {
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            var entities = table.ExecuteQuery(new TableQuery<ResultModel>()).ToList();
+            return entities;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
