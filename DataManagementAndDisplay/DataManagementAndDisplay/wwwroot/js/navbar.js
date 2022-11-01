@@ -14,11 +14,7 @@ $("html").mousedown(function (ev) {
             case "navbar-option-create-model":
                 if (ev.which == 1) {
                     showView('page2');
-                    var allModels = [];
-                    allModels = GetAllModels();
-                    allModels.foreach(m => {
-                        $(".all-models").append(`<div>${m['name']}</div>`);
-                    });
+                    var allModels = GetAllModels();
                 }
                 break;
             default:
