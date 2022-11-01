@@ -1,0 +1,30 @@
+✅Learn Kusto 
+✅Learn How To Use Azure App Insights
+✅Send Logs To Azure App Insights
+✅Use Telemetry Client
+✅Use Instrumentation Key, Application Key, Application ID
+✅Use Kusto Queries To Read Logs From App Insights
+✅Create A Separate Project To Fill The App Insights With Data
+✅User, Operation, Result(Success/Warning/Fail), Datetime(Random), GUID
+✅Learn Ajax
+✅Apply Ajax To The Web App
+✅Use XML Model Instead Of Hardcoded Model
+✅Add Timestamps To The Model(Not Hardcoded)
+✅Use Option Value In The View(Public List tmeOptions - List Of Tuple)
+✅Use Model Instead Of Tuple
+✅Fix table
+✅Remove Unnecessary Headings And Menus
+✅Fix No Results Text
+✅Fix Search Form Positioning
+✅Replace Right Click Menu Over The Table With Custom Menu, Add Keyboard Combination For Placing The Value In The Search Form
+✅When there is no space for the menu below the mouse, show it above the mouse
+✅Azure Data Tables
+Clear Button Should Not Be This Close To The Search Button(User Might Accidentally Click On It Instead - Frustrating)
+Empty Values In Selects In Search Form Should Be Clickable(So The User Doesnt Have To Clear The Entire Form Just To Clear One Field)
+01.11.2022 - Administrative Meeting With Emo
+Fix No Results Image - Size Must Depend On %, Needs Transperent Background
+Fix All Class Names To The 'word-word-word' Format
+Change The Navbar So It's More Compatible With The Program
+Make CSS Rely On % Not Pixels
+When 1 Option In XML Model Select It Automatically
+Add Option To Add New Models And Switch Between Models
