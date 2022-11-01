@@ -140,7 +140,7 @@ table {
 }
 
 .custom-context-menu-wrapper {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.6px);
     position: absolute;
     top: 0;
     left: 0;
