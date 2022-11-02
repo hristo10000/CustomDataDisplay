@@ -64,12 +64,22 @@ function GetData() {
 
 
 function GetAllModels() {
-    console.log("b");
     $.ajax({
         type: "GET",
         url: "/Models",
         success: function (JsonData) {
-            console.log(JsonData);
+            var AppendToDiv = document.getElementsByClassName('model');
+            if (AppendToDiv.length == 0) {
+                for (var i = 0; i < JsonData.length; i++) {
+                    var div = document.createElement('div');
+                    var mySpan = document.createElement("span");
+                    mySpan.innerHTML = `${JsonData[i].name}`;
+                    div.setAttribute('class', 'model');
+                    div.appendChild(mySpan);
+                    var AppendToDiv = document.getElementsByClassName('all-models');
+                    AppendToDiv[0].appendChild(div);
+                }
+            }  
         }
     });
 }

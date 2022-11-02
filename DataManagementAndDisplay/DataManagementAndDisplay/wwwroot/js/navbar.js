@@ -10,6 +10,10 @@ $("html").mousedown(function (ev) {
         switch (ev.target.classList[1]) {
             case "navbar-option-view-model":
                 if (ev.which == 1) showView('page1');
+                const elements = document.getElementsByClassName('model');
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].parentNode.removeChild(elements[i]);
+                }
                 break;
             case "navbar-option-create-model":
                 if (ev.which == 1) {
