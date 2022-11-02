@@ -211,7 +211,7 @@ table {
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 130px;
+    width: 140px;
     height: auto;
     border: solid 3px #007bff;
     transition: all 0.5s;
