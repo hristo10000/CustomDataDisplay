@@ -19,9 +19,9 @@
 ✅Replace Right Click Menu Over The Table With Custom Menu, Add Keyboard Combination For Placing The Value In The Search Form
 ✅When there is no space for the menu below the mouse, show it above the mouse
 ✅Azure Data Tables
+Fix Blur
 Clear Button Should Not Be This Close To The Search Button(User Might Accidentally Click On It Instead - Frustrating)
 Empty Values In Selects In Search Form Should Be Clickable(So The User Doesnt Have To Clear The Entire Form Just To Clear One Field)
-01.11.2022 - Administrative Meeting With Emo
 Fix No Results Image - Size Must Depend On %, Needs Transperent Background
 Fix All Class Names To The 'word-word-word' Format
 Change The Navbar So It's More Compatible With The Program
