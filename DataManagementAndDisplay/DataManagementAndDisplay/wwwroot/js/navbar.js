@@ -9,11 +9,23 @@ $("html").mousedown(function (ev) {
     if (isNavbarOpen) {
         switch (ev.target.classList[1]) {
             case "navbar-option-view-model":
-                if (ev.which == 1) showView('page1');
+                if (ev.which == 1) {
+                    showView('page1');
+                    $(".page1").addClass("currently-shown-page");
+                    $(".navbar-option-view-model").text("➧View Model");
+                    $(".page2").removeClass("currently-shown-page");
+                    $(".navbar-option-create-model").text("Create Model");
+                }
+
                 break;
             case "navbar-option-create-model":
                 if (ev.which == 1) {
                     showView('page2');
+                    $(".page2").addClass("currently-shown-page");
+                    $(".navbar-option-view-model").text("View Model");
+                    $(".page1").removeClass("currently-shown-page");
+                    $(".navbar-option-create-model").text("➧Create Model");
+
                     var allModels = GetAllModels();
                 }
                 break;
