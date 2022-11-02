@@ -83,3 +83,7 @@ function GetAllModels() {
         }
     });
 }
+
+function CreateModelButtonOnclick(ev){
+    ev.preventDefault();
+}

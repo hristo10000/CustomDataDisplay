@@ -103,22 +103,24 @@
         </div>
     </div>
     <div class="view hide" id="page2">
-            <div class="create-model-view">
-                <div class="model-list">
-                    <div class="add-model-button">
-                        <button>+ New Model</button>
-                    </div>
-                     <div class="all-models">
-                    </div>
-                </div>
-                <div class="create-model-div">
-                    <div class="added-columns-list">
-                        @*add div with js every time user creates column*@
-                    </div>
-                    <div class="add-new-text-column">Add new text column</div>
-                    <div class="add-new-enum-column"> Add new enum column</div>
-                </div>
+        <div class="create-model-view">
+            <div class="model-list">
+                <div class="add-model-button">+ New Model</div>
+                <div class="all-models">@*All models' names are loaded here by a js script*@</div>
             </div>
+
+            <form class="create-model-form">
+                <div class="create-model-form-element-for-name-and-password">
+
+                </div>
+                <div class="added-columns-list">
+                    @*add div with js every time user creates column*@
+                </div>
+                <div class="add-new-text-column">Add new text column</div>
+                <div class="add-new-enum-column"> Add new enum column</div>
+                <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model"/>
+            </form>
+        </div>
     </div>
     <div class="scripts">
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
