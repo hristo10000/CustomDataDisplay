@@ -5,14 +5,10 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     user-select: none;
     overflow-y: scroll;
-}
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
 }
 
 .custom-body {
@@ -21,12 +17,6 @@ a.navbar-brand {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
@@ -65,6 +55,13 @@ button.accept-policy {
 
 table {
     user-select: none;
+    position: sticky;
+    text-align: left;
+    align-content: center;
+}
+
+table, th, tr, td {
+    border: 1px solid #007bff;
 }
 
 .data-row > td {
@@ -87,7 +84,7 @@ table {
     border-radius: 10px;
 }
 
-.contextMenu {
+.context-menu {
     position: absolute;
     border: solid 1px;
     border-radius: 1px;
@@ -101,7 +98,7 @@ table {
     border-radius: 1px;
 }
 
-.contextMenuOption {
+.context-menu-option {
     width: 300px;
     display: flex;
     flex-direction: row;
@@ -112,18 +109,18 @@ table {
     cursor: pointer;
 }
 
-    .contextMenuOption:hover:not(.unavailable-option) {
+    .context-menu-option:hover:not(.unavailable-option) {
         background-color: #007bff;
         color: white;
         border: 1px solid;
         border-radius: 1px;
     }
 
-    .contextMenuOption:hover:not(:first-child):not(.unavailable-option) {
+    .context-menu-option:hover:not(:first-child):not(.unavailable-option) {
         border-top: solid 2px black;
     }
 
-    .contextMenuOption:hover:not(:last-child):not(.unavailable-option) {
+    .context-menu-option:hover:not(:last-child):not(.unavailable-option) {
         border-bottom: solid 2px black;
     }
 
@@ -142,6 +139,7 @@ table {
 .custom-context-menu-wrapper {
     backdrop-filter: blur(0.6px);
     position: absolute;
+    z-index: 1000;
     top: 0;
     left: 0;
     display: none;
@@ -160,8 +158,8 @@ table {
     flex-direction: column;
     justify-content: space-evenly;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     cursor: pointer;
     width: 50px;
     height: 40px;
@@ -197,16 +195,14 @@ table {
 
 .model-name-header {
     font-size: 45px;
-    margin: 20px;
-    width: 100%;
     text-align: center;
 }
 
 .navbar {
     padding: 0;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     cursor: pointer;
     display: none;
     flex-direction: column;
@@ -214,6 +210,7 @@ table {
     width: 140px;
     height: auto;
     border: solid 3px #007bff;
+    background: white;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     border-radius: 5px;
@@ -270,8 +267,146 @@ table {
         color: white;
     }
 
-.create-model-form:not(:first-child){
-    display:flex;
-    flex-direction:column;
+.create-model-form:not(:first-child) {
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
+}
+
+.custom-navbar {
+    height: 80px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-bottom: 3px solid #007bff
+}
+
+.main-wrapper-from-mcs {
+    position: absolute;
+    top: 80px;
+}
+
+.results {
+    top: 80px;
+    align-self: flex-start;
+    margin: 40px;
+    background-color: white;
+}
+
+table tr:nth-child(2) {
+    counter-reset: rowNumber;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+
+.table-to-be-hidden {
+    vertical-align: top;
+    display: none;
+}
+
+.data-row {
+    text-align: center;
+}
+
+.custom-table-heading {
+    text-align: center;
+}
+
+.loading {
+    display: none;
+    left: 48%;
+    top: 40%;
+    height: 48px;
+    width: 48px;
+    color: #5a5a5a;
+    position: fixed;
+    display: inline-block;
+}
+
+    .loading div {
+        border-radius: 50%;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 3px solid;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        animation: rotateTest1 1s linear infinite;
+        box-sizing: border-box;
+    }
+
+        .loading div:nth-child(1) {
+            height: 20%;
+            width: 20%;
+            animation-delay: 0.05s;
+        }
+
+        .loading div:nth-child(2) {
+            height: 40%;
+            width: 40%;
+            animation-delay: .1s;
+        }
+
+        .loading div:nth-child(3) {
+            height: 60%;
+            width: 60%;
+            animation-delay: .15s;
+        }
+
+        .loading div:nth-child(4) {
+            height: 80%;
+            width: 80%;
+            animation-delay: .2s;
+        }
+
+        .loading div:nth-child(5) {
+            height: 100%;
+            width: 100%;
+            animation-delay: .25s;
+        }
+
+@keyframes rotateTest1 {
+    50% {
+        transform: rotate(360deg);
+    }
+}
+
+.message-to-be-hidden {
+    display: none;
+}
+
+.search {
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+    margin: 40px;
+    background-color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.no-results {
+    position: absolute;
+    top: 8%;
+    left: 25%;
 }

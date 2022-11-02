@@ -42,11 +42,11 @@ $("html").mousedown(function (ev) {
         isNavbarOpen = false;
     } else if (isCustomContextMenuOpened && ev.which == 1) {
         switch (ev.target.classList[1]) {
-            case "contextMenuOptionFillInTable":
+            case "context-menu-option-fill-in-table":
                     isCustomContextMenuFillInTableOptionSelected = true;
                     $(targetTableCell).click();
                 break;
-            case "contextMenuOptionGoToTheTop":
+            case "context-menu-option-go-to-the-top":
                 window.scrollTo(0, 0);
                 break;
             default:
@@ -59,6 +59,7 @@ $("html").mousedown(function (ev) {
 });
 
 $(".navbar-button").mousedown(function (ev) {
+    
     if (ev.which != 1) return;
     $(".navbar-button").css("display", "none");
     $(".navbar").css("display", "flex");

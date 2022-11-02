@@ -10,8 +10,8 @@
 function SearchAndDisplay() {
     var form_data = GetData();
     $(".loading").show();
-    $(".tableToBeHidden").hide();
-    $(".messageToBeHidden").hide();
+    $(".table-to-be-hidden").hide();
+    $(".message-to-be-hidden").hide();
     $.ajax({
         type: "POST",
         url: "/Search",
@@ -22,10 +22,10 @@ function SearchAndDisplay() {
             $('.data-row').remove();
             $(".loading").hide();
             if (JsonData.length == 0) {
-                $(".messageToBeHidden").show();
+                $(".message-to-be-hidden").show();
                 return;
             }
-            $(".messageToBeHidden").hide();
+            $(".message-to-be-hidden").hide();
             $("#table-result").show();
             var tableNames = [];
             tableNames = Object.getOwnPropertyNames(JsonData[0]);

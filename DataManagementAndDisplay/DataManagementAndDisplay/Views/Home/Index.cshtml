@@ -1,20 +1,9 @@
 ﻿@model DataModel.Model
 @{
-
     ViewData["Title"] = "Home Page";
 }
 <div class="main-div">
-    <div class="navbar-button">
-        <div class="navbar-button-line navbar-button-line-first"> </div>
-        <div class="navbar-button-line navbar-button-line-second"> </div>
-        <div class="navbar-button-line navbar-button-line-third"> </div>
-    </div>
-    <div class="navbar">
-        <div class="navbar-option navbar-option-view-model">➧View Model</div>
-        <div class="navbar-option navbar-option-create-model">Create Model</div>
-    </div>
     <div class="view" id="page1">
-        <h1 class="model-name-header" style="">Model Name Here</h1>
         <div class="custom-body">
             <div class="search">
                 <form id="form">
@@ -73,8 +62,8 @@
                 <div></div>
             </div>
             <div class="results">
-                <img class="no-results messageToBeHidden" src="/css/NoResultsImage.png" style="position:absolute; top: 8%; left: 25%;" />
-                <table oncontextmenu="return false;" id="table-result" class="table-bordered justify-content-between tableToBeHidden" style="text-align:left; align-content:center;">
+                <img class="no-results message-to-be-hidden" src="/css/NoResultsImage.png"/>
+                <table oncontextmenu="return false;" id="table-result" class="justify-content-between table-to-be-hidden">
                     <tr>
                         <th class="custom-table-heading">№</th>
                         @for (int i = 1; i < @Model.fields.Count; i++)
@@ -86,18 +75,17 @@
                 </table>
             </div>
         </div>
-
         <div class="custom-context-menu-wrapper" oncontextmenu="return false;">
-            <div class="contextMenu">
-                <div class="contextMenuOption contextMenuOptionFillInTable">
-                    <div class="context-menu-option-emoji contextMenuOptionFillInTable">🔎</div>
-                    <div class="context-menu-option-name contextMenuOptionFillInTable">Use in search</div>
-                    <div class="context-menu-option-shortcut contextMenuOptionFillInTable">Ctrl+🖱️</div>
+            <div class="context-menu">
+                <div class="context-menu-option context-menu-option-fill-in-table">
+                    <div class="context-menu-option-emoji context-menu-option-fill-in-table">🔎</div>
+                    <div class="context-menu-option-name context-menu-option-fill-in-table">Use in search</div>
+                    <div class="context-menu-option-shortcut context-menu-option-fill-in-table">Ctrl+🖱️</div>
                 </div>
-                <div class="contextMenuOption contextMenuOptionGoToTheTop">
-                    <div class="context-menu-option-emoji contextMenuOptionGoToTheTop">⬆️</div>
-                    <div class="context-menu-option-name contextMenuOptionGoToTheTop">Go to the top</div>
-                    <div class="context-menu-option-shortcut contextMenuOptionGoToTheTop">Ctrl+⬆️</div>
+                <div class="context-menu-option context-menu-option-go-to-the-top">
+                    <div class="context-menu-option-emoji context-menu-option-go-to-the-top">⬆️</div>
+                    <div class="context-menu-option-name context-menu-option-go-to-the-top">Go to the top</div>
+                    <div class="context-menu-option-shortcut context-menu-option-go-to-the-top">Ctrl+⬆️</div>
                 </div>
             </div>
         </div>
@@ -108,7 +96,6 @@
                 <div class="add-model-button">+ New Model</div>
                 <div class="all-models">@*All models' names are loaded here by a js script*@</div>
             </div>
-
             <form class="create-model-form">
                 <div class="create-model-form-element-for-name-and-password">
 
@@ -122,12 +109,5 @@
             </form>
         </div>
     </div>
-    <div class="scripts">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/data.js" asp-append-version="true"></script>
-        <script src="~/js/context-menu.js" asp-append-version="true"></script>
-        <script src="~/js/swap-view.js" asp-append-version="true"></script>
-        <script src="~/js/navbar.js" asp-append-version="true"></script>
-    </div>
+    
 </div>
