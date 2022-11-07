@@ -247,6 +247,7 @@ table, th, tr, td {
 .all-models {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .model-name-for-all-models-list {
