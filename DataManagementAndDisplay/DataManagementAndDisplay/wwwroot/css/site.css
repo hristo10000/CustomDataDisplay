@@ -189,7 +189,6 @@ table, th, tr, td {
 }
 
 .model-name-header {
-    display: static;
     font-size: 45px;
     text-align: center;
 }

@@ -13,7 +13,7 @@
                     <div class="form-group">
                         @Model.timeField.DisplayName
                         <select id="@Model.timeField.InternalName" class="form-control time-control">
-                            <option disabled selected></option>
+                            <option selected></option>
                             @for (int i = 0; i < Model.timestamps.Count; i++)
                             {
                                 <option value="@Model.timestamps[i].InternalName">@Model.timestamps[i].DisplayName</option>
@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     @Model.fields[i].DisplayName
                                     <select id="@Model.fields[i].InternalName" class="form-control data-control @Model.fields[i].DisplayName">
-                                        <option disabled selected></option>
+                                        <option selected></option>
                                         @for (int j = 0; j < Model.fields[i].PossibleValues.Count; j++)
                                         {
                                             <option value="@Model.fields[i].PossibleValues[j]">@Model.fields[i].PossibleValues[j]</option>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="add-new-text-column">+ New text column</div>
                     <div class="add-new-enum-column">+ New enum column</div>
-                    <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model" />
+                    <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model"/>
                 </div>
             </form>
         </div>

@@ -12,6 +12,7 @@ $('html').mousedown(function (ev) {
                 if (ev.which == 1)
                 {
                     showView('page1');
+                    $('.model-name-header').css('display', 'block');
                     $('.page1').addClass('currently-shown-page');
                     $('.navbar-option-view-model').text('➧View Model');
                     $('.page2').removeClass('currently-shown-page');
@@ -21,16 +22,15 @@ $('html').mousedown(function (ev) {
                         elements[i].parentNode.removeChild(elements[i]);
                     }
                 }
-                
                 break;
             case 'navbar-option-create-model':
                 if (ev.which == 1) {
                     showView('page2');
+                    $('.model-name-header').css('display', 'none');
                     $('.page2').addClass('currently-shown-page');
                     $('.navbar-option-view-model').text('View Model');
                     $('.page1').removeClass('currently-shown-page');
                     $('.navbar-option-create-model').text('➧Create Model');
-
                     var allModels = GetAllModels();
                 }
                 break;
