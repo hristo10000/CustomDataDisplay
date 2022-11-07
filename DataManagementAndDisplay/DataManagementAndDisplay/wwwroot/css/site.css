@@ -40,11 +40,6 @@ body {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
 .footer {
     position: absolute;
     bottom: 0;
@@ -254,7 +249,7 @@ table, th, tr, td {
     flex-direction: column;
 }
 
-.model-name-for-all-models-list{
+.model-name-for-all-models-list {
     margin-top: 5px;
     text-align: center;
     align-self: center;
@@ -436,4 +431,26 @@ table tr {
 .create-model-form {
     display: flex;
     flex-direction: row;
+    width: auto;
+}
+
+.add-new-text-column, .add-new-enum-column {
+    border: solid 3px white;
+    border-bottom: solid 3px #007bff;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+    .add-new-text-column:hover, .add-new-enum-column:hover {
+        background-color: #007bff;
+        color: white;
+        border: solid 3px #007bff;
+        border-radius: 5px;
+    }
+
+.create-model-form-element-for-custom-fields{
+    width: auto;
 }
