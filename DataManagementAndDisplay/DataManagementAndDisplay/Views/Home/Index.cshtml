@@ -98,14 +98,17 @@
             </div>
             <form class="create-model-form">
                 <div class="create-model-form-element-for-name-and-password">
-
+                    <input class="new-model-name" for="new-model-name" placeholder="Name"/>
+                    <input class="new-model-description" for="new-model-description" placeholder="Description"/>
                 </div>
-                <div class="added-columns-list">
-                    @*add div with js every time user creates column*@
-                </div>
-                <div class="add-new-text-column">Add new text column</div>
-                <div class="add-new-enum-column"> Add new enum column</div>
-                <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model"/>
+                <div class="create-model-form-element-for-custom-fields">
+                    <div class="added-columns-list">
+                        @*add div with js every time user creates column*@
+                    </div>
+                    <div class="add-new-text-column">Add new text column</div>
+                    <div class="add-new-enum-column"> Add new enum column</div>
+                    <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model" />
+                </div>       
             </form>
         </div>
     </div>

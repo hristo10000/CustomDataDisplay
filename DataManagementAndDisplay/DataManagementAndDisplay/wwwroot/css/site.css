@@ -242,7 +242,9 @@ table, th, tr, td {
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 200px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
     border: 3px solid #007bff;
     border-radius: 5px;
 }
@@ -252,11 +254,19 @@ table, th, tr, td {
     flex-direction: column;
 }
 
+.model-name-for-all-models-list{
+    margin-top: 5px;
+    text-align: center;
+    align-self: center;
+}
+
 .add-model-button {
     cursor: pointer;
     width: 100%;
     height: auto;
-    border: solid 3px #007bff;
+    border: solid 3px white;
+    border-bottom: solid 3px #007bff;
+    padding: 10px;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
 }
@@ -265,13 +275,9 @@ table, th, tr, td {
         width: 100%;
         background-color: #007bff;
         color: white;
+        border: solid 3px #007bff;
+        border-radius: 5px;
     }
-
-.create-model-form:not(:first-child) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 
 .custom-navbar {
     height: 80px;
@@ -411,4 +417,23 @@ table tr {
     left: 100%;
     width: 150%;
     height: 70%;
+}
+
+.create-model-form-element-for-name-and-password {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.create-model-form-element-for-custom-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-model-form {
+    display: flex;
+    flex-direction: row;
 }
