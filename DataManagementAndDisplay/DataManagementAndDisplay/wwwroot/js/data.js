@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     document.onkeydown = NavigateToTop;
-    $("#form").submit(function (event) {
+    $('#form').submit(function (event) {
         event.preventDefault();
         SearchAndDisplay();
     });
@@ -9,24 +9,24 @@
 
 function SearchAndDisplay() {
     var form_data = GetData();
-    $(".loading").show();
-    $(".table-to-be-hidden").hide();
-    $(".message-to-be-hidden").hide();
+    $('.loading').show();
+    $('.table-to-be-hidden').hide();
+    $('.message-to-be-hidden').hide();
     $.ajax({
-        type: "POST",
-        url: "/Search",
+        type: 'POST',
+        url: '/Search',
         data: JSON.stringify(form_data),
         contentType: 'application/json',
         dataType: 'json',
         success: function (JsonData) {
             $('.data-row').remove();
-            $(".loading").hide();
+            $('.loading').hide();
             if (JsonData.length == 0) {
-                $(".message-to-be-hidden").show();
+                $('.message-to-be-hidden').show();
                 return;
             }
-            $(".message-to-be-hidden").hide();
-            $("#table-result").show();
+            $('.message-to-be-hidden').hide();
+            $('#table-result').show();
             var tableNames = [];
             tableNames = Object.getOwnPropertyNames(JsonData[0]);
             for (i = 0; i < JsonData.length; i++) {
@@ -45,34 +45,33 @@ function SearchAndDisplay() {
 
 function GetData() {
     var SearchModel = {};
-    var timeControl = $(".time-control");
+    var timeControl = $('.time-control');
     var Time = {};
     SearchModel.Fields = [];
-    Time["InternalName"] = timeControl.attr('id');
-    Time["Value"] = timeControl.val();
+    Time['InternalName'] = timeControl.attr('id');
+    Time['Value'] = timeControl.val();
     SearchModel.Time = Time;
 
-    var fields = $(".data-control")
+    var fields = $('.data-control')
     $.each(fields, function (id, value) {
         var Field = {};
-        Field["InternalName"] = value.id;
-        Field["Value"] = value.value;
+        Field['InternalName'] = value.id;
+        Field['Value'] = value.value;
         SearchModel.Fields[id] = Field;
     });
     return SearchModel;
 }
 
-
 function GetAllModels() {
     $.ajax({
-        type: "GET",
-        url: "/Models",
+        type: 'GET',
+        url: '/Models',
         success: function (JsonData) {
             var AppendToDiv = document.getElementsByClassName('model-name-for-all-models-list');
             if (AppendToDiv.length == 0) {
                 for (var i = 0; i < JsonData.length; i++) {
                     var div = document.createElement('div');
-                    var mySpan = document.createElement("span");
+                    var mySpan = document.createElement('span');
                     mySpan.innerHTML = `${JsonData[i].name}`;
                     div.setAttribute('class', 'model-name-for-all-models-list');
                     div.appendChild(mySpan);
