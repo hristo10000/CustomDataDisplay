@@ -36,12 +36,11 @@ function CtrlSelectFromTable(value, columnName) {
 }
 
 function mouseX(evt) {
-    return evt.clientX //- document.documentElement.scrollLeft;
+    return evt.clientX - document.documentElement.scrollLeft;
 }
 
 function mouseY(evt) {
-    return evt.clientY-80;
-    //- document.documentElement.scrollTop;
+    return evt.clientY-80 + document.documentElement.scrollTop;
 }
 
 function NavigateToTop(e) {
