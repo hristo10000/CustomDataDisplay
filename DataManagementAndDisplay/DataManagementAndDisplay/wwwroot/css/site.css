@@ -49,15 +49,47 @@ body {
     line-height: 60px;
 }
 
+table, th, tr, td {
+    border: 1px solid #007bff;
+}
+
 table {
     user-select: none;
     position: sticky;
     text-align: left;
     align-content: center;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
-table, th, tr, td {
-    border: 1px solid #007bff;
+th {
+    border-top: 2px solid #007bff;
+    border-bottom: 2px solid #007bff;
+    border-right: 2px solid #007bff;
+    align-self: flex-start;
+    position: sticky;
+    top: 80px;
+    padding: 10px;
+    background-color: white;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+td {
+    border-bottom: 1px solid #007bff;
+    border-right: 1px solid #007bff;
+}
+
+th:first-child {
+    border-left: 2px solid #007bff;
+}
+
+td:first-child {
+    border-left: 1px solid #007bff;
+}
+
+tbody:first-child {
+    border-radius: 5px;
 }
 
 .data-row > td {
@@ -306,7 +338,7 @@ table tr:nth-child(2) {
     counter-reset: rowNumber;
 }
 
-table tr {
+tr {
     counter-increment: rowNumber;
 }
 
@@ -454,39 +486,4 @@ table tr {
 
 .create-model-form-element-for-custom-fields {
     width: auto;
-}
-
-table {
-    border-collapse: separate; /* Don't collapse */
-    border-spacing: 0;
-}
-
-th {
-    border-top: 2px solid #007bff;
-    border-bottom: 2px solid #007bff;
-    border-right: 2px solid #007bff;
-    align-self: flex-start;
-    position: sticky;
-    top: 80px;
-    padding: 10px;
-    background-color: white;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-td {
-    border-bottom: 1px solid #007bff;
-    border-right: 1px solid #007bff;
-}
-
-th:first-child {
-    border-left: 2px solid #007bff;
-}
-    td:first-child {
-        border-left: 1px solid #007bff;
-    }
-
-
-tbody:first-child{
-    border-radius: 5px;
 }
