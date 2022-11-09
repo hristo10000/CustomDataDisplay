@@ -36,23 +36,12 @@ function CtrlSelectFromTable(value, columnName) {
 }
 
 function mouseX(evt) {
-    if (evt.screenX) {
-        return evt.screenX;
-    } else if (evt.screenX) {
-        return evt.screenX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
-    } else {
-        return null;
-    }
+    return evt.clientX //- document.documentElement.scrollLeft;
 }
 
 function mouseY(evt) {
-    if (screenY) {
-        return evt.screenY;
-    } else if (evt.screenY) {
-        return evt.screenY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
-    } else {
-        return null;
-    }
+    return evt.clientY-80;
+    //- document.documentElement.scrollTop;
 }
 
 function NavigateToTop(e) {
