@@ -19,26 +19,26 @@
                             }
                         </select>
                     </div>
-                    @for (int i = 0; i < Model.fields.Count; i++)
+                    @for (int i = 0; i < Model.Fields.Count; i++)
                     {
-                        if (@Model.fields[i].DisplayName != "Date")
+                        if (@Model.Fields[i].DisplayName != "Date")
                         {
-                            if (@Model.fields[i].PossibleValues.Count == 0)
+                            if (@Model.Fields[i].PossibleValues.Count == 0)
                             {
                                 <div class="form-group">
-                                    <label class="control-label">@Model.fields[i].DisplayName</label>
-                                    <input class="form-control data-control @Model.fields[i].DisplayName" id="@Model.fields[i].InternalName" value="@Model.fields[i].Value" data-type="@Model.fields[i].FieldType.ToString()" />
+                                    <label class="control-label">@Model.Fields[i].DisplayName</label>
+                                    <input class="form-control data-control @Model.Fields[i].DisplayName" id="@Model.Fields[i].InternalName" value="@Model.Fields[i].Value" data-type="@Model.Fields[i].FieldType.ToString()" />
                                 </div>
                             }
                             else
                             {
                                 <div class="form-group">
-                                    @Model.fields[i].DisplayName
-                                    <select id="@Model.fields[i].InternalName" class="form-control data-control @Model.fields[i].DisplayName">
+                                    @Model.Fields[i].DisplayName
+                                    <select id="@Model.Fields[i].InternalName" class="form-control data-control @Model.Fields[i].DisplayName">
                                         <option selected></option>
-                                        @for (int j = 0; j < Model.fields[i].PossibleValues.Count; j++)
+                                        @for (int j = 0; j < Model.Fields[i].PossibleValues.Count; j++)
                                         {
-                                            <option value="@Model.fields[i].PossibleValues[j]">@Model.fields[i].PossibleValues[j]</option>
+                                            <option value="@Model.Fields[i].PossibleValues[j]">@Model.Fields[i].PossibleValues[j]</option>
                                         }
                                     </select>
                                 </div>
@@ -66,9 +66,9 @@
                 <table oncontextmenu="return false;" id="table-result" class="justify-content-between table-to-be-hidden">
                     <tr>
                         <th class="custom-table-heading">№</th>
-                        @for (int i = 1; i < @Model.fields.Count; i++)
+                        @for (int i = 1; i < @Model.Fields.Count; i++)
                         {
-                            <th class="custom-table-heading">@Model.fields[i].DisplayName</th>
+                            <th class="custom-table-heading">@Model.Fields[i].DisplayName</th>
                         }
                         <th class="custom-table-heading">@Model.timeField.DisplayName</th>
                     </tr>
@@ -96,7 +96,7 @@
                 <div class="add-model-button">+ New Model</div>
                 <div class="all-models">@*All models' names are loaded here by a js script*@</div>
             </div>
-            <form class="create-model-form">
+            <form id="create-model-form" class="create-model-form">
                 <div class="create-model-form-element-for-name-and-password">
                     <input class="new-model-name" for="new-model-name" placeholder="Name"/>
                     <input class="new-model-description" for="new-model-description" placeholder="Description"/>
@@ -106,7 +106,7 @@
                         @*add div with js every time user creates column*@
                     </div>
                     <div class="add-new-text-column" onclick="AddTextColumn()">+ New text column</div>
-                    <input onclick="CreateModelButtonOnclick();" type="submit" name="Create Model" />
+                    <input @*onclick="CreateModelButtonOnclick();"*@ type="submit" name="Create Model" />
                 </div>       
             </form>
         </div>

@@ -114,7 +114,14 @@ namespace Controllers
             return entities;
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [HttpPost]
+        [Route("~/Create")]
+        public Task<IActionResult> Create([FromBody] Model Model)
+        {
+            return null;
+        }
+
+            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

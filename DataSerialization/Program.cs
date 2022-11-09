@@ -9,7 +9,7 @@ namespace SerilisationLearning
     {
         public static void Main(string[] args)
         {
-            Model model = new();
+            /*Model model = new();
             model.fields.Add(new Field
             {
                 DisplayName = "Date",
@@ -50,7 +50,7 @@ namespace SerilisationLearning
             path = path.Parent.Parent.Parent.Parent;
             string filePath = Path.Combine(path.ToString(), "DataManagementAndDisplay", "DataManagementAndDisplay", "Model.xml");
             using TextWriter writer = new StreamWriter(filePath.ToString());
-            serializer.Serialize(writer, model);
+            serializer.Serialize(writer, model);*/
         }
     }
-}
+    }

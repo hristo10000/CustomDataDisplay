@@ -33,7 +33,7 @@
 			<DisplayName>24 hours ago</DisplayName>
 		</TimeFieldOption>
 	</timestamps>
-	<fields>
+	<Fields>
 		<Field>
 			<DisplayName>Date</DisplayName>
 			<InternalName>customDimensions.Date</InternalName>
@@ -78,5 +78,5 @@
 			<InternalName>customDimensions.Guid</InternalName>
 			<FieldType>String</FieldType>
 		</Field>
-	</fields>
+	</Fields>
 </Model>

@@ -83,6 +83,7 @@ function GetAllModels() {
     });
 }
 
-function CreateModelButtonOnclick(ev){
+/*function CreateModelButtonOnclick(ev){
     ev.preventDefault();
 }
+*/

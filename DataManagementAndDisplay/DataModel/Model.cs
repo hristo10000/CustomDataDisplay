@@ -1,31 +1,38 @@
 ﻿using System.Collections.Generic;
 
 namespace DataModel
-{ 
-public class Model
 {
-    public Field timeField;
-    public List<TimeFieldOption> timestamps;
-    public List<Field> fields;
-    public Model()
+    public class Model
     {
-        fields = new List<Field>();
-        timestamps = new List<TimeFieldOption>();
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public Field timeField { get; set; }
+        public List<TimeFieldOption> timestamps { get; set; }
+        public List<Field> Fields { get; set; }
+        public Model()
+        {
+            Fields = new List<Field>();
+            timestamps = new List<TimeFieldOption>();
+        }
     }
-}
-public class Field {
-        
+    public class Field
+    {
+
         public string InternalName { get; set; }
         public string DisplayName { get; set; }
         public string Value { get; set; }
         public FieldType FieldType { get; set; }
-        public List<string> PossibleValues { get; set; }
+        public List<PossibleValue> PossibleValues { get; set; }
         public Field()
         {
-            PossibleValues = new List<string>();
+            PossibleValues = new List<PossibleValue>();
         }
     }
 
+    public class PossibleValue
+    {
+        public string PossibleOptionValue { get; set; }
+    }
 
     public enum FieldType
     {
@@ -36,12 +43,12 @@ public class Field {
     }
 
     public class TimeFieldOption
-{
-    public TimeFieldOption()
     {
+        public TimeFieldOption()
+        {
 
+        }
+        public string InternalName { get; set; }
+        public string DisplayName { get; set; }
     }
-    public string InternalName { get; set; }
-    public string DisplayName { get; set; }
-}
 }
