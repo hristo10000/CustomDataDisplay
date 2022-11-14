@@ -15,9 +15,9 @@ namespace DataFillingPoject
             List<string> users = new() { "Viktor", "Hristo", "Slavi", "Vilian", "Martin", "Daniel" };
             List<string> operations = new() { "Delete", "Add", "Update", "View" };
             List<string> results = new() { "Success", "Warning", "Fail"};
-            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e" })
+            var ai = new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration() { InstrumentationKey = "874248d8-135f-4abf-9806-1af60a7a5a46" })
             {
-                InstrumentationKey = "93282e89-6ef0-4513-b4a4-d5f07c63ac2e"
+                InstrumentationKey = "874248d8-135f-4abf-9806-1af60a7a5a46"
             };
             Console.WriteLine("Number Of Logs:");
             int n = int.Parse(Console.ReadLine());
