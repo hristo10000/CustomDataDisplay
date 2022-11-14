@@ -53,7 +53,7 @@ namespace Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=modelsfortable;AccountKey=TD0YnwTxnH514xOZzMX/2ZQXeE/u80esrCMvdg/sx33iKoNiJ9/aXk/I0caswc2pb5mlJYAr1Xot+ASt/UZGAQ==;EndpointSuffix=core.windows.net");
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             await table.CreateIfNotExistsAsync();

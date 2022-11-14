@@ -1,39 +1,39 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - DataManagementAndDisplay</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </head>
-    <body>
-        <div class="main-wrapper-from-mcs">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-            <header class="custom-navbar">
-                <h1 class="model-name-header" style="">Model Name Here</h1>
-            </header>
-            <div class="navbar-button">
-                <div class="navbar-button-line navbar-button-line-first"> </div>
-                <div class="navbar-button-line navbar-button-line-second"> </div>
-                <div class="navbar-button-line navbar-button-line-third"> </div>
-            </div>
-            <div class="navbar">
-                <div class="navbar-option navbar-option-view-model">➧View Model</div>
-                <div class="navbar-option navbar-option-create-model">Create Model</div>
-            </div>
-            <div class="scripts">
-                <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="~/js/data.js" asp-append-version="true"></script>
-                <script src="~/js/context-menu.js" asp-append-version="true"></script>
-                <script src="~/js/swap-view.js" asp-append-version="true"></script>
-                <script src="~/js/navbar.js" asp-append-version="true"></script>
-                <script src="~/js/create-model.js"asp-append-version="true"></script>
-            </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DataManagementAndDisplay</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="main-wrapper-from-mcs">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <header class="custom-navbar">
+            <h1 class="model-name-header" style="">Model Name Here</h1>
+        </header>
+        <div class="navbar-button">
+            <div class="navbar-button-line navbar-button-line-first"> </div>
+            <div class="navbar-button-line navbar-button-line-second"> </div>
+            <div class="navbar-button-line navbar-button-line-third"> </div>
         </div>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
+        <div class="navbar">
+            <div class="navbar-option navbar-option-view-model">➧View Model</div>
+            <div class="navbar-option navbar-option-create-model">Create Model</div>
+        </div>
+        <div class="scripts">
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/data.js" asp-append-version="true"></script>
+            <script src="~/js/context-menu.js" asp-append-version="true"></script>
+            <script src="~/js/swap-view.js" asp-append-version="true"></script>
+            <script src="~/js/navbar.js" asp-append-version="true"></script>
+            <script src="~/js/create-model.js" asp-append-version="true"></script>
+        </div>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>
