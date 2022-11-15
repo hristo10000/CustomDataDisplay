@@ -13,6 +13,8 @@ using System.Text;
 using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Controllers
 {
@@ -38,9 +40,9 @@ namespace Controllers
             var table = tableClient.GetTableReference("Models");
             table.CreateIfNotExistsAsync();
         }
-        public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl)
+        public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl, string name, string description, string xmlString, string key)
         {
-            ResultModel resultModel = new("Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"),"Default_Model");
+            ResultModel resultModel = new(key, description, xmlString ,name);
             TableOperation operation = TableOperation.Retrieve<ResultModel>(resultModel.PartitionKey, resultModel.RowKey);
             TableResult result = p_tbl.Execute(operation);
             ResultModel model = result.Result as ResultModel;
@@ -57,7 +59,7 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             await table.CreateIfNotExistsAsync();
-            await InsertTableEntity(table);
+            await InsertTableEntity(table, "Default_Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"), "Default Model");
             Model model = ModelReader.GetModel();
             return View(model);
         }
@@ -115,10 +117,18 @@ namespace Controllers
         }
 
         [HttpPost]
-        [Route("~/Create")]
-        public Task<IActionResult> Create([FromBody] Model Model)
+        [Route("~/CreateModel")]
+        public async Task<IActionResult> Create([FromBody] Model Model)
         {
-            return null;
+            var stringwriter = new StringWriter();
+            var serializer = new XmlSerializer(typeof(Model));
+            serializer.Serialize(stringwriter, Model);
+            string xmlStringOfTheModel = stringwriter.ToString();
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            await InsertTableEntity(table, Model.Name, Model.Description, xmlStringOfTheModel, Model.Name);
+            return Json(Model);
         }
 
             [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,4 +1,5 @@
 ﻿var numberOfFieldsForNewModel = 0;
+localStorage.setItem("isAddedNewModel", false);
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -36,11 +37,12 @@ function CreateModel() {
     var form_data = Model;
     $.ajax({
         type: 'POST',
-        url: '/Create',
+        url: '/CreateModel',
         data: JSON.stringify(form_data),
         contentType: 'application/json',
         dataType: 'json',
         success: function (JsonData) {
+            FillAllModels();
         }
     });
 }

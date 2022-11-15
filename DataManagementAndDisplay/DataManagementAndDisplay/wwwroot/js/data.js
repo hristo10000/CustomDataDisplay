@@ -8,6 +8,7 @@
 });
 
 function SearchAndDisplay() {
+
     var form_data = GetData();
     $('.loading').show();
     $('.table-to-be-hidden').hide();
@@ -62,24 +63,20 @@ function GetData() {
     return SearchModel;
 }
 
-function GetAllModels() {
+function FillAllModels() {
     $.ajax({
         type: 'GET',
         url: '/Models',
         success: function (JsonData) {
-            var AppendToDiv = document.getElementsByClassName('model-name-for-all-models-list');
-            if (AppendToDiv.length == 0) {
-                for (var i = 0; i < JsonData.length; i++) {
-                    var div = document.createElement('div');
-                    var mySpan = document.createElement('span');
-                    mySpan.innerHTML = `${JsonData[i].name}`;
-                    div.setAttribute('class', 'model-name-for-all-models-list');
-                    div.appendChild(mySpan);
-                    var AppendToDiv = document.getElementsByClassName('all-models');
-                    AppendToDiv[0].appendChild(div);
-                }
-            }  
-        }
+            var AppendToDiv = $('.all-models');
+            AppendToDiv.empty();
+            for (var i = 0; i < JsonData.length; i++) {
+                var div = $("<div></div>").attr('class', 'model-name-for-all-models-list');
+                var mySpan = $("<span></span>").text(JsonData[i].name);
+                div.append(mySpan);
+                AppendToDiv.append(div);
+            }
+        }  
     });
 }
 
