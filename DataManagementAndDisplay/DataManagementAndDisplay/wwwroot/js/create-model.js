@@ -40,7 +40,6 @@ function CreateModel() {
         url: '/CreateModel',
         data: JSON.stringify(form_data),
         contentType: 'application/json',
-        dataType: 'json',
         success: function (JsonData) {
             FillAllModels();
         }

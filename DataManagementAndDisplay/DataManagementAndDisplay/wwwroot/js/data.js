@@ -71,7 +71,7 @@ function FillAllModels() {
             var AppendToDiv = $('.all-models');
             AppendToDiv.empty();
             for (var i = 0; i < JsonData.length; i++) {
-                var div = $('<div><button onclick="DeleteModel()" class="delete-model-button">x</button></div>').attr('class', 'model-name-for-all-models-list');
+                var div = $(`<div><button onclick="DeleteModel('${JsonData[i].name}')" class="delete-model-button">x</button></div>').attr('class', 'model-name-for-all-models-list'`);
                 var mySpan = $("<span></span>").text(JsonData[i].name);
                 div.append(mySpan);
                 AppendToDiv.append(div);
@@ -80,8 +80,18 @@ function FillAllModels() {
     });
 }
 
-function DeleteModel() {
-    /*to be implemented*/
+function DeleteModel(modelName) {
+    var NameOfModel = {};
+    NameOfModel.name = modelName;
+    $.ajax({
+        type: 'POST',
+        url: '/DeleteModel',
+        data: JSON.stringify(NameOfModel),
+        contentType: 'application/json',
+        success: function (JsonData) {
+            FillAllModels();
+        }
+    });
 }
 
 /*function CreateModelButtonOnclick(ev){

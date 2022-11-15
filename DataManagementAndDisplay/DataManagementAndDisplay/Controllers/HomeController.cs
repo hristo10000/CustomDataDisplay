@@ -59,7 +59,7 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             await table.CreateIfNotExistsAsync();
-            await InsertTableEntity(table, "Default_Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"), "Default Model");
+            await InsertTableEntity(table, "Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"), "Default Model");
             Model model = ModelReader.GetModel();
             return View(model);
         }
@@ -131,10 +131,29 @@ namespace Controllers
             return Json(Model);
         }
 
-            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [HttpPost]
+        [Route("~/DeleteModel")]
+        public async void Delete([FromBody] NameOfModel nameOfModel)
+        {
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            TableOperation tableOperation = TableOperation.Retrieve<ResultModel>("Models", nameOfModel.Name);
+            TableResult tableResult = table.Execute(tableOperation);
+            var entity = tableResult.Result as ResultModel;
+            TableOperation deleteOperation = TableOperation.Delete(entity);
+            table.Execute(deleteOperation);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class NameOfModel
+    {
+        public string Name { get; set; }
     }
 }
