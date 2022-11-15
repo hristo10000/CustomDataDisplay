@@ -71,13 +71,17 @@ function FillAllModels() {
             var AppendToDiv = $('.all-models');
             AppendToDiv.empty();
             for (var i = 0; i < JsonData.length; i++) {
-                var div = $("<div></div>").attr('class', 'model-name-for-all-models-list');
+                var div = $('<div><button onclick="DeleteModel()" class="delete-model-button">x</button></div>').attr('class', 'model-name-for-all-models-list');
                 var mySpan = $("<span></span>").text(JsonData[i].name);
                 div.append(mySpan);
                 AppendToDiv.append(div);
             }
         }  
     });
+}
+
+function DeleteModel() {
+    /*to be implemented*/
 }
 
 /*function CreateModelButtonOnclick(ev){
