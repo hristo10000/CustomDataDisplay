@@ -284,7 +284,7 @@ tbody:first-child {
 
 .model-name-for-all-models-list {
     margin-top: 5px;
-    text-align: center;
+    text-align: start;
     align-self: center;
 }
 
@@ -487,3 +487,30 @@ tr {
 .create-model-form-element-for-custom-fields {
     width: auto;
 }
+
+.model-name-for-all-models-list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: baseline;
+}
+
+.delete-model-button {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    color: red;
+    align-self: end;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+    .delete-model-button:hover {
+        border: 2px solid red;
+        color: white;
+    }
