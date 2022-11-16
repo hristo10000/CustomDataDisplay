@@ -342,11 +342,11 @@ tr {
     counter-increment: rowNumber;
 }
 
-    table tr td:first-child::before {
-        content: counter(rowNumber);
-        min-width: 1em;
-        margin-right: 0.5em;
-    }
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
 
 .table-to-be-hidden {
     vertical-align: top;
@@ -488,7 +488,7 @@ tr {
     width: auto;
 }
 
-.model-name-for-all-models-list{
+.model-name-for-all-models-list {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -514,3 +514,12 @@ tr {
         border: 2px solid red;
         color: white;
     }
+
+.model-name-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #007bff;
+    text-decoration-thickness: 2px;
+    text-decoration-skip: ink;
+    text-decoration-style: solid;
+}
