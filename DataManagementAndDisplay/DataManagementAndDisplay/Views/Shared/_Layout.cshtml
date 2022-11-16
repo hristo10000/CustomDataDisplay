@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body onload="FillModelNamesInSelect()">
     <div class="main-wrapper-from-mcs">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
         <header class="custom-navbar">
-            <h1 class="model-name-header" style="">Model Name Here</h1>
+            <h1 class="model-name-header">
+                <select class="select-for-displayed-model" onload="FillModelNamesInSelect()"></select>
+            </h1>
         </header>
         <div class="navbar-button">
             <div class="navbar-button-line navbar-button-line-first"> </div>

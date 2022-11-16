@@ -80,6 +80,24 @@ function FillAllModels() {
     });
 }
 
+function FillModelNamesInSelect(){
+    $.ajax({
+        type: 'GET',
+        url: '/Models',
+        success: function (JsonData) {
+            var select = $('.select-for-displayed-model');
+            select.empty();
+            for (var i = 0; i < JsonData.length; i++) {
+                if (i == 0) {
+                    select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name} selected">${JsonData[i].name}</option>`);
+                    continue;
+                }
+                select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name}">${JsonData[i].name}</option>`);
+            }
+        }
+    });
+}
+
 function DeleteModel(modelName) {
     var NameOfModel = {};
     NameOfModel.name = modelName;
