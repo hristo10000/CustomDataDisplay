@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var currentlyDisplayedModelName;
+
+$(document).ready(function () {
     document.onkeydown = NavigateToTop;
     $('#form').submit(function (event) {
         event.preventDefault();
@@ -80,7 +82,7 @@ function FillAllModels() {
     });
 }
 
-function FillModelNamesInSelect(){
+function FillModelNamesInSelect() {
     $.ajax({
         type: 'GET',
         url: '/Models',
@@ -88,14 +90,21 @@ function FillModelNamesInSelect(){
             var select = $('.select-for-displayed-model');
             select.empty();
             for (var i = 0; i < JsonData.length; i++) {
-                if (i == 0) {
-                    select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name} selected">${JsonData[i].name}</option>`);
-                    continue;
+                if (currentlyDisplayedModelName == JsonData[i].name) {
+                    select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name} selected disabled">${JsonData[i].name}</option>`);
+                    break;
                 }
+            }
+            for (var i = 0; i < JsonData.length; i++) {
+                if (currentlyDisplayedModelName == JsonData[i].name) continue;
                 select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name}">${JsonData[i].name}</option>`);
             }
         }
     });
+}
+
+function ChangeSelectedElement() {
+    currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
 }
 
 function DeleteModel(modelName) {
