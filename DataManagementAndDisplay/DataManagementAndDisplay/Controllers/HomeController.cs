@@ -133,7 +133,7 @@ namespace Controllers
 
         [HttpPost]
         [Route("~/DeleteModel")]
-        public async void Delete([FromBody] NameOfModel nameOfModel)
+        public void Delete([FromBody] NameOfModel nameOfModel)
         {
             var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
@@ -143,6 +143,21 @@ namespace Controllers
             var entity = tableResult.Result as ResultModel;
             TableOperation deleteOperation = TableOperation.Delete(entity);
             table.Execute(deleteOperation);
+        }
+
+        [HttpPost]
+        [Route("~/DispayModels")]
+        public void DispayModels([FromBody] NameOfModel nameOfModel)
+        {
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            TableOperation tableOperation = TableOperation.Retrieve<ResultModel>("Models", nameOfModel.Name);
+            TableResult tableResult = table.Execute(tableOperation);
+            var entity = tableResult.Result as ResultModel;
+            XmlSerializer serializer = new XmlSerializer(typeof(Model));
+            using TextReader reader = new StringReader(entity.XmlModel);
+            var ModelToBeDisplayed = (Model)serializer.Deserialize(reader);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

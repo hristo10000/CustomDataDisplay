@@ -72,7 +72,7 @@ function FillAllModels() {
             AppendToDiv.empty();
             for (var i = 0; i < JsonData.length; i++) {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
-                var mySpan = $('<span onclick="ChooseAsDisplayedModel()" class="model-name-button"></span>').text(JsonData[i].name);
+                var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
                 div.append(mySpan);
                 div.append(`<div onclick="DeleteModel('${ JsonData[i].name }')" class="delete-model-button">❌</div>`)
                 AppendToDiv.append(div);
@@ -95,11 +95,16 @@ function DeleteModel(modelName) {
     });
 }
 
-function ChooseAsDisplayedModel() {
-    /*to be implemented*/
-}
+function ChooseAsDisplayedModel(modelName) {
+    var NameOfModel = {};
+    NameOfModel.name = modelName;
+    $.ajax({
+        type: 'POST',
+        url: '/DispayModels',
+        data: JSON.stringify(NameOfModel),
+        contentType: 'application/json',
+        success: function (JsonData) {
 
-/*function CreateModelButtonOnclick(ev){
-    ev.preventDefault();
+        }
+    });
 }
-*/
