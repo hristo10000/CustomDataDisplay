@@ -1,5 +1,6 @@
 ﻿var numberOfFieldsForNewModel = 0;
 localStorage.setItem("isAddedNewModel", false);
+
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -55,6 +56,7 @@ function AddTextColumn() {
         '</div>';
     $('.added-columns-list').append(textColumn);
 }
+
 function AddOptionValues() {
     var buttonToRemove = document.getElementById('add-new-enum-column');
     buttonToRemove.remove();
@@ -62,6 +64,7 @@ function AddOptionValues() {
         '<div id="add-new-option" class="add-new-option" onclick="AddNewOption()">+</div>';
     $('.field-column-input').last().append(textColumn);
 }
+
 function AddNewOption() {
     var buttonToRemove = document.getElementsByClassName('add-new-option');
     buttonToRemove[buttonToRemove.length - 1].remove();

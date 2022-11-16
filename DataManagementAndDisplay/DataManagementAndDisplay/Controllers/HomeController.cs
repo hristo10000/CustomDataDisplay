@@ -23,7 +23,6 @@ namespace Controllers
         private readonly IConfiguration config;
         readonly string applicationId;
         readonly string key;
-        
 
         [Obsolete]
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
@@ -42,7 +41,7 @@ namespace Controllers
         }
         public static async Task<TableResult> InsertTableEntity(CloudTable p_tbl, string name, string description, string xmlString, string key)
         {
-            ResultModel resultModel = new(key, description, xmlString ,name);
+            ResultModel resultModel = new(key, description, xmlString, name);
             TableOperation operation = TableOperation.Retrieve<ResultModel>(resultModel.PartitionKey, resultModel.RowKey);
             TableResult result = p_tbl.Execute(operation);
             ResultModel model = result.Result as ResultModel;
@@ -102,7 +101,6 @@ namespace Controllers
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
             return Json(data);
-
         }
 
         [HttpGet]

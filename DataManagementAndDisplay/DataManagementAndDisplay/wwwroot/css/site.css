@@ -523,3 +523,24 @@ table tr td:first-child::before {
     text-decoration-skip: ink;
     text-decoration-style: solid;
 }
+
+.clear-search-form-button {
+    width: 100px;
+    color: red;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+    .clear-search-form-button:hover {
+        background-color: red;
+        color: white;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+    }
+
+.search-form-top-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

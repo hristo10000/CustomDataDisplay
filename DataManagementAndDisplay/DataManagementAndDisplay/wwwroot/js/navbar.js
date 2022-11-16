@@ -31,7 +31,7 @@ $('html').mousedown(function (ev) {
                     $('.navbar-option-view-model').text('View Model');
                     $('.page1').removeClass('currently-shown-page');
                     $('.navbar-option-create-model').text('➧Create Model');
-                    var allModels = FillAllModels();
+                    FillAllModels();
                 }
                 break;
             default:

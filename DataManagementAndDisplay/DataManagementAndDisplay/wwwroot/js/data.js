@@ -8,7 +8,6 @@
 });
 
 function SearchAndDisplay() {
-
     var form_data = GetData();
     $('.loading').show();
     $('.table-to-be-hidden').hide();
@@ -52,8 +51,8 @@ function GetData() {
     Time['InternalName'] = timeControl.attr('id');
     Time['Value'] = timeControl.val();
     SearchModel.Time = Time;
-
     var fields = $('.data-control')
+
     $.each(fields, function (id, value) {
         var Field = {};
         Field['InternalName'] = value.id;
