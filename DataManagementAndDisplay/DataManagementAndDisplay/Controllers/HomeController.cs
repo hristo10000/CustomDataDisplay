@@ -145,7 +145,7 @@ namespace Controllers
 
         [HttpPost]
         [Route("~/DispayModels")]
-        public void DispayModels([FromBody] NameOfModel nameOfModel)
+        public async Task<IActionResult> DispayModels([FromBody] NameOfModel nameOfModel)
         {
             var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
@@ -156,6 +156,7 @@ namespace Controllers
             XmlSerializer serializer = new XmlSerializer(typeof(Model));
             using TextReader reader = new StringReader(entity.XmlModel);
             var ModelToBeDisplayed = (Model)serializer.Deserialize(reader);
+            return Json(ModelToBeDisplayed);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

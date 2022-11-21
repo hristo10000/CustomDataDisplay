@@ -105,6 +105,17 @@ function FillModelNamesInSelect() {
 
 function ChangeSelectedElement() {
     currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
+    var NameOfModel = {};
+    NameOfModel.name = currentlyDisplayedModelName;
+    $.ajax({
+        type: 'POST',
+        url: '/DispayModels',
+        data: JSON.stringify(NameOfModel),
+        contentType: 'application/json',
+        success: function (JsonData) {
+            console.log(JsonData);
+        }
+    });
 }
 
 function DeleteModel(modelName) {
