@@ -113,7 +113,41 @@ function ChangeSelectedElement() {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
-            console.log(JsonData);
+            SearchMenu = $(".search").empty();
+            var formByTheNewModel = ' <form id="form">' +
+                '< div class="search-form-top-row" >' +
+                '<h2>Search</h2>' +
+                '<button class="clear-search-form-button" type="reset">Reset Search</button>' +
+                '</div >' +
+                `for (int i = 0; i < ${JsonData.fields.length}; i++)` +
+                '{' +
+                `if (${JsonData.fields['i'].displayName} != "Date")` +
+                '{' +
+                `if (${JsonData.fields['i'].possibleValues.length} == 0)` +
+                '{' +
+                '<div class="form-group">' +
+                `<label class="control-label">${JsonData.fields['i'].displayName}</label>` +
+                `<input class="form-control data-control ${JsonData.fields['i'].displayName} id="${JsonData.fields['i'].internalName}" value="${JsonData.fields['i'].value}" data-type="${JsonData.fields['i'].fieldType.stringify}" />` +
+                '</div>' +
+                '}' +
+                'else' +
+                '{' +
+                '<div class="form-group">' +
+                `${JsonData.fields['i'].displayName}` +
+                `<select id="${JsonData.fields['i'].internalName}" class="form-control data-control ${JsonData.fields['i'].displayName}">` +
+                '<option selected></option>' +
+                `for (int j = 0; j < ${JsonData.fields['i'].possibleValues.length}; j++)` +
+                '{' +
+                `<option value="${JsonData.fields['i'].possibleValues['j']}">${JsonData.fields['i'].possibleValues['j']}</option>` +
+                '}' +
+                '</select>' +
+                '</div>' +
+                '}}}' +
+                '<div class="form-group">' +
+                '< input style = "width:318px;" id = "btnGet" type = "submit" value = "Search" class="btn btn-primary" />' +
+                '</div >' +
+                '</form >';
+            $('.search').append(formByTheNewModel);
         }
     });
 }
