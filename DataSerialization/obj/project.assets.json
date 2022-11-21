@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Viktor Milanov\\.nuget\\packages\\": {}
+    "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\DataSerialization.csproj",
+      "projectUniqueName": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\DataSerialization.csproj",
       "projectName": "DataSerialization",
-      "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\DataSerialization.csproj",
-      "packagesPath": "C:\\Users\\Viktor Milanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\obj\\",
+      "projectPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\DataSerialization.csproj",
+      "packagesPath": "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataSerialization\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Viktor Milanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hristo Ivanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj": {
-              "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj"
+            "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj": {
+              "projectPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj"
             }
           }
         }
@@ -83,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }
