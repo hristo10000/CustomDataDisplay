@@ -75,7 +75,7 @@ function FillAllModels() {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
                 var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
                 div.append(mySpan);
-                div.append(`<div onclick="DeleteModel('${ JsonData[i].name }')" class="delete-model-button">❌</div>`)
+                div.append(`<div onclick="ConfirmDeleteModel('${ JsonData[i].name }')" class="delete-model-button">❌</div>`)
                 AppendToDiv.append(div);
             }
         }  
@@ -141,14 +141,46 @@ function ChooseAsDisplayedModel(modelName) {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
-
         }
     });
 }
 
+function ShowCreateModelForm() {
+    $('.create-model-form').css('display', 'flex');
+}
 
-function ConfirmSearchReset() {
-    if (confirm('Are you sure you want to reset all filters?')) {
-        $("#form").trigger("reset");
-    }
+
+function Confirm(title, msg, $true, $false, modelName) {
+    var $content = "<div class='dialog-ovelay'>" +
+        "<div class='dialog'><header>" +
+        " <h3> " + title + " </h3> " +
+        "<i class='fa fa-close'></i>" +
+        "</header>" +
+        "<div class='dialog-msg'>" +
+        " <p> " + msg + " </p> " +
+        "</div>" +
+        "<footer>" +
+        "<div class='controls'>" +
+        " <button class='button button-danger doAction'>" + $true + "</button> " +
+        " <button class='button button-default cancelAction'>" + $false + "</button> " +
+        "</div>" +
+        "</footer>" +
+        "</div>" +
+        "</div>";
+    $('body').prepend($content);
+    $('.doAction').click(function () {
+        DeleteModel(modelName)
+        $(this).parents('.dialog-ovelay').fadeOut(500, function () {
+            $(this).remove();
+        });
+    });
+    $('.cancelAction, .fa-close').click(function () {
+        $(this).parents('.dialog-ovelay').fadeOut(500, function () {
+            $(this).remove();
+        });
+    });
+}
+
+function ConfirmDeleteModel(modelName) {
+    Confirm('Delete Model', 'Are you sure you want to DELETE this model PERMANENTLY', 'Yes', 'Cancel', modelName);
 }
