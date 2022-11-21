@@ -15,12 +15,14 @@ $('table').mousedown(function (ev) {
     isUseInSearchOptionDisabled = false;
     }
     $('.custom-context-menu-wrapper').css('display', 'block');
-    if (mouseX(ev) + $('.context-menu').width() > window.innerWidth) {
+    $('.custom-context-menu-wrapper').css('height', $('.main-wrapper-from-mcs').height());
+    if (mouseX(ev) + $('.context-menu').width() > window.innerWidth + document.documentElement.scrollLeft) {
         $('.context-menu').css('left', mouseX(ev) - $('.context-menu').width());
     } else {
         $('.context-menu').css('left', mouseX(ev));
     }
-    if (mouseY(ev) + $('.context-menu').height() > window.innerHeight) {
+    console.log(window.innerHeight, document.documentElement.scrollTop);
+    if (mouseY(ev) + $('.context-menu').height() > window.innerHeight + document.documentElement.scrollTop) {
         $('.context-menu').css('top', mouseY(ev) - $('.context-menu').height());
     } else {
         $('.context-menu').css('top', mouseY(ev));
@@ -40,10 +42,18 @@ function mouseX(evt) {
 }
 
 function mouseY(evt) {
-    return evt.clientY-80 + document.documentElement.scrollTop;
+    return evt.clientY + document.documentElement.scrollTop;
 }
 
 function NavigateToTop(e) {
     var evtobj = window.event ? event : e
     if (evtobj.keyCode == 38 && evtobj.ctrlKey) window.scrollTo(0, 0);;
 }
+
+addEventListener('scroll', (event) => {
+    if (isCustomContextMenuOpened) {
+        $('.custom-context-menu-wrapper').css('display', 'none');
+        $(targetTableCell).removeClass('current-target-for-context-menu');
+        isCustomContextMenuOpened = false;
+    }
+});
