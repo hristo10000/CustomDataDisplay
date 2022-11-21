@@ -40,7 +40,7 @@ function mouseX(evt) {
 }
 
 function mouseY(evt) {
-    return evt.clientY-80 + document.documentElement.scrollTop;
+    return evt.clientY + document.documentElement.scrollTop;
 }
 
 function NavigateToTop(e) {

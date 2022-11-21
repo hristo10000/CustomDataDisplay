@@ -169,10 +169,10 @@ function Confirm(title, msg, $true, $false, modelName) {
         "</div>";
     $('body').prepend($content);
     $('.doAction').click(function () {
-        DeleteModel(modelName)
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
             $(this).remove();
         });
+        DeleteModel(modelName)
     });
     $('.cancelAction, .fa-close').click(function () {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
