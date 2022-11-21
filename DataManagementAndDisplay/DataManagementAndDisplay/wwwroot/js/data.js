@@ -149,7 +149,6 @@ function ShowCreateModelForm() {
     $('.create-model-form').css('display', 'flex');
 }
 
-
 function Confirm(title, msg, $true, $false, modelName) {
     var $content = "<div class='dialog-ovelay'>" +
         "<div class='dialog'><header>" +
