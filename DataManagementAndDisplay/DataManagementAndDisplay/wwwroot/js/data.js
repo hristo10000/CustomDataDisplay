@@ -134,3 +134,10 @@ function ChooseAsDisplayedModel(modelName) {
         }
     });
 }
+
+
+function ConfirmSearchReset() {
+    if (confirm('Are you sure you want to reset all filters?')) {
+        $("#form").trigger("reset");
+    }
+}
