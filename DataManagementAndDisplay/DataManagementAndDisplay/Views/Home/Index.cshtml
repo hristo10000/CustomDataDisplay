@@ -10,7 +10,7 @@
                 <form id="form">
                     <div class="search-form-top-row">
                         <h2>Search</h2>
-                        <button class="clear-search-form-button" type="reset">Reset Search</button>
+                        <button class="clear-search-form-button" onclick="ConfirmSearchReset()">Reset Search</button>
                     </div>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
@@ -36,16 +36,16 @@
                             }
                             else
                             {
-                                <div class="form-group">
-                                    @Model.Fields[i].DisplayName
-                                    <select id="@Model.Fields[i].InternalName" class="form-control data-control @Model.Fields[i].DisplayName">
-                                        <option selected></option>
-                                        @for (int j = 0; j < Model.Fields[i].PossibleValues.Count; j++)
-                                        {
-                                            <option value="@Model.Fields[i].PossibleValues[j]">@Model.Fields[i].PossibleValues[j]</option>
-                                        }
-                                    </select>
-                                </div>
+                <div class="form-group">
+                    <label class="control-label">@Model.Fields[i].DisplayName</label>
+                    <select id="@Model.Fields[i].InternalName" class="form-control data-control @Model.Fields[i].DisplayName">
+                        <option selected></option>
+                        @for (int j = 0; j < Model.Fields[i].PossibleValues.Count; j++)
+                        {
+                            <option value="@Model.Fields[i].PossibleValues[j]">@Model.Fields[i].PossibleValues[j]</option>
+                        }
+                    </select>
+                </div>
                             }
                         }
                     }

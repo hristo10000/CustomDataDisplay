@@ -114,41 +114,53 @@ function ChangeSelectedElement() {
         contentType: 'application/json',
         success: function (JsonData) {
             SearchMenu = $(".search").empty();
-            var formByTheNewModel = ' <form id="form">' +
-                '< div class="search-form-top-row" >' +
-                '<h2>Search</h2>' +
-                '<button class="clear-search-form-button" type="reset">Reset Search</button>' +
-                '</div >' +
-                `for (int i = 0; i < ${JsonData.fields.length}; i++)` +
-                '{' +
-                `if (${JsonData.fields['i'].displayName} != "Date")` +
-                '{' +
-                `if (${JsonData.fields['i'].possibleValues.length} == 0)` +
-                '{' +
-                '<div class="form-group">' +
-                `<label class="control-label">${JsonData.fields['i'].displayName}</label>` +
-                `<input class="form-control data-control ${JsonData.fields['i'].displayName} id="${JsonData.fields['i'].internalName}" value="${JsonData.fields['i'].value}" data-type="${JsonData.fields['i'].fieldType.stringify}" />` +
-                '</div>' +
-                '}' +
-                'else' +
-                '{' +
-                '<div class="form-group">' +
-                `${JsonData.fields['i'].displayName}` +
-                `<select id="${JsonData.fields['i'].internalName}" class="form-control data-control ${JsonData.fields['i'].displayName}">` +
-                '<option selected></option>' +
-                `for (int j = 0; j < ${JsonData.fields['i'].possibleValues.length}; j++)` +
-                '{' +
-                `<option value="${JsonData.fields['i'].possibleValues['j']}">${JsonData.fields['i'].possibleValues['j']}</option>` +
-                '}' +
-                '</select>' +
-                '</div>' +
-                '}}}' +
+            var form = $("<form></form>").attr('id', "form");
+            var firstDivOfSearch = $("<div></div>").addClass("search-form-top-row");
+            var headerOfTheSearch = $("<h2></h2>").text("Search");
+            var resetButton = $("<button></button>").attr('type', "reset").addClass("clear-search-form-button").text("Reset");
+            firstDivOfSearch.append(headerOfTheSearch);
+            firstDivOfSearch.append(resetButton);
+            form.append(firstDivOfSearch);
+            for (var i = 0; i < JsonData.fields.length; i++) {
+                if (JsonData.fields[i].displayName != "Date") {
+                    if (JsonData.fields[i].possibleValues.length == 0) {
+                        var divForField = $("<div></div>").addClass("form-group");
+                        var labelForField = $("<label></label>").addClass("control-label").text(JsonData.fields[i].displayName);
+                        var inputForField = $("<input></input>").addClass("form-control data-control").addClass(JsonData.fields[i].displayName).attr('id', JsonData.fields[i].internalName).attr('data-type', JsonData.fields[i].fieldType.stringify).attr('value', JsonData.fields[i].value);
+                        divForField.append(labelForField);
+                        divForField.append(inputForField);
+                        form.append(divForField);
+                    }
+                    else {
+                        var divForField = $("<div></div>").addClass("form-group");
+                        var labelForField = $("<label></label>").addClass("control-label").text(JsonData.fields[i].displayName);
+                        var selectForField = $("<select></select>").addClass("form-control data-control").addClass(JsonData.fields[i].displayName).attr('id', JsonData.fields[i].internalName);
+                        var emptyOptionForField = $("<option selected></option>");
+                        selectForField.append(emptyOptionForField);
+                        divForField.append(labelForField);
+                        
+                        for (var j = 0; j < JsonData.fields[i].possibleValues.length; j++) {
+                            var optionForField = $("<option></option>").attr('value', JsonData.fields[i].possibleValues[j]).text(JsonData.fields[i].possibleValues[j]);
+                            selectForField.append(optionForField);
+                        }
+                        divForField.append(selectForField);
+                        form.append(divForField);
+                    }
+                }
+            }
+            var SubmitDiv = $("<div></div>").addClass("form-group");
+            var SubmitInput = $("<input></input>").addClass("btn btn-primary").attr('value', "Search").attr('type', "submit").attr('id', "btnGet").attr('style', "width:318px;");
+            SubmitDiv.append(SubmitInput);
+            form.append(SubmitDiv);
+            $('.search').append(form);
+
+/*
                 '<div class="form-group">' +
                 '< input style = "width:318px;" id = "btnGet" type = "submit" value = "Search" class="btn btn-primary" />' +
                 '</div >' +
                 '</form >';
             $('.search').append(formByTheNewModel);
-        }
+        */}
     });
 }
 
@@ -164,4 +176,25 @@ function DeleteModel(modelName) {
             FillAllModels();
         }
     });
+}
+
+function ChooseAsDisplayedModel(modelName) {
+    var NameOfModel = {};
+    NameOfModel.name = modelName;
+    $.ajax({
+        type: 'POST',
+        url: '/DispayModels',
+        data: JSON.stringify(NameOfModel),
+        contentType: 'application/json',
+        success: function (JsonData) {
+
+        }
+    });
+}
+
+
+function ConfirmSearchReset() {
+    if (confirm('Are you sure you want to reset all filters?')) {
+        $("#form").trigger("reset");
+    }
 }
