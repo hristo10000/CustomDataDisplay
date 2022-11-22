@@ -90,7 +90,8 @@ function PlayErrorSound() {
 
 function StopAlarm() {
     var audio = document.getElementById("alarm");
-    audio.stop();
+    audio.pause();
+    audio.currentTime = 0;
 }
 
 function FillModelNamesInSelect() {
