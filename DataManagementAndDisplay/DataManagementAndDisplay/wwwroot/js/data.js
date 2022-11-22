@@ -75,11 +75,22 @@ function FillAllModels() {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
                 var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
                 div.append(mySpan);
-                div.append(`<div onclick="ConfirmDeleteModel('${ JsonData[i].name }')" class="delete-model-button">❌</div>`)
+                div.append(`<div onclick="ConfirmDeleteModel('${JsonData[i].name}')" class="delete-model-button">❌</div>
+                            <audio id="alarm" src="/audios/alarm.mp3"></audio>`)
                 AppendToDiv.append(div);
             }
         }  
     });
+}
+
+function PlayErrorSound() {
+    var audio = document.getElementById("alarm");
+    audio.play();
+}
+
+function StopAlarm() {
+    var audio = document.getElementById("alarm");
+    audio.stop();
 }
 
 function FillModelNamesInSelect() {
@@ -219,14 +230,17 @@ function Confirm(title, msg, $true, $false, modelName) {
             $(this).remove();
         });
         DeleteModel(modelName)
+        StopAlarm();
     });
     $('.cancelAction, .fa-close').click(function () {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
             $(this).remove();
         });
+        StopAlarm();
     });
 }
 
 function ConfirmDeleteModel(modelName) {
+    PlayErrorSound();
     Confirm('Delete Model', 'Are you sure you want to DELETE this model PERMANENTLY', 'Yes', 'Cancel', modelName);
 }
