@@ -4,9 +4,7 @@
 	<Description>This is the default model, which is displayed when the application is first opened.</Description>
 	<timeField>
 		<DisplayName>Date</DisplayName>
-		<DisplayName>DateOfAdding</DisplayName>
 		<InternalName>timestamp</InternalName>
-		<fieldType>DateTime</fieldType>
 		<FieldType>DateTime</FieldType>
 	</timeField>
 	<timestamps>
@@ -46,12 +44,24 @@
 			<InternalName>customDimensions.User</InternalName>
 			<FieldType>String</FieldType>
 			<PossibleValues>
-				<string>Viktor</string>
-				<string>Hristo</string>
-				<string>Daniel</string>
-				<string>Martin</string>
-				<string>Vilian</string>
-				<string>Slavi</string>
+				<PossibleValue>
+					<PossibleOptionValue>Viktor</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Hristo</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Martin</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Daniel</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Slavi</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Vilian</PossibleOptionValue>
+				</PossibleValue>
 			</PossibleValues>
 		</Field>
 		<Field>
@@ -59,9 +69,15 @@
 			<InternalName>customDimensions.Result</InternalName>
 			<FieldType>String</FieldType>
 			<PossibleValues>
-				<string>Fail</string>
-				<string>Success</string>
-				<string>Warning</string>
+				<PossibleValue>
+					<PossibleOptionValue>Fail</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Success</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Warning</PossibleOptionValue>
+				</PossibleValue>
 			</PossibleValues>
 		</Field>
 		<Field>
@@ -69,10 +85,18 @@
 			<InternalName>customDimensions.Operation</InternalName>
 			<FieldType>String</FieldType>
 			<PossibleValues>
-				<string>Add</string>
-				<string>Update</string>
-				<string>Delete</string>
-				<string>View</string>
+				<PossibleValue>
+					<PossibleOptionValue>Add</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Delete</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>Update</PossibleOptionValue>
+				</PossibleValue>
+				<PossibleValue>
+					<PossibleOptionValue>View</PossibleOptionValue>
+				</PossibleValue>
 			</PossibleValues>
 		</Field>
 		<Field>

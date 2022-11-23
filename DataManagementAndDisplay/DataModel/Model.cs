@@ -11,6 +11,7 @@ namespace DataModel
         public List<Field> Fields { get; set; }
         public Model()
         {
+            timeField = new Field();
             Fields = new List<Field>();
             timestamps = new List<TimeFieldOption>();
         }
@@ -47,6 +48,11 @@ namespace DataModel
         public TimeFieldOption()
         {
 
+        }
+        public TimeFieldOption(string iName, string dName)
+        {
+            InternalName = iName;
+            DisplayName = dName;
         }
         public string InternalName { get; set; }
         public string DisplayName { get; set; }
