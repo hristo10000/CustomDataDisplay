@@ -307,7 +307,6 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
     ConfirmSelection('Selected Successfuly',`You selected "${ev.target.textContent}"!`);
 });
 
-
 function ConfirmSelection(title, msg) {
     var $content = '<div class="dialog-ovelay-selection">' +
         '<div class="dialog"><header>' +
