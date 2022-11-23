@@ -26,13 +26,35 @@ function SearchAndDisplay() {
             }
             $('.message-to-be-hidden').hide();
             $('#table-result').show();
+            $('#table-result').empty();
+            var trForHeaders = $('<tr></tr>');
+            var headerForCount = $('<th></th>').attr('class', 'custom-table-heading').text("№");
+            trForHeaders.append(headerForCount);
+
+
+            currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
+            var NameOfModel = {};
+            NameOfModel.name = currentlyDisplayedModelName;
+            $.ajax({
+                type: 'POST',
+                url: '/DispayModels',
+                data: JSON.stringify(NameOfModel),
+                contentType: 'application/json',
+                success: function (Model) {
+                    for (var i = 0; i < Model.fields.length; i++) {
+                        var headerForField = $('<th></th>').attr('class', 'custom-table-heading').text(Model.fields[i].displayName);
+                        trForHeaders.append(headerForField);
+                    }
+                }
+            });
+            $('#table-result').append(trForHeaders)
             var tableNames = [];
             tableNames = Object.getOwnPropertyNames(JsonData[0]);
             for (i = 0; i < JsonData.length; i++) {
                 row = '<tr class="data-row"><td class="row-number"></td>';
                 for (var j = 0; j < tableNames.length; j++) {
                     var a = JsonData[i][tableNames[j]];
-                    var selectedElements = $(`th:nth-child(${j + 2})`);
+                    var selectedElements = $(`th:nth-child(${j})`);
                         row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}','${selectedElements.text()}');">` + a + '</td>';
                     }
                 row += '</tr>'
@@ -47,6 +69,7 @@ function GetData() {
     var timeControl = $('.time-control');
     var Time = {};
     SearchModel.Fields = [];
+    SearchModel.NameOfModel = {};
     Time['InternalName'] = timeControl.attr('id');
     Time['Value'] = timeControl.val();
     SearchModel.Time = Time;
@@ -58,6 +81,8 @@ function GetData() {
         Field['Value'] = value.value;
         SearchModel.Fields[id] = Field;
     });
+    CurrentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
+    SearchModel.NameOfModel.Name = currentlyDisplayedModelName;
     return SearchModel;
 }
 

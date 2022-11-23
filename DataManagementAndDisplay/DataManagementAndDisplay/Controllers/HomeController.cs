@@ -67,15 +67,31 @@ namespace Controllers
         [Route("~/Search")]
         public async Task<IActionResult> Search([FromBody] SearchModel searchModel)
         {
-            Model model = ModelReader.GetModel();
+            Model model = GetModelByName(searchModel.NameOfModel);
             var time = searchModel.Time;
             string date = "customDimensions.Date";
             List<SearchField> fields = searchModel.Fields;
             StringBuilder sb = new();
-            string yesterday = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day - 1}";
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             sb.Append($"customEvents | where {time.InternalName} > ago(24h) ");
+            /*| where  customDimensions.User == "Viktor" or customDimensions.User == "Hristo"*/
+            for (int i = 0; i < model.Fields.Count; i++)
+            {
+                if (model.Fields[i].PossibleValues.Count != 0)
+                {
+                    sb.Append($"| where ");
+                    for (int j = 0; j < model.Fields[i].PossibleValues.Count; j++)
+                    {
+                        string text = $"{ model.Fields[i].InternalName} == '{model.Fields[i].PossibleValues[j].PossibleOptionValue}' ";
+                        sb.Append(text);
+                        if (j != model.Fields[i].PossibleValues.Count - 1)
+                        {
+                            sb.Append($"or ");
+                        }
+                    }
+                }
+            }
             for (int i = 0; i < fields.Count; i++)
             {
                 if (fields[i].Value != "")
@@ -92,11 +108,10 @@ namespace Controllers
                 }
             }
             sb.Append("| project ");
-            foreach (var field in fields)
+            foreach (var field in model.Fields)
             {
                 sb.Append($"{ field.InternalName},");
             }
-            sb.Append($"{date}");
             var query = sb.ToString().Trim(',');
             var response = await applicationInsightsClient.Query.ExecuteWithHttpMessagesAsync(applicationId, query);
             IEnumerable<IDictionary<string, object>> data = response.Body.Results;
@@ -156,6 +171,19 @@ namespace Controllers
             table.Execute(deleteOperation);
         }
 
+        public Model GetModelByName(NameOfModel nameOfModel)
+        {
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            TableOperation tableOperation = TableOperation.Retrieve<ResultModel>("Models", nameOfModel.Name);
+            TableResult tableResult = table.Execute(tableOperation);
+            var entity = tableResult.Result as ResultModel;
+            XmlSerializer serializer = new XmlSerializer(typeof(Model));
+            using TextReader reader = new StringReader(entity.XmlModel);
+            var ModelToBeDisplayed = (Model)serializer.Deserialize(reader);
+            return ModelToBeDisplayed;
+        }
         [HttpPost]
         [Route("~/DispayModels")]
         public async Task<IActionResult> DispayModels([FromBody] NameOfModel nameOfModel)

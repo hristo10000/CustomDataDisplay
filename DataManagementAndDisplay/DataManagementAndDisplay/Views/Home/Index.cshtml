@@ -18,14 +18,6 @@
             <div class="results">
                 <img class="no-results message-to-be-hidden" src="/css/NoResultsImage.png" />
                 <table oncontextmenu="return false;" id="table-result" class="justify-content-between table-to-be-hidden">
-                    <tr>
-                        <th class="custom-table-heading">№</th>
-                        @for (int i = 1; i < @Model.Fields.Count; i++)
-                        {
-                            <th class="custom-table-heading">@Model.Fields[i].DisplayName</th>
-                        }
-                        <th class="custom-table-heading">@Model.timeField.DisplayName</th>
-                    </tr>
                 </table>
             </div>
         </div>
