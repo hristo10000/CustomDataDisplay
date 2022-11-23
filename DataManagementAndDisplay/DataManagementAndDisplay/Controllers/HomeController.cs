@@ -118,6 +118,7 @@ namespace Controllers
         [Route("~/CreateModel")]
         public async Task<IActionResult> Create([FromBody] Model Model)
         {
+            Model = AddTimeOptions(Model);
             var stringwriter = new StringWriter();
             var serializer = new XmlSerializer(typeof(Model));
             serializer.Serialize(stringwriter, Model);
@@ -128,7 +129,19 @@ namespace Controllers
             await InsertTableEntity(table, Model.Name, Model.Description, xmlStringOfTheModel, Model.Name);
             return Json(Model);
         }
-
+        private Model AddTimeOptions(Model model)
+        {
+            model.timeField.DisplayName = "Date";
+            model.timeField.InternalName = "timestamp";
+            model.timeField.FieldType = FieldType.DateTime;
+            model.timestamps.Add(new TimeFieldOption("30m", "30 minutes ago"));
+            model.timestamps.Add(new TimeFieldOption("1h", "1 hour ago"));
+            model.timestamps.Add(new TimeFieldOption("3h", "3 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("8h", "8 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("12h", "12 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("1d", "24 hours ago"));
+            return model;
+        }
         [HttpPost]
         [Route("~/DeleteModel")]
         public void Delete([FromBody] NameOfModel nameOfModel)

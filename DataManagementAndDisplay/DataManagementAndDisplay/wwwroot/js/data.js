@@ -2,11 +2,6 @@
 
 $(document).ready(function () {
     document.onkeydown = NavigateToTop;
-    $('#form').submit(function (event) {
-        event.preventDefault();
-        SearchAndDisplay();
-    });
-    SearchAndDisplay();
 });
 
 function SearchAndDisplay() {
@@ -107,26 +102,44 @@ function ChangeSelectedElement() {
     currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
     var NameOfModel = {};
     NameOfModel.name = currentlyDisplayedModelName;
+    if (!NameOfModel.name) {
+        return;
+    }
     $.ajax({
         type: 'POST',
         url: '/DispayModels',
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
+            console.log(JsonData);
             SearchMenu = $(".search").empty();
-            var form = $("<form></form>").attr('id', "form");
+            var form = $("<div></div>").attr('id', "form");
             var firstDivOfSearch = $("<div></div>").addClass("search-form-top-row");
             var headerOfTheSearch = $("<h2></h2>").text("Search");
             var resetButton = $("<button></button>").attr('type', "reset").addClass("clear-search-form-button").text("Reset");
             firstDivOfSearch.append(headerOfTheSearch);
             firstDivOfSearch.append(resetButton);
             form.append(firstDivOfSearch);
+            var DivWithTimestamps = $("<div></div>").addClass("form-group");
+            var labelForField = $("<label></label>").text(JsonData.timeField.displayName);
+            var selectForField = $("<select></select>").addClass("form-control time-control").attr('id', JsonData.timeField.internalName);
+            var emptyOptionForTimestamp = $("<option selected></option>");
+            selectForField.append(emptyOptionForTimestamp);
+            for (var i = 0; i < JsonData.timestamps.length; i++)
+            {
+                var optionForTimestamps = $("<option></option>").attr('value', JsonData.timestamps[i].internalName).text(JsonData.timestamps[i].displayName);
+                selectForField.append(optionForTimestamps);
+            }
+            DivWithTimestamps.append(labelForField);
+            DivWithTimestamps.append(selectForField);
+            form.append(DivWithTimestamps);
+            
             for (var i = 0; i < JsonData.fields.length; i++) {
                 if (JsonData.fields[i].displayName != "Date") {
                     if (JsonData.fields[i].possibleValues.length == 0) {
                         var divForField = $("<div></div>").addClass("form-group");
                         var labelForField = $("<label></label>").addClass("control-label").text(JsonData.fields[i].displayName);
-                        var inputForField = $("<input></input>").addClass("form-control data-control").addClass(JsonData.fields[i].displayName).attr('id', JsonData.fields[i].internalName).attr('data-type', JsonData.fields[i].fieldType.stringify).attr('value', JsonData.fields[i].value);
+                        var inputForField = $(`<input data-type="String"></input>`).addClass("form-control data-control").addClass(JsonData.fields[i].displayName).attr({ id: JsonData.fields[i].internalName, type: JsonData.fields[i].fieldType.stringify, value: JsonData.fields[i].value });
                         divForField.append(labelForField);
                         divForField.append(inputForField);
                         form.append(divForField);
@@ -140,7 +153,7 @@ function ChangeSelectedElement() {
                         divForField.append(labelForField);
                         
                         for (var j = 0; j < JsonData.fields[i].possibleValues.length; j++) {
-                            var optionForField = $("<option></option>").attr('value', JsonData.fields[i].possibleValues[j]).text(JsonData.fields[i].possibleValues[j]);
+                            var optionForField = $("<option></option>").attr('value', JsonData.fields[i].possibleValues[j].possibleOptionValue).text(JsonData.fields[i].possibleValues[j].possibleOptionValue);
                             selectForField.append(optionForField);
                         }
                         divForField.append(selectForField);
@@ -150,17 +163,14 @@ function ChangeSelectedElement() {
             }
             var SubmitDiv = $("<div></div>").addClass("form-group");
             var SubmitInput = $("<input></input>").addClass("btn btn-primary").attr('value', "Search").attr('type', "submit").attr('id', "btnGet").attr('style', "width:318px;");
+            SubmitInput.click(function (event) {
+                event.preventDefault();
+                SearchAndDisplay();
+            });
             SubmitDiv.append(SubmitInput);
             form.append(SubmitDiv);
             $('.search').append(form);
-
-/*
-                '<div class="form-group">' +
-                '< input style = "width:318px;" id = "btnGet" type = "submit" value = "Search" class="btn btn-primary" />' +
-                '</div >' +
-                '</form >';
-            $('.search').append(formByTheNewModel);
-        */}
+        }
     });
 }
 
