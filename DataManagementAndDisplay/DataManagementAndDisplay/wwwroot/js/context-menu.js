@@ -21,7 +21,6 @@ $('table').mousedown(function (ev) {
     } else {
         $('.context-menu').css('left', mouseX(ev));
     }
-    console.log(window.innerHeight, document.documentElement.scrollTop);
     if (mouseY(ev) + $('.context-menu').height() > window.innerHeight + document.documentElement.scrollTop) {
         $('.context-menu').css('top', mouseY(ev) - $('.context-menu').height());
     } else {

@@ -1,4 +1,6 @@
 ﻿var currentlyDisplayedModelName;
+var currentlyDisplayedModelNameForPage2;
+var sec = 5;
 
 $(document).ready(function () {
     document.onkeydown = NavigateToTop;
@@ -70,11 +72,24 @@ function FillAllModels() {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
                 var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
                 div.append(mySpan);
-                div.append(`<div onclick="ConfirmDeleteModel('${ JsonData[i].name }')" class="delete-model-button">❌</div>`)
+                div.append(`<div onclick="ConfirmDeleteModel('${JsonData[i].name}')" class="delete-model-button">❌</div>
+                            <audio id="alarm" src="/audios/alarm.mp3"></audio>`)
                 AppendToDiv.append(div);
             }
         }  
     });
+}
+
+function PlayErrorSound() {
+    var audio = document.getElementById("alarm");
+    audio.loop = true;
+    audio.play();
+}
+
+function StopAlarm() {
+    var audio = document.getElementById("alarm");
+    audio.pause();
+    audio.currentTime = 0;
 }
 
 function FillModelNamesInSelect() {
@@ -207,36 +222,87 @@ function ShowCreateModelForm() {
 }
 
 function Confirm(title, msg, $true, $false, modelName) {
-    var $content = "<div class='dialog-ovelay'>" +
-        "<div class='dialog'><header>" +
-        " <h3> " + title + " </h3> " +
-        "<i class='fa fa-close'></i>" +
-        "</header>" +
-        "<div class='dialog-msg'>" +
-        " <p> " + msg + " </p> " +
-        "</div>" +
-        "<footer>" +
-        "<div class='controls'>" +
-        " <button class='button button-danger doAction'>" + $true + "</button> " +
-        " <button class='button button-default cancelAction'>" + $false + "</button> " +
-        "</div>" +
-        "</footer>" +
-        "</div>" +
-        "</div>";
+    var $content = '<div class="dialog-ovelay">' +
+        '<div class="dialog"><header>' +
+        '<h3>' + title + '</h3>' +
+        '<i class="fa fa-close"></i>' +
+        '</header>' +
+        '<div class="dialog-msg">' +
+        '<p>' + msg + '</p>' +
+        '</div>' +
+        '<footer>' +
+        '<div class="controls">' +
+        '   <button class="button button-danger doAction btnDisable" type="button" disabled>' + $true + '</button> ' +
+        '   <button class="button button-default cancelAction">' + $false + '</button> ' +
+        '</div>' +
+        '</footer>' +
+        '</div>' +
+        '</div>';
     $('body').prepend($content);
+    countDown();
     $('.doAction').click(function () {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
             $(this).remove();
         });
         DeleteModel(modelName)
+        StopAlarm();
+        sec = 5;
+        $('.doAction').removeClass('btnEnable').addClass('btnDisable');
     });
     $('.cancelAction, .fa-close').click(function () {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
             $(this).remove();
         });
+        StopAlarm();
+        sec = 5;
+        $('.doAction').removeClass('btnEnable').addClass('btnDisable');
     });
 }
 
 function ConfirmDeleteModel(modelName) {
-    Confirm('Delete Model', 'Are you sure you want to DELETE this model PERMANENTLY', 'Yes', 'Cancel', modelName);
+    PlayErrorSound();
+    Confirm('Delete Model', 'Are you sure you want to DELETE this model PERMANENTLY?', 'Confirm', 'Cancel', modelName);
+}
+
+function countDown() {
+    $('.doAction').text(sec);
+    if (sec == 0) {
+        $('.doAction').removeAttr('disabled');
+        $('.doAction').removeClass('btnDisable').addClass('btnEnable');
+        $('.doAction').text('Yes');
+        return;
+    } else {
+        sec -= 1;
+        window.setTimeout(countDown, 1000);
+    }
+}
+
+$('body').on('mousedown', '.model-name-button', function (ev) {
+    currentlyDisplayedModelNameForPage2 = ev.target.textContent;
+    ConfirmSelection('Selected Successfuly',`You selected "${ev.target.textContent}"!`);
+});
+
+
+function ConfirmSelection(title, msg) {
+    var $content = '<div class="dialog-ovelay-selection">' +
+        '<div class="dialog"><header>' +
+        '<h3>' + title + '</h3>' +
+        '<i class="fa fa-close"></i>' +
+        '</header>' +
+        '<div class="dialog-msg">' +
+        '<p>' + msg + '</p>' +
+        '</div>' +
+        '<footer>' +
+        '<div class="controls">' +
+        '   <button class="button button-default Iknow">I Know</button> ' +
+        '</div>' +
+        '</footer>' +
+        '</div>' +
+        '</div>';
+    $('body').prepend($content);
+    $('.Iknow').click(function () {
+        $(this).parents('.dialog-ovelay-selection').fadeOut(500, function () {
+            $(this).remove();
+        });
+    });
 }
