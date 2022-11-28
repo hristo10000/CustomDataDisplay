@@ -54,8 +54,8 @@ function SearchAndDisplay() {
                         row = '<tr class="data-row"><td class="row-number"></td>';
                         for (var j = 0; j < tableNames.length; j++) {
                             var a = JsonData[i][tableNames[j]];
-                            var selectedElements = $(`th:nth-child(${j})`);
-                            row += `<td class="${selectedElements.text()}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';
+/*                            var selectedElements = $(`th:nth-child(${j})`);*/
+                            row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';
                         }
                         row += '</tr>'
                         $('#table-result').append(row);
