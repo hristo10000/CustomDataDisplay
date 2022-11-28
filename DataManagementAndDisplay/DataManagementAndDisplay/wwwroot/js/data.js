@@ -1,9 +1,11 @@
 ﻿var currentlyDisplayedModelName;
 var currentlyDisplayedModelNameForPage2;
+var isFirstLoad = true;
 var sec = 5;
 
 $(document).ready(function () {
     document.onkeydown = NavigateToTop;
+    ChangeSelectedElement();
 });
 
 function SearchAndDisplay() {
@@ -140,6 +142,9 @@ function FillModelNamesInSelect() {
 
 function ChangeSelectedElement() {
     currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
+    if (isFirstLoad) {
+        currentlyDisplayedModelName = "Default Model";
+    }
     var NameOfModel = {};
     NameOfModel.name = currentlyDisplayedModelName;
     if (!NameOfModel.name) {
@@ -210,6 +215,11 @@ function ChangeSelectedElement() {
             SubmitDiv.append(SubmitInput);
             form.append(SubmitDiv);
             $('.search').append(form);
+            if (isFirstLoad) {
+                isFirstLoad = false;
+                event.preventDefault();
+                SearchAndDisplay();
+            }
         }
     });
 }
