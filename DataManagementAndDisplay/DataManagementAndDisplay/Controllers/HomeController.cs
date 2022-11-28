@@ -173,10 +173,6 @@ namespace Controllers
 
         public Model GetModelByName(NameOfModel nameOfModel)
         {
-            if(nameOfModel.Name == "")
-            {
-                nameOfModel.Name = "Default Model";
-            }
             var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
