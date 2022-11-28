@@ -54,7 +54,6 @@ function SearchAndDisplay() {
                         row = '<tr class="data-row"><td class="row-number"></td>';
                         for (var j = 0; j < tableNames.length; j++) {
                             var a = JsonData[i][tableNames[j]];
-/*                            var selectedElements = $(`th:nth-child(${j})`);*/
                             row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';
                         }
                         row += '</tr>'
@@ -160,10 +159,10 @@ function ChangeSelectedElement() {
         success: function (JsonData) {
             console.log(JsonData);
             SearchMenu = $(".search").empty();
-            var form = $("<div></div>").attr('id', "form");
+            var form = $("<form></form>").attr('id', "form");
             var firstDivOfSearch = $("<div></div>").addClass("search-form-top-row");
             var headerOfTheSearch = $("<h2></h2>").text("Search");
-            var resetButton = $("<button></button>").attr('type', "reset").addClass("clear-search-form-button").text("Reset");
+            var resetButton = $("<button></button>").attr('type', 'reset').addClass("clear-search-form-button").text("Reset");
             firstDivOfSearch.append(headerOfTheSearch);
             firstDivOfSearch.append(resetButton);
             form.append(firstDivOfSearch);
