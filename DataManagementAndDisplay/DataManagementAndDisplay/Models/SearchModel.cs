@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Controllers;
+using System.Collections.Generic;
 
 namespace DataManagementAndDisplay.Models
 {
@@ -6,6 +7,7 @@ namespace DataManagementAndDisplay.Models
     {
         public SearchField Time { get; set; }
         public List<SearchField> Fields { get; set; }
+        public NameOfModel NameOfModel { get; set; }
         public SearchModel()
         {
             Fields = new List<SearchField>();
