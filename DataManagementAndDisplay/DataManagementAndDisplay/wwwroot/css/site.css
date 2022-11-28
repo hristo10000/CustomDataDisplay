@@ -277,7 +277,7 @@ tbody:first-child {
     height: auto;
     width: auto;
     padding: 10px;
-    margin: 10px;
+    margin-left: 10px;
     border: 3px solid #007bff;
     border-radius: 5px;
 }
@@ -744,3 +744,9 @@ body {
                     padding: 5px 15px;
                     border-radius: 3px
                 }
+
+.create-model-form-element-for-name-and-password, .model-list {
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+}
