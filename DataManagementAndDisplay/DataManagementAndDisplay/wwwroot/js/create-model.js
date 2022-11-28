@@ -1,6 +1,5 @@
-﻿var numberOfFieldsForNewModel = 0;
-localStorage.setItem("isAddedNewModel", false);
-
+﻿localStorage.setItem("isAddedNewModel", false);
+var numberOfFields = 0;
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -48,27 +47,35 @@ function CreateModel() {
 }
 
 function AddTextColumn() {
-    numberOfFieldsForNewModel;
-    var textColumn = '<div class="field-column-input">' +
-        '<input type="text" class="new-model-dispay-name" for="new-model-dispay-name" placeholder="Display Name"/>' +
-        '<input type="text" class="new-model-internal-name" for="new-model-internal-name" placeholder="Internal Name"/>' +
-        '<div id="add-new-enum-column" class="add-new-enum-column" onclick="AddOptionValues()">+ New enum column</div>' +
-        '</div>';
-    $('.added-columns-list').append(textColumn);
+    numberOfFields = $('.field-column-input').length;
+    var divForTextColumn = $('<div></div>').addClass("field-column-input").attr("id", `field-column-input${numberOfFields}`);
+    var inputForDisplayName = $('<input></input>').addClass("new-model-dispay-name").attr("type", "text").attr("placeholder", "Display Name");
+    var inputForInternalName = $('<input></input>').addClass("new-model-internal-name").attr("type", "text").attr("placeholder", "Internal Name");
+    var divForNewColumn = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-enum-column${numberOfFields}`).attr("onclick", "AddOptionValues(this.id)").text("+ New enum column");
+    divForTextColumn.append(inputForDisplayName);
+    divForTextColumn.append(inputForInternalName);
+    divForTextColumn.append(divForNewColumn);
+    $('.added-columns-list').append(divForTextColumn);
 }
 
-function AddOptionValues() {
-    var buttonToRemove = document.getElementById('add-new-enum-column');
-    buttonToRemove.remove();
-    var textColumn = '<input type="text" class="new-model-value" for="new-model-value" placeholder="Value"/>' +
-        '<div id="add-new-option" class="add-new-option" onclick="AddNewOption()">+</div>';
-    $('.field-column-input').last().append(textColumn);
+function AddOptionValues(id) {
+    var button = $(`#${id}`);
+    var div = button.parent();
+    var idOfDiv = div.attr('id')
+    button.remove();
+    var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
+    var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
+    div.append(inputForValue);
+    div.append(divForNewValue);
 }
 
-function AddNewOption() {
-    var buttonToRemove = document.getElementsByClassName('add-new-option');
-    buttonToRemove[buttonToRemove.length - 1].remove();
-    var textColumn = '<input type="text" class="new-model-value" for="new-model-value" placeholder="Value"/>' +
-        '<div id="add-new-option" class="add-new-option" onclick="AddNewOption()">+</div>';
-    $('.field-column-input').last().append(textColumn);
+function AddNewOption(id) {
+    var button = $(`#${id}`);
+    var div = button.parent();
+    var idOfDiv = div.attr('id')
+    button.remove();
+    var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
+    var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
+    div.append(inputForValue);
+    div.append(divForNewValue);
 }
