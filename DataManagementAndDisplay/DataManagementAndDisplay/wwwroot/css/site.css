@@ -471,6 +471,7 @@ table tr td:first-child::before {
     flex-direction: row;
     width: auto;
     height: auto;
+    margin: 20px;
 }
 
 .add-new-text-column {

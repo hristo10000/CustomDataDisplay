@@ -35,6 +35,7 @@ function CreateModel() {
                 Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
             }
         }
+        HideModelForm();
     }
     
     var form_data = Model;

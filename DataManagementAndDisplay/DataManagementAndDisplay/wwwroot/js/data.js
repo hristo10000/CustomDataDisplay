@@ -248,6 +248,11 @@ function ShowCreateModelForm() {
     $('.create-model-form').css('display', 'flex');
 }
 
+function HideModelForm() {
+    $('.create-model-form').css('display', 'none');
+    ResetForm();
+}
+
 function Confirm(title, msg, $true, $false, modelName) {
     var mainDiv = $("<div></div>").addClass("dialog-ovelay");
     var dialogDiv = $("<div></div>").addClass("dialog");
