@@ -81,8 +81,10 @@ function ResetForm() {
     var divForNameAndDescription = $('<div></div>').addClass("create-model-form-element-for-name-and-password");
     var inputForName = $('<input></input>').addClass("new-model-name").attr("type", "text").attr("placeholder", "Name").attr('required', '');
     var inputForDescription = $('<input></input>').addClass("new-model-description").attr("type", "text").attr("placeholder", "Description").attr('required', '');
+    var resetButton = $('<button></button>').addClass("clear-search-form-button").attr("onclick", "ResetForm()").text("Reset");
     divForNameAndDescription.append(inputForName);
     divForNameAndDescription.append(inputForDescription);
+    divForNameAndDescription.append(resetButton);
     form.append(divForNameAndDescription);
     var divForCreateFields = $('<div></div>').addClass("create-model-form-element-for-custom-fields");
     var divForAddedColumns = $('<div></div>').addClass("added-columns-list");
