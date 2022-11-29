@@ -328,7 +328,6 @@ C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDispl
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\obj\Debug\net5.0\DataManagementAndDisplay.Views.pdb
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\obj\Debug\net5.0\DataManagementAndDisplay.csproj.CopyComplete
 C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\obj\Debug\net5.0\DataManagementAndDisplay.genruntimeconfig.cache
-C:\Users\Hristo Ivanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Model.xml
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\DataModel.dll
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\DataModel.pdb
 C:\Users\Viktor Milanov\Documents\GitHub\CustomDataDisplay\DataManagementAndDisplay\DataManagementAndDisplay\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
