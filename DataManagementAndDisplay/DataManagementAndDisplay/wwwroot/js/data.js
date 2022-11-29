@@ -299,29 +299,9 @@ function countDown() {
 
 $('body').on('mousedown', '.model-name-button', function (ev) {
     currentlyDisplayedModelNameForPage2 = ev.target.textContent;
-    ConfirmSelection('Selected Successfuly',`You selected "${ev.target.textContent}"!`);
+    ConfirmSelection(`You selected "${ev.target.textContent}"!`);
 });
 
-function ConfirmSelection(title, msg) {
-    var $content = '<div class="dialog-ovelay-selection">' +
-        '<div class="dialog"><header>' +
-        '<h3>' + title + '</h3>' +
-        '<i class="fa fa-close"></i>' +
-        '</header>' +
-        '<div class="dialog-msg">' +
-        '<p>' + msg + '</p>' +
-        '</div>' +
-        '<footer>' +
-        '<div class="controls">' +
-        '   <button class="button button-default Iknow">I Know</button> ' +
-        '</div>' +
-        '</footer>' +
-        '</div>' +
-        '</div>';
-    $('body').prepend($content);
-    $('.Iknow').click(function () {
-        $(this).parents('.dialog-ovelay-selection').fadeOut(500, function () {
-            $(this).remove();
-        });
-    });
+function ConfirmSelection(msg) {
+    window.alert(msg);
 }
