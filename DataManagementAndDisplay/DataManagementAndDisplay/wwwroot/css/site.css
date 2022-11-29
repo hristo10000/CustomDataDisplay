@@ -475,6 +475,7 @@ table tr td:first-child::before {
 
 .add-new-text-column, .add-new-enum-column {
     border: solid 3px white;
+    margin: 7px;
     border-bottom: solid 3px #007bff;
     cursor: pointer;
     width: auto;
@@ -685,4 +686,9 @@ input{
     margin: 7px;
     background: transparent;
     transition: border-color 0.2s;
+}
+
+.submit-button-for-create-model{
+    height: auto;
+    align-self: flex-start;
 }

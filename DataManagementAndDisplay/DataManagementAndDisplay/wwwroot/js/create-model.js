@@ -50,7 +50,7 @@ function AddTextColumn() {
     var divForTextColumn = $('<div></div>').addClass("field-column-input").attr("id", `field-column-input${numberOfFields}`);
     var inputForDisplayName = $('<input></input>').addClass("new-model-dispay-name").attr("type", "text").attr("placeholder", "Display Name");
     var inputForInternalName = $('<input></input>').addClass("new-model-internal-name").attr("type", "text").attr("placeholder", "Internal Name");
-    var divForNewColumn = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-enum-column${numberOfFields}`).attr("onclick", "AddOptionValues(this.id)").text("+ Add Possible Values");
+    var divForNewColumn = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-enum-column${numberOfFields}`).attr("onclick", "AddOptionValues(this.id)").text("+ Add possible values");
     divForTextColumn.append(inputForDisplayName);
     divForTextColumn.append(inputForInternalName);
     divForTextColumn.append(divForNewColumn);
@@ -63,7 +63,7 @@ function AddOptionValues(id) {
     var idOfDiv = div.attr('id')
     button.remove();
     var divForValues = $('<div></div>').addClass("values-list").attr("id", `values-list-${id}`);
-    var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
+    var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+ Add a possible value");
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value").attr('required', '');
     divForValues.append(divForNewValue);
     divForValues.append(inputForValue);
