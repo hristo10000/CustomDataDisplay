@@ -50,7 +50,7 @@ function AddTextColumn() {
     var divForTextColumn = $('<div></div>').addClass("field-column-input").attr("id", `field-column-input${numberOfFields}`);
     var inputForDisplayName = $('<input></input>').addClass("new-model-dispay-name").attr("type", "text").attr("placeholder", "Display Name");
     var inputForInternalName = $('<input></input>').addClass("new-model-internal-name").attr("type", "text").attr("placeholder", "Internal Name");
-    var divForNewColumn = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-enum-column${numberOfFields}`).attr("onclick", "AddOptionValues(this.id)").text("+ New enum column");
+    var divForNewColumn = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-enum-column${numberOfFields}`).attr("onclick", "AddOptionValues(this.id)").text("+ Add Possible Values");
     divForTextColumn.append(inputForDisplayName);
     divForTextColumn.append(inputForInternalName);
     divForTextColumn.append(divForNewColumn);
