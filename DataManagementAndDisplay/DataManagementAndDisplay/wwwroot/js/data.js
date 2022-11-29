@@ -54,14 +54,11 @@ function SearchAndDisplay() {
                         var row = $('<tr></tr>').addClass("data-row");
                         var numberTd = $('<td></td>').addClass("row-number");
                         row.append(numberTd);
-                       /* row = '<tr class="data-row"><td class="row-number"></td>';*/
                         for (var j = 0; j < tableNames.length; j++) {
                             var a = JsonData[i][tableNames[j]];
                             var tableData = $('<td></td>').addClass(`${Model.fields[j].displayName}`).attr("onclick", `CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');`).text(a);
                             row.append(tableData);
-                            /*row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';*/
                         }
-                        /*row += '</tr>'*/
                         $('#table-result').append(row);
                     }
                 }
@@ -103,7 +100,8 @@ function FillAllModels() {
             AppendToDiv.empty();
             for (var i = 0; i < JsonData.length; i++) {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
-                var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
+                var mySpan = $('<span></span>').attr('onclick', `ChooseAsDisplayedModel(${JsonData[i].name})`).addClass("model-name-button").text(JsonData[i].name);
+/*                var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);*/
                 div.append(mySpan);
                 div.append(`<div onclick="ConfirmDeleteModel('${JsonData[i].name}')" class="delete-model-button">❌</div>
                             <audio id="alarm" src="/audios/alarm.mp3"></audio>`)
