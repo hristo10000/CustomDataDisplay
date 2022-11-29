@@ -276,7 +276,7 @@ function Confirm(title, msg, $true, $false, modelName) {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {
             $(this).remove();
         });
-        DeleteModel(modelName)
+        DeleteModel(modelName);
         sec = 5;
         $('.doAction').removeClass('btnEnable').addClass('btnDisable');
     });

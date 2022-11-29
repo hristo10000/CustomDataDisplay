@@ -89,9 +89,9 @@ function ResetForm() {
     var divForCreateFields = $('<div></div>').addClass("create-model-form-element-for-custom-fields");
     var divForAddedColumns = $('<div></div>').addClass("added-columns-list");
     var divForNewTextColumn = $('<div></div>').addClass("add-new-text-column").attr("onclick", "AddTextColumn()").text("+ New Column");
-    var inputForSubmit = $('<input></input>').attr("type", "submit").attr("name", "Create Model");
+    var inputForSubmit = $('<input></input>').attr("type", "submit").attr("value", "Create Model").addClass('submit-button-for-create-model');
     divForCreateFields.append(divForAddedColumns);
     divForCreateFields.append(divForNewTextColumn);
-    divForCreateFields.append(inputForSubmit);
     form.append(divForCreateFields);
+    form.append(inputForSubmit);
 }
