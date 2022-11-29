@@ -73,9 +73,9 @@ function AddOptionValues(id) {
 function AddNewOption(id) {
     var button = $(`#${id}`);
     var div = button.parent();
-    var idOfDiv = div.attr('id')
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
-    /*var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr('required', '').attr("onclick", "AddNewOption(this.id)").text("+");*/
     div.append(inputForValue);
-    /*div.append(divForNewValue);*/
+}
+function ResetForm() {
+    $('#create-model-form').trigger("reset");
 }
