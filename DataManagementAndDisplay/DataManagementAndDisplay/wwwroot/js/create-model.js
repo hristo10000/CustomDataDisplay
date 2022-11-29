@@ -72,7 +72,7 @@ function AddOptionValues(id) {
 function AddNewOption(id) {
     var button = $(`#${id}`);
     var div = button.parent();
-    var idOfDiv = div.attr('id')
+    var idOfDiv = div.attr('id');
     button.remove();
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
     var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
