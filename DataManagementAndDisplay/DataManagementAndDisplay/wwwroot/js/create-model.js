@@ -1,5 +1,4 @@
-﻿localStorage.setItem("isAddedNewModel", false);
-var numberOfFields = 0;
+﻿var numberOfFields = 0;
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();

@@ -51,12 +51,17 @@ function SearchAndDisplay() {
                     var tableNames = [];
                     tableNames = Object.getOwnPropertyNames(JsonData[0]);
                     for (i = 0; i < JsonData.length; i++) {
-                        row = '<tr class="data-row"><td class="row-number"></td>';
+                        var row = $('<tr></tr>').addClass("data-row");
+                        var numberTd = $('<td></td>').addClass("row-number");
+                        row.append(numberTd);
+                       /* row = '<tr class="data-row"><td class="row-number"></td>';*/
                         for (var j = 0; j < tableNames.length; j++) {
                             var a = JsonData[i][tableNames[j]];
-                            row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';
+                            var tableData = $('<td></td>').addClass(`${Model.fields[j].displayName}`).attr("onclick", `CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');`).text(a);
+                            row.append(tableData);
+                            /*row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';*/
                         }
-                        row += '</tr>'
+                        /*row += '</tr>'*/
                         $('#table-result').append(row);
                     }
                 }
