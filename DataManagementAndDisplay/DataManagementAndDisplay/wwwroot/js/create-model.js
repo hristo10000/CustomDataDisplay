@@ -77,5 +77,21 @@ function AddNewOption(id) {
     div.append(inputForValue);
 }
 function ResetForm() {
-    $('#create-model-form').trigger("reset");
+    var form = $('#create-model-form').empty();
+    var divForNameAndDescription = $('<div></div>').addClass("create-model-form-element-for-name-and-password");
+    var inputForName = $('<input></input>').addClass("new-model-name").attr("type", "text").attr("placeholder", "Name").attr('required', '');
+    var inputForDescription = $('<input></input>').addClass("new-model-description").attr("type", "text").attr("placeholder", "Description").attr('required', '');
+    var resetButton = $('<button></button>').addClass("clear-search-form-button").attr("onclick", "ResetForm()").text("Reset");
+    divForNameAndDescription.append(inputForName);
+    divForNameAndDescription.append(inputForDescription);
+    divForNameAndDescription.append(resetButton);
+    form.append(divForNameAndDescription);
+    var divForCreateFields = $('<div></div>').addClass("create-model-form-element-for-custom-fields");
+    var divForAddedColumns = $('<div></div>').addClass("added-columns-list");
+    var divForNewTextColumn = $('<div></div>').addClass("add-new-text-column").attr("onclick", "AddTextColumn()").text("+ New Column");
+    var inputForSubmit = $('<input></input>').attr("type", "submit").attr("name", "Create Model");
+    divForCreateFields.append(divForAddedColumns);
+    divForCreateFields.append(divForNewTextColumn);
+    divForCreateFields.append(inputForSubmit);
+    form.append(divForCreateFields);
 }
