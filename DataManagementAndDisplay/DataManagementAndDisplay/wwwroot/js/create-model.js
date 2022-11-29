@@ -63,20 +63,19 @@ function AddOptionValues(id) {
     var idOfDiv = div.attr('id')
     button.remove();
     var divForValues = $('<div></div>').addClass("values-list").attr("id", `values-list-${id}`);
-    var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
     var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
-    divForValues.append(inputForValue);
+    var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value").attr('required', '');
     divForValues.append(divForNewValue);
+    divForValues.append(inputForValue);
     div.append(divForValues);
 }
 
 function AddNewOption(id) {
     var button = $(`#${id}`);
     var div = button.parent();
-    var idOfDiv = div.attr('id');
-    button.remove();
+    var idOfDiv = div.attr('id')
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
-    var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
+    /*var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr('required', '').attr("onclick", "AddNewOption(this.id)").text("+");*/
     div.append(inputForValue);
-    div.append(divForNewValue);
+    /*div.append(divForNewValue);*/
 }
