@@ -25,10 +25,4 @@
     <ProjectReference Include="..\DataModel\DataModel.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Model.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
