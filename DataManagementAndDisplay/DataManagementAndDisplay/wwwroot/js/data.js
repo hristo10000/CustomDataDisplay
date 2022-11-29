@@ -51,12 +51,14 @@ function SearchAndDisplay() {
                     var tableNames = [];
                     tableNames = Object.getOwnPropertyNames(JsonData[0]);
                     for (i = 0; i < JsonData.length; i++) {
-                        row = '<tr class="data-row"><td class="row-number"></td>';
+                        var row = $('<tr></tr>').addClass("data-row");
+                        var numberTd = $('<td></td>').addClass("row-number");
+                        row.append(numberTd);
                         for (var j = 0; j < tableNames.length; j++) {
                             var a = JsonData[i][tableNames[j]];
-                            row += `<td class="${Model.fields[j].displayName}" onclick="CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');">` + a + '</td>';
+                            var tableData = $('<td></td>').addClass(`${Model.fields[j].displayName}`).attr("onclick", `CtrlSelectFromTable('${a}','${Model.fields[j].displayName}');`).text(a);
+                            row.append(tableData);
                         }
-                        row += '</tr>'
                         $('#table-result').append(row);
                     }
                 }
@@ -98,9 +100,10 @@ function FillAllModels() {
             AppendToDiv.empty();
             for (var i = 0; i < JsonData.length; i++) {
                 var div = $('<div></div>').attr('class', 'model-name-for-all-models-list');
-                var mySpan = $(`<span onclick="ChooseAsDisplayedModel('${JsonData[i].name }')" class="model-name-button"></span>`).text(JsonData[i].name);
+                var mySpan = $('<span></span>').attr('onclick', `ChooseAsDisplayedModel('${JsonData[i].name}')`).addClass("model-name-button").text(JsonData[i].name);
                 div.append(mySpan);
-                div.append(`<div onclick="ConfirmDeleteModel('${JsonData[i].name}')" class="delete-model-button">❌</div>`)
+                var divForDelete = $('<div></div>').attr('onclick', `ConfirmDeleteModel('${JsonData[i].name}')`).addClass("delete-model-button").text("❌");
+                div.append(divForDelete);
                 AppendToDiv.append(div);
             }
         }  
@@ -116,13 +119,15 @@ function FillModelNamesInSelect() {
             select.empty();
             for (var i = 0; i < JsonData.length; i++) {
                 if (currentlyDisplayedModelName == JsonData[i].name) {
-                    select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name} selected disabled">${JsonData[i].name}</option>`);
+                    var option = $('<option></option>').addClass(`model-name-option-${i}`).attr('value', `${JsonData[i].name} selected disabled`).text(JsonData[i].name);
+                    select.append(option);
                     break;
                 }
             }
             for (var i = 0; i < JsonData.length; i++) {
                 if (currentlyDisplayedModelName == JsonData[i].name) continue;
-                select.append(`<option class="model-name-option-${i}" value="${JsonData[i].name}">${JsonData[i].name}</option>`);
+                var option = $('<option></option>').addClass(`model-name-option-${i}`).attr('value', `${JsonData[i].name}`).text(JsonData[i].name);
+                select.append(option);
             }
         }
     });
@@ -144,7 +149,6 @@ function ChangeSelectedElement() {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
-            console.log(JsonData);
             SearchMenu = $(".search").empty();
             var form = $("<form></form>").attr('id', "form");
             var firstDivOfSearch = $("<div></div>").addClass("search-form-top-row");
@@ -245,23 +249,28 @@ function ShowCreateModelForm() {
 }
 
 function Confirm(title, msg, $true, $false, modelName) {
-    var $content = '<div class="dialog-ovelay">' +
-        '<div class="dialog"><header>' +
-        '<h3>' + title + '</h3>' +
-        '<i class="fa fa-close"></i>' +
-        '</header>' +
-        '<div class="dialog-msg">' +
-        '<p>' + msg + '</p>' +
-        '</div>' +
-        '<footer>' +
-        '<div class="controls">' +
-        '   <button class="button button-danger doAction btnDisable" type="button" disabled>' + $true + '</button> ' +
-        '   <button class="button button-default cancelAction">' + $false + '</button> ' +
-        '</div>' +
-        '</footer>' +
-        '</div>' +
-        '</div>';
-    $('body').prepend($content);
+    var mainDiv = $("<div></div>").addClass("dialog-ovelay");
+    var dialogDiv = $("<div></div>").addClass("dialog");
+    var header = $("<header></header>");
+    var h3 = $("<h3></h3>").text(title);
+    var i = $("<i></i>").addClass("fa fa-close");
+    header.append(i);
+    header.append(h3);
+    dialogDiv.append(header);
+    var div = $("<div></div>").addClass("dialog-msg");
+    var p = $("<p></p>").text(msg);
+    div.append(p);
+    dialogDiv.append(div);
+    var footer = $("<footer></footer>");
+    var divInFooter = $("<div></div>").addClass("controls");
+    var firstButton = $("<button disabled></button>").addClass("button button-danger doAction btnDisable").attr("type", "button").text($true);
+    var secondButton = $("<button></button>").addClass("button button-default cancelAction").attr("type", "button").text($false);
+    divInFooter.append(firstButton);
+    divInFooter.append(secondButton);
+    footer.append(divInFooter);
+    dialogDiv.append(footer);
+    mainDiv.append(dialogDiv);
+    $('body').prepend(mainDiv);
     countDown();
     $('.doAction').click(function () {
         $(this).parents('.dialog-ovelay').fadeOut(500, function () {

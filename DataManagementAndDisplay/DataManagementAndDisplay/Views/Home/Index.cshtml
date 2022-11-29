@@ -25,7 +25,7 @@
         <div class="create-model-view">
             <div class="model-list">
                 <div class="add-model-button" onclick="ShowCreateModelForm()">+ New Model</div>
-                <div class="all-models">@*All models' names are loaded here by a js script*@</div>
+                <div class="all-models"></div>
             </div>
             <form id="create-model-form" class="create-model-form">
                 <div class="create-model-form-element-for-name-and-password">
@@ -34,10 +34,9 @@
                 </div>
                 <div class="create-model-form-element-for-custom-fields">
                     <div class="added-columns-list">
-                        @*add div with js every time user creates column*@
                     </div>
                     <div class="add-new-text-column" onclick="AddTextColumn()">+ New text column</div>
-                    <input @*onclick="CreateModelButtonOnclick();"*@ type="submit" name="Create Model"/>
+                    <input type="submit" name="Create Model"/>
                 </div>       
             </form>
         </div>

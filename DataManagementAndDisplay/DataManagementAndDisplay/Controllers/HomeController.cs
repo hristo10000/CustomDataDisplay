@@ -58,9 +58,7 @@ namespace Controllers
             var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
             var table = tableClient.GetTableReference("Models");
             await table.CreateIfNotExistsAsync();
-            await InsertTableEntity(table, "Default Model", "This is the default model, which is displayed when the application is first opened.", System.IO.File.ReadAllText("Model.xml"), "Default Model");
-            Model model = ModelReader.GetModel();
-            return View(model);
+            return View();
         }
 
         [HttpPost]
@@ -75,7 +73,6 @@ namespace Controllers
             var credentials = new ApiKeyClientCredentials(key);
             var applicationInsightsClient = new ApplicationInsightsDataClient(credentials);
             sb.Append($"customEvents | where {time.InternalName} > ago(24h) ");
-            /*| where  customDimensions.User == "Viktor" or customDimensions.User == "Hristo"*/
             for (int i = 0; i < model.Fields.Count; i++)
             {
                 if (model.Fields[i].PossibleValues.Count != 0)
@@ -144,19 +141,7 @@ namespace Controllers
             await InsertTableEntity(table, Model.Name, Model.Description, xmlStringOfTheModel, Model.Name);
             return Json(Model);
         }
-        private Model AddTimeOptions(Model model)
-        {
-            model.timeField.DisplayName = "Date";
-            model.timeField.InternalName = "timestamp";
-            model.timeField.FieldType = FieldType.DateTime;
-            model.timestamps.Add(new TimeFieldOption("30m", "30 minutes ago"));
-            model.timestamps.Add(new TimeFieldOption("1h", "1 hour ago"));
-            model.timestamps.Add(new TimeFieldOption("3h", "3 hours ago"));
-            model.timestamps.Add(new TimeFieldOption("8h", "8 hours ago"));
-            model.timestamps.Add(new TimeFieldOption("12h", "12 hours ago"));
-            model.timestamps.Add(new TimeFieldOption("1d", "24 hours ago"));
-            return model;
-        }
+       
         [HttpPost]
         [Route("~/DeleteModel")]
         public void Delete([FromBody] NameOfModel nameOfModel)
@@ -171,19 +156,6 @@ namespace Controllers
             table.Execute(deleteOperation);
         }
 
-        public Model GetModelByName(NameOfModel nameOfModel)
-        {
-            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
-            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
-            var table = tableClient.GetTableReference("Models");
-            TableOperation tableOperation = TableOperation.Retrieve<ResultModel>("Models", nameOfModel.Name);
-            TableResult tableResult = table.Execute(tableOperation);
-            var entity = tableResult.Result as ResultModel;
-            XmlSerializer serializer = new XmlSerializer(typeof(Model));
-            using TextReader reader = new StringReader(entity.XmlModel);
-            var ModelToBeDisplayed = (Model)serializer.Deserialize(reader);
-            return ModelToBeDisplayed;
-        }
         [HttpPost]
         [Route("~/DispayModels")]
         public async Task<IActionResult> DispayModels([FromBody] NameOfModel nameOfModel)
@@ -205,10 +177,37 @@ namespace Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        private Model AddTimeOptions(Model model)
+        {
+            model.timeField.DisplayName = "Date";
+            model.timeField.InternalName = "timestamp";
+            model.timeField.FieldType = FieldType.DateTime;
+            model.timestamps.Add(new TimeFieldOption("30m", "30 minutes ago"));
+            model.timestamps.Add(new TimeFieldOption("1h", "1 hour ago"));
+            model.timestamps.Add(new TimeFieldOption("3h", "3 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("8h", "8 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("12h", "12 hours ago"));
+            model.timestamps.Add(new TimeFieldOption("1d", "24 hours ago"));
+            return model;
+        }
+        private Model GetModelByName(NameOfModel nameOfModel)
+        {
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            TableOperation tableOperation = TableOperation.Retrieve<ResultModel>("Models", nameOfModel.Name);
+            TableResult tableResult = table.Execute(tableOperation);
+            var entity = tableResult.Result as ResultModel;
+            XmlSerializer serializer = new XmlSerializer(typeof(Model));
+            using TextReader reader = new StringReader(entity.XmlModel);
+            var ModelToBeDisplayed = (Model)serializer.Deserialize(reader);
+            return ModelToBeDisplayed;
+        }
     }
 
     public class NameOfModel
     {
         public string Name { get; set; }
     }
+   
 }

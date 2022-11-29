@@ -1,5 +1,4 @@
-﻿localStorage.setItem("isAddedNewModel", false);
-var numberOfFields = 0;
+﻿var numberOfFields = 0;
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -63,10 +62,12 @@ function AddOptionValues(id) {
     var div = button.parent();
     var idOfDiv = div.attr('id')
     button.remove();
+    var divForValues = $('<div></div>').addClass("values-list").attr("id", `values-list-${id}`);
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
     var divForNewValue = $('<div></div>').addClass("add-new-enum-column").attr("id", `add-new-option-${idOfDiv}`).attr("onclick", "AddNewOption(this.id)").text("+");
-    div.append(inputForValue);
-    div.append(divForNewValue);
+    divForValues.append(inputForValue);
+    divForValues.append(divForNewValue);
+    div.append(divForValues);
 }
 
 function AddNewOption(id) {
