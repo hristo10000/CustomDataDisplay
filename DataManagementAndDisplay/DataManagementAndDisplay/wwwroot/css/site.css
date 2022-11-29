@@ -473,8 +473,18 @@ table tr td:first-child::before {
     height: auto;
 }
 
-.add-new-text-column, .add-new-enum-column {
+.add-new-text-column {
+    min-width: 540px;
+}
+
+.add-new-enum-column{
+    min-width: 190px;
+}
+
+.add-new-text-column, .add-new-enum-column, .submit-button-for-create-model {
+    border-radius: 5px;
     border: solid 3px white;
+    padding: 7px;
     border-bottom: solid 3px #007bff;
     cursor: pointer;
     width: auto;
@@ -483,7 +493,7 @@ table tr td:first-child::before {
     -webkit-transition: all 0.2s;
 }
 
-    .add-new-text-column:hover, .add-new-enum-column:hover {
+    .add-new-text-column:hover, .add-new-enum-column:hover, .submit-button-for-create-model:hover {
         background-color: #007bff;
         color: white;
         border: solid 3px #007bff;
@@ -681,8 +691,14 @@ input{
     border: 0;
     border-bottom: 2px solid #007bff;
     outline: 0;
-    color: $white;
     margin: 7px;
     background: transparent;
     transition: border-color 0.2s;
+}
+
+.submit-button-for-create-model{
+    position: sticky;
+    height: auto;
+    align-self: flex-start;
+    font-size: 32px;
 }
