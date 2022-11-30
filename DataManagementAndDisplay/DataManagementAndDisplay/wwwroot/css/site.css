@@ -713,3 +713,20 @@ input{
 .new-model-description{
     margin-bottom: 20px;
 }
+
+.clear-create-model-form-button {
+    width: 100px;
+    color: red;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 50px;
+}
+
+    .clear-create-model-form-button:hover {
+        background-color: red;
+        color: white;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+    }

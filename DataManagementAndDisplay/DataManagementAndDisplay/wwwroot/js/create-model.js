@@ -81,15 +81,17 @@ function AddNewOption(id) {
     var inputForValue = $('<input></input>').addClass("new-model-value").attr("type", "text").attr("placeholder", "Value");
     div.append(inputForValue);
 }
+
 function ResetForm() {
     var form = $('#create-model-form').empty();
     var divForNameAndDescription = $('<div></div>').addClass("create-model-form-element-for-name-and-password");
     var inputForName = $('<input></input>').addClass("new-model-name").attr("type", "text").attr("placeholder", "Name").attr('required', '');
     var inputForDescription = $('<input></input>').addClass("new-model-description").attr("type", "text").attr("placeholder", "Description").attr('required', '');
-    var resetButton = $('<button></button>').addClass("clear-search-form-button").attr("onclick", "ResetForm()").text("Reset");
+    var resetButton = $('<button></button>').attr('type', 'button').addClass("clear-create-model-form-button").attr("onclick", "ConfirmResetModelForm('Reset Form', 'Are you sure you want to COMPLETELY RESET this form? This action CANNOT be undone!', 'Yes', 'No')").text("Reset");
+    var resetButtonDiv = $('<div></div>');
+    resetButtonDiv.append(resetButton);
     divForNameAndDescription.append(inputForName);
     divForNameAndDescription.append(inputForDescription);
-    divForNameAndDescription.append(resetButton);
     form.append(divForNameAndDescription);
     var divForCreateFields = $('<div></div>').addClass("create-model-form-element-for-custom-fields");
     var divForAddedColumns = $('<div></div>').addClass("added-columns-list");
@@ -99,4 +101,41 @@ function ResetForm() {
     divForCreateFields.append(divForNewTextColumn);
     form.append(divForCreateFields);
     form.append(inputForSubmit);
+    form.append(resetButtonDiv);
+}
+
+function ConfirmResetModelForm(title, msg, $true, $false) {
+    var mainDiv = $("<div></div>").addClass("dialog-ovelay");
+    var dialogDiv = $("<div></div>").addClass("dialog");
+    var header = $("<header></header>");
+    var h3 = $("<h3></h3>").text(title);
+    var i = $("<i></i>").addClass("fa fa-close");
+    header.append(i);
+    header.append(h3);
+    dialogDiv.append(header);
+    var div = $("<div></div>").addClass("dialog-msg");
+    var p = $("<p></p>").text(msg);
+    div.append(p);
+    dialogDiv.append(div);
+    var footer = $("<footer></footer>");
+    var divInFooter = $("<div></div>").addClass("controls");
+    var firstButton = $("<button></button>").addClass("button button-danger doAction btnEnable").attr("type", "button").text($true);
+    var secondButton = $("<button></button>").addClass("button button-default cancelAction").attr("type", "button").text($false);
+    divInFooter.append(firstButton);
+    divInFooter.append(secondButton);
+    footer.append(divInFooter);
+    dialogDiv.append(footer);
+    mainDiv.append(dialogDiv);
+    $('body').prepend(mainDiv);
+    $('.doAction').click(function () {
+        $(this).parents('.dialog-ovelay').fadeOut(500, function () {
+            $(this).remove();
+        });
+        ResetForm();
+    });
+    $('.cancelAction, .fa-close').click(function () {
+        $(this).parents('.dialog-ovelay').fadeOut(500, function () {
+            $(this).remove();
+        });
+    });
 }
