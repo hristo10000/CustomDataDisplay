@@ -87,7 +87,7 @@ function ResetForm() {
     var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
     var inputForName = $('<input></input>').addClass('new-model-name').attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
     var inputForDescription = $('<input></input>').addClass('new-model-description').attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
-    var resetButton = $('<button></button>').attr('type', 'button').addClass('clear-create-model-form-button').attr('onclick', 'ConfirmResetModelForm("Reset Form", "Are you sure you want to COMPLETELY RESET this form? This action CANNOT be undone!", "Yes", "No")').text('Reset');
+    var resetButton = $('<button></button>').attr('type', 'button').addClass('clear-create-model-form-button').attr('onclick', 'ConfirmResetModelForm("Reset Form", "Are you sure you want to COMPLETELY RESET this form? This action CANNOT be undone!", "Confirm", "Cancel")').text('Reset');
     var resetButtonDiv = $('<div></div>');
     resetButtonDiv.append(resetButton);
     divForNameAndDescription.append(inputForName);
