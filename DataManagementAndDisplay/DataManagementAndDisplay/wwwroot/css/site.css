@@ -283,6 +283,7 @@ tbody:first-child {
 }
 
 .all-models {
+    top: 80px;
     display: flex;
     flex-direction: column;
 }
@@ -697,9 +698,19 @@ input{
     transition: border-color 0.2s;
 }
 
-.submit-button-for-create-model{
+.submit-button-for-create-model {
     position: sticky;
+    top: 80px;
     height: auto;
     align-self: flex-start;
     font-size: 32px;
 }
+
+.new-model-name{
+    margin-bottom: 20px;
+}
+
+.new-model-description{
+    margin-bottom: 20px;
+}
+
