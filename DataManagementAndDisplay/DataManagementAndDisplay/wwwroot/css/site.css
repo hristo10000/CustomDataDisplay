@@ -715,13 +715,17 @@ input{
 }
 
 .clear-create-model-form-button {
+    position: sticky;
+    top: 80px;
+    height: auto;
+    align-self: flex-start;
     width: 100px;
     color: red;
     background-color: white;
     border: 2px solid red;
     border-radius: 5px;
     padding: 15px;
-    margin-left: 50px;
+    margin: 20px;
 }
 
     .clear-create-model-form-button:hover {
