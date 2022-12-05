@@ -318,7 +318,9 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
 
 function ConfirmSelection(modelName) {
     window.alert(`You selected ${modelName}.`);
+    ShowCreateModelForm();
     ResetForm("dadad");
+    $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
     var NameOfModel = {};
     NameOfModel.name = modelName;
     $.ajax({
