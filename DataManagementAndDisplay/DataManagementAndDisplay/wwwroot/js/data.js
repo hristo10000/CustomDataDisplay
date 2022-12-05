@@ -308,9 +308,19 @@ function countDown() {
 
 $('body').on('mousedown', '.model-name-button', function (ev) {
     currentlyDisplayedModelNameForPage2 = ev.target.textContent;
-    ConfirmSelection(`You selected "${ev.target.textContent}"!`);
+    ConfirmSelection(`${ev.target.textContent}`);
 });
 
-function ConfirmSelection(msg) {
-    window.alert(msg);
+function ConfirmSelection(modelName) {
+    var NameOfModel = {};
+    NameOfModel.name = modelName;
+    $.ajax({
+        type: 'POST',
+        url: '/DispayModels',
+        data: JSON.stringify(NameOfModel),
+        contentType: 'application/json',
+        success: function (JsonData) {
+            console.log(JsonData);
+        }
+    });
 }
