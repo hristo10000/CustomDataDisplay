@@ -318,4 +318,5 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
 
 function ConfirmSelection(msg) {
     window.alert(msg);
+    ResetForm("dadad");
 }

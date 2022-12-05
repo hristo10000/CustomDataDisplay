@@ -23,7 +23,7 @@ function CreateModel() {
                 Model.Fields[i].InternalName = input;
             } else if (j == 2) { 
                 input = field.children[j];
-                Model.Fields[i].PossibleValues = [];
+                Model.Fields[i].PossibleValues = []; 
                 for (var k = 1; k < input.children.length; k++) {
                     value = input.children[k].value;
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
