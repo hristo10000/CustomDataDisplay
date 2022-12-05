@@ -29,16 +29,21 @@
             </div>
             <form id="create-model-form" class="create-model-form">
                 <div class="create-model-form-element-for-name-and-password">
-                    <input required class="new-model-name" for="new-model-name" placeholder="Name"/>
-                    <input required class="new-model-description" for="new-model-description" placeholder="Description"/>
-                    <button onclick="ResetForm()" class="clear-search-form-button">Reset</button>
+                    <input required class="new-model-name" for="new-model-name" placeholder="Name" />
+                    <input required class="new-model-description" for="new-model-description" placeholder="Description" />
+                    
                 </div>
                 <div class="create-model-form-element-for-custom-fields">
                     <div class="added-columns-list">
                     </div>
                     <div class="add-new-text-column" onclick="AddTextColumn()">+ New Column</div>
                 </div>
-                <input class="submit-button-for-create-model" type="submit" name="Create Model" value="Create Model"/>
+                <div>
+                    <input class="submit-button-for-create-model" type="submit" name="Create Model" value="Create Model" />
+                </div>
+                <div>
+                    <button type="button" onclick="ConfirmResetModelForm('Reset Form', 'Are you sure you want to COMPLETELY RESET this form? This action CANNOT be undone!', 'Confirm', 'Cancel')" class="clear-create-model-form-button">Reset</button>                
+                </div>
             </form>
         </div>
     </div>
