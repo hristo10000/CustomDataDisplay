@@ -333,13 +333,29 @@ function ConfirmSelection(modelName) {
         success: function (JsonData) {
             var form = $('#create-model-form').empty();
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
-            var inputForName = $('<input></input>').addClass('new-model-name').attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '').attr('id', 'new-model-name');
+            var inputForName = $('<input></input>').addClass('new-model-name').attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
             var inputForDescription = $('<input></input>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
             divForNameAndDescription.append(inputForName);
             divForNameAndDescription.append(inputForDescription);
             form.append(divForNameAndDescription);
             var divForCreateFields = $('<div></div>').addClass('create-model-form-element-for-custom-fields');
             var divForAddedColumns = $('<div></div>').addClass('added-columns-list');
+            for (var i = 0; i < JsonData.fields.length; i++) {
+                var divForField = $('<div></div>').addClass('field-column-input').attr('id', `field-column-input${i}`);
+                var inputForDisplayName = $('<input></input>').addClass('new-model-dispay-name').attr('value', JsonData.fields[i].displayName).attr('type', 'text').attr('placeholder', 'Display Name').attr('required', '');
+                var inputForInternalName = $('<input></input>').addClass('new-model-internal-name').attr('value', JsonData.fields[i].internalName).attr('type', 'text').attr('placeholder', 'Internal Name').attr('required', '');
+                var divForOptions = $('<div></div>').addClass('values-list').attr('id', `values-list-add-new-enum-column${i}`);
+                var divForAddNewOptions = $('<div></div>').addClass('add-new-enum-column').attr('id', `add-new-option-field-column-input${i}`).text("+ Add a possible value").attr("onclick", "AddNewOption(this.id)");
+                divForOptions.append(divForAddNewOptions);
+                for (var j = 0; j < JsonData.fields[i].possibleValues.length; j++) {
+                    var inputForValue = $('<input></input>').addClass('new-model-value').attr('value', JsonData.fields[i].possibleValues[j].possibleOptionValue).attr('type', 'text').attr('placeholder', 'Value').attr('required', '');
+                    divForOptions.append(inputForValue);
+                }
+                divForField.append(inputForDisplayName);
+                divForField.append(inputForInternalName);
+                divForField.append(divForOptions);
+                divForAddedColumns.append(divForField);
+            }
             var divForNewTextColumn = $('<div></div>').addClass('add-new-text-column').attr('onclick', 'AddTextColumn()').text('+ New Column');
             var inputForSubmit = $('<input></input>').attr('type', 'submit').attr('value', 'Save Changes').addClass('submit-button-for-create-model');
             divForCreateFields.append(divForAddedColumns);
