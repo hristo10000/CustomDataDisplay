@@ -170,7 +170,6 @@ function ChangeSelectedElement() {
             DivWithTimestamps.append(labelForField);
             DivWithTimestamps.append(selectForField);
             form.append(DivWithTimestamps);
-            
             for (var i = 0; i < JsonData.fields.length; i++) {
                 if (JsonData.fields[i].displayName != "Date") {
                     if (JsonData.fields[i].possibleValues.length == 0) {
@@ -239,7 +238,6 @@ function ChooseAsDisplayedModel(modelName) {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
-
         }
     });
 }
@@ -319,7 +317,7 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
 function ConfirmSelection(modelName) {
     window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
-    ResetForm("dadad");
+    EditModel();
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
     var NameOfModel = {};
     NameOfModel.name = modelName;
