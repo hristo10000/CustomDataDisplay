@@ -314,10 +314,14 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
     ConfirmSelection(`${ev.target.textContent}`);
 });
 
+/*function EditModel() {
+    
+}
+*/
 function ConfirmSelection(modelName) {
     window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
-    EditModel();
+/*    EditModel();*/
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
     var NameOfModel = {};
     NameOfModel.name = modelName;
@@ -327,6 +331,21 @@ function ConfirmSelection(modelName) {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
+            var form = $('#create-model-form').empty();
+            var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
+            var inputForName = $('<input></input>').addClass('new-model-name').attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '').attr('id', 'new-model-name');
+            var inputForDescription = $('<input></input>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
+            divForNameAndDescription.append(inputForName);
+            divForNameAndDescription.append(inputForDescription);
+            form.append(divForNameAndDescription);
+            var divForCreateFields = $('<div></div>').addClass('create-model-form-element-for-custom-fields');
+            var divForAddedColumns = $('<div></div>').addClass('added-columns-list');
+            var divForNewTextColumn = $('<div></div>').addClass('add-new-text-column').attr('onclick', 'AddTextColumn()').text('+ New Column');
+            var inputForSubmit = $('<input></input>').attr('type', 'submit').attr('value', 'Save Changes').addClass('submit-button-for-create-model');
+            divForCreateFields.append(divForAddedColumns);
+            divForCreateFields.append(divForNewTextColumn);
+            form.append(divForCreateFields);
+            form.append(inputForSubmit);
             console.log(JsonData);
         }
     });
