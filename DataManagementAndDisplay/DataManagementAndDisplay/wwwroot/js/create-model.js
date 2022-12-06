@@ -10,7 +10,6 @@ function CreateModel() {
     var letters = /^[a-zA-Z0-9_ ]{3,}$/;
     var Model = {};
     Model.Name = event.currentTarget[0].value;
-<<<<<<< HEAD
     if (Model.Name.match(letters)) {
         Model.Description = event.currentTarget[1].value;
         Model.Fields = [];
@@ -34,25 +33,6 @@ function CreateModel() {
                     }
                 }
                 else {
-=======
-    Model.Description = event.currentTarget[1].value;
-    Model.Fields = [];
-    var inputs = $('.field-column-input')
-    for (var i = 0; i < inputs.length; i++) {
-        var field = inputs[i];  
-        Model.Fields[i] = {};
-        for (var j = 0; j < field.children.length; j++) {     
-            var input = field.children[j].value;
-            if (j == 0) {
-                Model.Fields[i].DisplayName = input;
-            } else if (j == 1) {
-                Model.Fields[i].InternalName = input;
-            } else if (j == 2) { 
-                input = field.children[j];
-                Model.Fields[i].PossibleValues = []; 
-                for (var k = 1; k < input.children.length; k++) {
-                    value = input.children[k].value;
->>>>>>> d96e24488a2a48f37025183255c66b17bc461cd1
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
                 }
@@ -162,7 +142,6 @@ function ConfirmResetModelForm(title, msg, $true, $false) {
         });
     });
 }
-<<<<<<< HEAD
 function validateNameForModel() {
     var letters = /^[a-zA-Z0-9_ ]{3,}$/;
     var x = document.forms["MyForm"]["Name"].value;
@@ -171,5 +150,3 @@ function validateNameForModel() {
         return false;
     }
 }
-=======
->>>>>>> d96e24488a2a48f37025183255c66b17bc461cd1
