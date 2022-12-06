@@ -104,6 +104,24 @@ function ResetForm() {
     form.append(resetButtonDiv);
 }
 
+function EditModel() {
+    var form = $('#create-model-form').empty();
+    var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
+    var inputForName = $('<input></input>').addClass('new-model-name').attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
+    var inputForDescription = $('<input></input>').addClass('new-model-description').attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
+    divForNameAndDescription.append(inputForName);
+    divForNameAndDescription.append(inputForDescription);
+    form.append(divForNameAndDescription);
+    var divForCreateFields = $('<div></div>').addClass('create-model-form-element-for-custom-fields');
+    var divForAddedColumns = $('<div></div>').addClass('added-columns-list');
+    var divForNewTextColumn = $('<div></div>').addClass('add-new-text-column').attr('onclick', 'AddTextColumn()').text('+ New Column');
+    var inputForSubmit = $('<input></input>').attr('type', 'submit').attr('value', 'Save Changes').addClass('submit-button-for-create-model');
+    divForCreateFields.append(divForAddedColumns);
+    divForCreateFields.append(divForNewTextColumn);
+    form.append(divForCreateFields);
+    form.append(inputForSubmit);
+}
+
 function ConfirmResetModelForm(title, msg, $true, $false) {
     var mainDiv = $('<div></div>').addClass('dialog-ovelay');
     var dialogDiv = $('<div></div>').addClass('dialog');
