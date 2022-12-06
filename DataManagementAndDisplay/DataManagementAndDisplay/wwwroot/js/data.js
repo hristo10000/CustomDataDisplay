@@ -362,7 +362,6 @@ function ConfirmSelection(modelName) {
             divForCreateFields.append(divForNewTextColumn);
             form.append(divForCreateFields);
             form.append(inputForSubmit);
-            console.log(JsonData);
         }
     });
 
