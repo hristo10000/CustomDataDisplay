@@ -1,10 +1,21 @@
 ﻿var numberOfFields = 0;
 $(document).ready(function () {
-    $('#create-model-form').submit(function (event) {
+    $('body').on('submit', '#create-model-form', function (event) {
         event.preventDefault();
         CreateModel();
     });
+    $('body').on('submit', '#edit-model-form', function (event) {
+        event.preventDefault();
+        EditModel();
+    });
 });
+
+function EditModel() {
+    var form = $('edit-model-form');
+    var nameOfModel = form.$('new-model-name');
+    console.log(nameOfModel);
+    console.log(OldNameOfModel);
+}
 
 function CreateModel() {
     var letters = /^[a-zA-Z0-9_ ]{3,}$/;
@@ -88,7 +99,7 @@ function AddNewOption(id) {
 function ResetForm() {
     var form = $('#create-model-form').empty();
     var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
-    var inputForName = $('<input></input>').addClass('new-model-name').attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
+    var inputForName = $('<input></input>').addClass('new-model-name').attr('name', "Name").attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
     var inputForDescription = $('<input></input>').addClass('new-model-description').attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
     var resetButton = $('<button></button>').attr('type', 'button').addClass('clear-create-model-form-button').attr('onclick', 'ConfirmResetModelForm("Reset Form", "Are you sure you want to COMPLETELY RESET this form? This action CANNOT be undone!", "Confirm", "Cancel")').text('Reset');
     var resetButtonDiv = $('<div></div>');

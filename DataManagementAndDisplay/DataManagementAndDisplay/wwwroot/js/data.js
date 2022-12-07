@@ -314,14 +314,10 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
     ConfirmSelection(`${ev.target.textContent}`);
 });
 
-/*function EditModel() {
-    
-}
-*/
+
 function ConfirmSelection(modelName) {
     window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
-/*    EditModel();*/
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
     var NameOfModel = {};
     NameOfModel.name = modelName;
@@ -332,8 +328,9 @@ function ConfirmSelection(modelName) {
         contentType: 'application/json',
         success: function (JsonData) {
             var form = $('#create-model-form').empty();
+            form.attr('id', 'edit-model-form');
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
-            var inputForName = $('<input></input>').addClass('new-model-name').attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
+            var inputForName = $('<input></input>').addClass('new-model-name').attr('id', 'new-model-name').attr('name', "Name").attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
             var inputForDescription = $('<input></input>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
             divForNameAndDescription.append(inputForName);
             divForNameAndDescription.append(inputForDescription);
