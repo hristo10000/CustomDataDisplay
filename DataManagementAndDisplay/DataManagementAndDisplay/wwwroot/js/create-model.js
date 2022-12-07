@@ -6,14 +6,12 @@ $(document).ready(function () {
     });
     $('body').on('submit', '#edit-model-form', function (event) {
         event.preventDefault();
-        EditModel();
+        EditModel(currentlyDisplayedModelNameForPage2);
     });
 });
 
-function EditModel() {
-    var form = $('edit-model-form');
-    var nameOfModel = form.$('new-model-name');
-    console.log(nameOfModel);
+function EditModel(OldNameOfModel) {
+ 
     console.log(OldNameOfModel);
 }
 

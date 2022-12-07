@@ -328,6 +328,9 @@ function ConfirmSelection(modelName) {
         contentType: 'application/json',
         success: function (JsonData) {
             var form = $('#create-model-form').empty();
+            if (form.length == 0) {
+                form = $('#edit-model-form').empty();
+            }
             form.attr('id', 'edit-model-form');
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
             var inputForName = $('<input></input>').addClass('new-model-name').attr('id', 'new-model-name').attr('name', "Name").attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
