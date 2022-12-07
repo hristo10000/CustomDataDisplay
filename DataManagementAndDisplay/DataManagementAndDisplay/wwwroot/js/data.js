@@ -242,7 +242,10 @@ function ChooseAsDisplayedModel(modelName) {
         }
     });
 }
-
+function ShowCreateModelFormCreate() {
+    isEditOrCreate = 0;
+    $('.create-model-form').css('display', 'flex');
+}
 function ShowCreateModelForm() {
     $('.create-model-form').css('display', 'flex');
 }

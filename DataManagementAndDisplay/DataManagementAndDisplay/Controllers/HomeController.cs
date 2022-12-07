@@ -52,6 +52,12 @@ namespace Controllers
             }
             return null;
         }
+        public static async void EditTableEntity(CloudTable p_tbl, string name, string description, string xmlString, string key)
+        {
+            ResultModel resultModel = new(key, description, xmlString, name);
+            TableOperation insertOperation = TableOperation.InsertOrMerge(resultModel);
+            await p_tbl.ExecuteAsync(insertOperation);
+        }
         public async Task<IActionResult> Index()
         {
             var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
@@ -141,7 +147,23 @@ namespace Controllers
             await InsertTableEntity(table, Model.Name, Model.Description, xmlStringOfTheModel, Model.Name);
             return Json(Model);
         }
-       
+
+        [HttpPost]
+        [Route("~/EditModel")]
+        public async Task<IActionResult> Edit([FromBody] Model Model)
+        {
+            Model = AddTimeOptions(Model);
+            var stringwriter = new StringWriter();
+            var serializer = new XmlSerializer(typeof(Model));
+            serializer.Serialize(stringwriter, Model);
+            string xmlStringOfTheModel = stringwriter.ToString();
+            var storageAccount = CloudStorageAccount.Parse(config.GetSection("StorageAccountInformation").Value);
+            var tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            var table = tableClient.GetTableReference("Models");
+            EditTableEntity(table, Model.Name, Model.Description, xmlStringOfTheModel, Model.Name);
+            return Json(Model);
+        }
+
         [HttpPost]
         [Route("~/DeleteModel")]
         public void Delete([FromBody] NameOfModel nameOfModel)

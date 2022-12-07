@@ -4,119 +4,120 @@ $(document).ready(function () {
         event.preventDefault();
         var letters = /^[a-zA-Z0-9_ ]{3,}$/;
         if (event.currentTarget[0].value.match(letters)) {
-            if (isEditOrCreate == 0) {
-                CreateModel();
+            if (isEditOrCreate == 1) {
+                if (currentlyDisplayedModelNameForPage2 != event.currentTarget[0].value) {
+                    DeleteModel(currentlyDisplayedModelNameForPage2);
+                    CreateModel();
+                }
+                else {
+                    EditModel();
+                }
             }
             else {
-                DeleteModel(currentlyDisplayedModelNameForPage2);
                 CreateModel();
             }
         }
     });
+});
 /*    $('body').on('submit', '#edit-model-form', function (event) {
         event.preventDefault();
         
     });*/
-});
 /*DeleteModel(modelName)*/
-function EditModel(OldNameOfModel) {
+function EditModel() {
 
-   
+
     var Model = {};
     Model.Name = event.currentTarget[0].value;
-    if (Model.Name.match(letters)) {
-        
-        Model.Description = event.currentTarget[1].value;
-        Model.Fields = [];
-        var inputs = $('.field-column-input')
-        for (var i = 0; i < inputs.length; i++) {
-            var field = inputs[i];
-            Model.Fields[i] = {};
-            for (var j = 0; j < field.children.length; j++) {
-                var input = field.children[j].value;
-                if (j == 0) {
-                    Model.Fields[i].DisplayName = input;
-                } else if (j == 1) {
-                    Model.Fields[i].InternalName = input;
-                } else if (j == 2) {
-                    input = field.children[j];
-                    Model.Fields[i].PossibleValues = [];
-                    for (var k = 1; k < input.children.length; k++) {
-                        value = input.children[k].value;
-                        Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                        Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
-                    }
-                }
-                else {
-                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
-                }
-            }
-            HideModelForm();
-        }
 
-        var form_data = Model;
-        $.ajax({
-            type: 'POST',
-            url: '/CreateModel',
-            data: JSON.stringify(form_data),
-            contentType: 'application/json',
-            success: function (JsonData) {
-                FillAllModels();
+    Model.Description = event.currentTarget[1].value;
+    Model.Fields = [];
+    var inputs = $('.field-column-input')
+    for (var i = 0; i < inputs.length; i++) {
+        var field = inputs[i];
+        Model.Fields[i] = {};
+        for (var j = 0; j < field.children.length; j++) {
+            var input = field.children[j].value;
+            if (j == 0) {
+                Model.Fields[i].DisplayName = input;
+            } else if (j == 1) {
+                Model.Fields[i].InternalName = input;
+            } else if (j == 2) {
+                input = field.children[j];
+                Model.Fields[i].PossibleValues = [];
+                for (var k = 1; k < input.children.length; k++) {
+                    value = input.children[k].value;
+                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
+                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
+                }
             }
-        });
+            else {
+                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
+                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
+            }
+        }
+        HideModelForm();
     }
+
+    var form_data = Model;
+    $.ajax({
+        type: 'POST',
+        url: '/EditModel',
+        data: JSON.stringify(form_data),
+        contentType: 'application/json',
+        success: function (JsonData) {
+            FillAllModels();
+        }
+    });
 }
+
 
 function CreateModel() {
-    var letters = /^[a-zA-Z0-9_ ]{3,}$/;
     var Model = {};
     Model.Name = event.currentTarget[0].value;
-    if (Model.Name.match(letters)) {
-        Model.Description = event.currentTarget[1].value;
-        Model.Fields = [];
-        var inputs = $('.field-column-input')
-        for (var i = 0; i < inputs.length; i++) {
-            var field = inputs[i];
-            Model.Fields[i] = {};
-            for (var j = 0; j < field.children.length; j++) {
-                var input = field.children[j].value;
-                if (j == 0) {
-                    Model.Fields[i].DisplayName = input;
-                } else if (j == 1) {
-                    Model.Fields[i].InternalName = input;
-                } else if (j == 2) {
-                    input = field.children[j];
-                    Model.Fields[i].PossibleValues = [];
-                    for (var k = 1; k < input.children.length; k++) {
-                        value = input.children[k].value;
-                        Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                        Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
-                    }
-                }
-                else {
+    Model.Description = event.currentTarget[1].value;
+    Model.Fields = [];
+    var inputs = $('.field-column-input')
+    for (var i = 0; i < inputs.length; i++) {
+        var field = inputs[i];
+        Model.Fields[i] = {};
+        for (var j = 0; j < field.children.length; j++) {
+            var input = field.children[j].value;
+            if (j == 0) {
+                Model.Fields[i].DisplayName = input;
+            } else if (j == 1) {
+                Model.Fields[i].InternalName = input;
+            } else if (j == 2) {
+                input = field.children[j];
+                Model.Fields[i].PossibleValues = [];
+                for (var k = 1; k < input.children.length; k++) {
+                    value = input.children[k].value;
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
+                    Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
                 }
             }
-            HideModelForm();
-        }
-
-        var form_data = Model;
-        $.ajax({
-            type: 'POST',
-            url: '/CreateModel',
-            data: JSON.stringify(form_data),
-            contentType: 'application/json',
-            success: function (JsonData) {
-                FillAllModels();
+            else {
+                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
+                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
             }
-        });
+        }
+        HideModelForm();
     }
+
+    var form_data = Model;
+    $.ajax({
+        type: 'POST',
+        url: '/CreateModel',
+        data: JSON.stringify(form_data),
+        contentType: 'application/json',
+        success: function (JsonData) {
+            FillAllModels();
+        }
+    });
 }
 
+
 function AddTextColumn() {
-    isEditOrCreate = 0;
     numberOfFields = $('.field-column-input').length;
     var divForTextColumn = $('<div></div>').addClass('field-column-input').attr('id', `field-column-input${numberOfFields}`);
     var inputForDisplayName = $('<input></input>').addClass('new-model-dispay-name').attr('type', 'text').attr('placeholder', 'Display Name').attr('required', '');
@@ -210,7 +211,7 @@ function validateNameForModel() {
     var letters = /^[a-zA-Z0-9_ ]{3,}$/;
     var x = document.forms["MyForm"]["Name"].value;
     if (!x.match(letters)) {
-        alert("Name must be only letters and at least 3 characters long");
+        alert("Name must be only letters or numbers and at least 3 characters long");
         return false;
     }
 }
