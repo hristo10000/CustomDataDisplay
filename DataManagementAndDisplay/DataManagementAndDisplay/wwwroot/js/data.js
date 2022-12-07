@@ -249,6 +249,7 @@ function ShowCreateModelForm() {
 function HideModelForm() {
     $('.create-model-form').css('display', 'none');
     ResetForm();
+    HideSelectedModelForEditingName();
 }
 
 function Confirm(title, msg, $true, $false, modelName) {
@@ -314,6 +315,9 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
     ConfirmSelection(`${ev.target.textContent}`);
 });
 
+function HideSelectedModelForEditingName() {
+    $('.name-of-selected-for-edit-model').css('display', 'none');
+}
 
 function ConfirmSelection(modelName) {
     window.alert(`You selected ${modelName}.`);
@@ -327,10 +331,7 @@ function ConfirmSelection(modelName) {
         data: JSON.stringify(NameOfModel),
         contentType: 'application/json',
         success: function (JsonData) {
-            var form = $('#create-model-form').empty();
-            if (form.length == 0) {
-                form = $('#edit-model-form').empty();
-            }
+            var form = $('.create-model-form').empty();
             form.attr('id', 'edit-model-form');
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
             var inputForName = $('<input></input>').addClass('new-model-name').attr('id', 'new-model-name').attr('name', "Name").attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');

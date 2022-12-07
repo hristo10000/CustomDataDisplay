@@ -95,7 +95,13 @@ function AddNewOption(id) {
 }
 
 function ResetForm() {
-    var form = $('#create-model-form').empty();
+    
+    console.log('d')
+    if ($('#create-model-form').length == 0) {
+        var form = $('#edit-model-form').empty();
+    } else {
+        var form = $('#create-model-form').empty();
+    }
     var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
     var inputForName = $('<input></input>').addClass('new-model-name').attr('name', "Name").attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
     var inputForDescription = $('<input></input>').addClass('new-model-description').attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
