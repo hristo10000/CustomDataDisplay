@@ -2,6 +2,7 @@
 var currentlyDisplayedModelNameForPage2;
 var isFirstLoad = true;
 var sec = 5;
+var isEditOrCreate;
 
 $(document).ready(function () {
     document.onkeydown = NavigateToTop;
@@ -320,6 +321,7 @@ function HideSelectedModelForEditingName() {
 }
 
 function ConfirmSelection(modelName) {
+    isEditOrCreate = 1;
     window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
