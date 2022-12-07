@@ -2,6 +2,7 @@
 var currentlyDisplayedModelNameForPage2;
 var isFirstLoad = true;
 var sec = 5;
+var isEditOrCreate;
 
 $(document).ready(function () {
     document.onkeydown = NavigateToTop;
@@ -316,6 +317,7 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
 
 
 function ConfirmSelection(modelName) {
+    isEditOrCreate = 1;
     window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
@@ -328,10 +330,10 @@ function ConfirmSelection(modelName) {
         contentType: 'application/json',
         success: function (JsonData) {
             var form = $('#create-model-form').empty();
-            if (form.length == 0) {
+/*            if (form.length == 0) {
                 form = $('#edit-model-form').empty();
             }
-            form.attr('id', 'edit-model-form');
+            form.attr('id', 'edit-model-form');*/
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
             var inputForName = $('<input></input>').addClass('new-model-name').attr('id', 'new-model-name').attr('name', "Name").attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
             var inputForDescription = $('<input></input>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
