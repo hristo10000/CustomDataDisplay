@@ -325,7 +325,6 @@ function HideSelectedModelForEditingName() {
 
 function ConfirmSelection(modelName) {
     isEditOrCreate = 1;
-    window.alert(`You selected ${modelName}.`);
     ShowCreateModelForm();
     $(".name-of-selected-for-edit-model").css("display", "fixed").text(modelName);
     var NameOfModel = {};
