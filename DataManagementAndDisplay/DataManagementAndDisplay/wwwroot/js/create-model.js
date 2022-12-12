@@ -149,8 +149,6 @@ function AddNewOption(id) {
 }
 
 function ResetForm() {
-    
-    console.log('d')
     if ($('#create-model-form').length == 0) {
         var form = $('#edit-model-form').empty();
     } else {
