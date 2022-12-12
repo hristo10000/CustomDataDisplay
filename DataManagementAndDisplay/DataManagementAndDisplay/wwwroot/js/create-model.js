@@ -1,4 +1,5 @@
 ﻿var numberOfFields = 0;
+var addedValuesCount = 0;
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -42,18 +43,15 @@ function EditModel() {
                 Model.Fields[i].DisplayName = input;
             } else if (j == 1) {
                 Model.Fields[i].InternalName = input;
-            } else if (j == 2) {
+            } else{
                 input = field.children[j];
                 Model.Fields[i].PossibleValues = [];
                 for (var k = 1; k < input.children.length; k++) {
-                    value = input.children[k].value;
+                    valueDiv = input.children[k];
+                    var value = valueDiv.children[0].value;
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
                 }
-            }
-            else {
-                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
             }
         }
         HideModelForm();
@@ -87,18 +85,15 @@ function CreateModel() {
                 Model.Fields[i].DisplayName = input;
             } else if (j == 1) {
                 Model.Fields[i].InternalName = input;
-            } else if (j == 2) {
+            } else {
                 input = field.children[j];
                 Model.Fields[i].PossibleValues = [];
                 for (var k = 1; k < input.children.length; k++) {
-                    value = input.children[k].value;
+                    valueDiv = input.children[k];
+                    var value = valueDiv.children[0].value;
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
                     Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = value;
                 }
-            }
-            else {
-                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length] = {};
-                Model.Fields[i].PossibleValues[Model.Fields[i].PossibleValues.length - 1].PossibleOptionValue = input;
             }
         }
         HideModelForm();
@@ -130,23 +125,33 @@ function AddTextColumn() {
 }
 
 function AddOptionValues(id) {
+    addedValuesCount++;
     var button = $(`#${id}`);
     var div = button.parent();
     var idOfDiv = div.attr('id')
     button.remove();
     var divForValues = $('<div></div>').addClass('values-list').attr('id', `values-list-${id}`);
     var divForNewValue = $('<div></div>').addClass('add-new-enum-column').attr('id', `add-new-option-${idOfDiv}`).attr('onclick', 'AddNewOption(this.id)').text('+ Add a possible value');
-    var inputForValue = $('<input></input>').addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value').attr('required', '');
+    var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
+    var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value').attr('required', '');
+    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button");
     divForValues.append(divForNewValue);
-    divForValues.append(inputForValue);
+    divForSingleValue.append(inputForValue);
+    divForSingleValue.append(deleteForValue);
+    divForValues.append(divForSingleValue);
     div.append(divForValues);
 }
 
 function AddNewOption(id) {
     var button = $(`#${id}`);
     var div = button.parent();
-    var inputForValue = $('<input></input>').addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value');
-    div.append(inputForValue);
+    addedValuesCount++;
+    var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
+    var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value');
+    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button");
+    divForSingleValue.append(inputForValue);
+    divForSingleValue.append(deleteForValue);
+    div.append(divForSingleValue);
 }
 
 function ResetForm() {
@@ -220,4 +225,9 @@ function validateNameForModel() {
         alert("Name must be only letters or numbers and at least 3 characters long");
         return false;
     }
+}
+function DeleteValue(idForDelete) {
+    var forDelete = $(`#${idForDelete}`);
+/*    var buttonForDelete = forDelete.parent();*/
+    forDelete.remove();
 }
