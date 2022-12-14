@@ -734,3 +734,10 @@ input{
         transition: all 0.2s;
         -webkit-transition: all 0.2s;
     }
+
+.delete-value-button{
+    background: white;
+    align-self: flex-start;
+    border: red solid 2px;
+    border-radius: 5px;
+}

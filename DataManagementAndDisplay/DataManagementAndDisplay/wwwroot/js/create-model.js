@@ -1,5 +1,6 @@
 ﻿var numberOfFields = 0;
 var addedValuesCount = 0;
+
 $(document).ready(function () {
     $('#create-model-form').submit(function (event) {
         event.preventDefault();
@@ -26,11 +27,8 @@ $(document).ready(function () {
     });*/
 /*DeleteModel(modelName)*/
 function EditModel() {
-
-
     var Model = {};
     Model.Name = event.currentTarget[0].value;
-
     Model.Description = event.currentTarget[1].value;
     Model.Fields = [];
     var inputs = $('.field-column-input')
@@ -68,7 +66,6 @@ function EditModel() {
         }
     });
 }
-
 
 function CreateModel() {
     var Model = {};
@@ -111,7 +108,6 @@ function CreateModel() {
     });
 }
 
-
 function AddTextColumn() {
     numberOfFields = $('.field-column-input').length;
     var divForTextColumn = $('<div></div>').addClass('field-column-input').attr('id', `field-column-input${numberOfFields}`);
@@ -134,7 +130,7 @@ function AddOptionValues(id) {
     var divForNewValue = $('<div></div>').addClass('add-new-enum-column').attr('id', `add-new-option-${idOfDiv}`).attr('onclick', 'AddNewOption(this.id)').text('+ Add a possible value');
     var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
     var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value').attr('required', '');
-    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button");
+    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button").text('❌');
     divForValues.append(divForNewValue);
     divForSingleValue.append(inputForValue);
     divForSingleValue.append(deleteForValue);
@@ -148,7 +144,7 @@ function AddNewOption(id) {
     addedValuesCount++;
     var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
     var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value');
-    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button");
+    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button").text('❌');
     divForSingleValue.append(inputForValue);
     divForSingleValue.append(deleteForValue);
     div.append(divForSingleValue);
