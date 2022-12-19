@@ -356,7 +356,7 @@ function ConfirmSelection(modelName) {
                     addedValuesCount++;
                     var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
                     var inputForValue = $('<input></input>').addClass('new-model-value').attr('id', `value-${JsonData.fields[i].possibleValues[j].possibleOptionValue}`).attr('value', JsonData.fields[i].possibleValues[j].possibleOptionValue).attr('type', 'text').attr('placeholder', 'Value').attr('required', '');
-                    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button");
+                    var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button").text('❌');
                     divForSingleValue.append(inputForValue);
                     divForSingleValue.append(deleteForValue);
                     divForOptions.append(divForSingleValue);
