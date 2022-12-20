@@ -338,7 +338,7 @@ function ConfirmSelection(modelName) {
             form.attr('id', 'edit-model-form');
             var divForNameAndDescription = $('<div></div>').addClass('create-model-form-element-for-name-and-password');
             var inputForName = $('<input></input>').addClass('new-model-name').attr('id', 'new-model-name').attr('name', "Name").attr('value', JsonData.name).attr('type', 'text').attr('placeholder', 'Name').attr('required', '');
-            var inputForDescription = $('<input></input>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '');
+            var inputForDescription = $('<textarea></textarea>').addClass('new-model-description').attr('value', JsonData.description).attr('type', 'text').attr('placeholder', 'Description').attr('required', '').attr('rows', '4').attr('cols', '5');
             divForNameAndDescription.append(inputForName);
             divForNameAndDescription.append(inputForDescription);
             form.append(divForNameAndDescription);

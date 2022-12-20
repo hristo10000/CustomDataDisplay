@@ -30,7 +30,10 @@
             <form name="MyForm" id="create-model-form" class="create-model-form" onsubmit="validateNameForModel()">
                 <div class="create-model-form-element-for-name-and-password">
                     <input name="Name" required class="new-model-name" for="new-model-name" placeholder="Name" />
-                    <input required class="new-model-description" for="new-model-description" placeholder="Description" />
+                    <textarea id="freeform" name="freeform" rows="4" cols="50">
+Enter text here...
+</textarea>
+                    @*<input required class="new-model-description" for="new-model-description" placeholder="Description" />*@
                 </div>
                 <div class="create-model-form-element-for-custom-fields">
                     <div class="added-columns-list">
