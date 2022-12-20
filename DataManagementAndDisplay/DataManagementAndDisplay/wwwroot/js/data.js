@@ -224,6 +224,9 @@ function DeleteModel(modelName) {
             FillAllModels();
         }
     });
+    ResetForm();
+    HideSelectedModelForEditingName();
+    HideModelForm();
 }
 
 function ChooseAsDisplayedModel(modelName) {
