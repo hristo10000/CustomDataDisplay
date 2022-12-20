@@ -33,8 +33,6 @@ function SearchAndDisplay() {
             var trForHeaders = $('<tr></tr>');
             var headerForCount = $('<th></th>').attr('class', 'custom-table-heading').text("№");
             trForHeaders.append(headerForCount);
-
-
             currentlyDisplayedModelName = $(".select-for-displayed-model :selected").text();
             var NameOfModel = {};
             NameOfModel.name = currentlyDisplayedModelName;
@@ -63,9 +61,7 @@ function SearchAndDisplay() {
                         $('#table-result').append(row);
                     }
                 }
-
             });
-           
         }
     });
 }
@@ -231,6 +227,7 @@ function DeleteModel(modelName) {
 }
 
 function ChooseAsDisplayedModel(modelName) {
+    $('.name-of-selected-for-edit-model').css('display', 'fixed').text(modelName);
     var NameOfModel = {};
     NameOfModel.name = modelName;
     $.ajax({
@@ -242,10 +239,12 @@ function ChooseAsDisplayedModel(modelName) {
         }
     });
 }
+
 function ShowCreateModelFormCreate() {
     isEditOrCreate = 0;
     $('.create-model-form').css('display', 'flex');
 }
+
 function ShowCreateModelForm() {
     $('.create-model-form').css('display', 'flex');
 }
@@ -320,7 +319,7 @@ $('body').on('mousedown', '.model-name-button', function (ev) {
 });
 
 function HideSelectedModelForEditingName() {
-    $('.name-of-selected-for-edit-model').css('display', 'none');
+    $('.name-of-selected-for-edit-model').text(' ');
 }
 
 function ConfirmSelection(modelName) {
@@ -374,5 +373,4 @@ function ConfirmSelection(modelName) {
             form.append(inputForSubmit);
         }
     });
-
 }
