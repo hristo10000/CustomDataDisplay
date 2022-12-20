@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Viktor Milanov\\.nuget\\packages\\": {}
+    "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj",
+      "projectUniqueName": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj",
       "projectName": "DataModel",
-      "projectPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj",
-      "packagesPath": "C:\\Users\\Viktor Milanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Viktor Milanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\obj\\",
+      "projectPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\DataModel.csproj",
+      "packagesPath": "C:\\Users\\Hristo Ivanov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hristo Ivanov\\Documents\\GitHub\\CustomDataDisplay\\DataManagementAndDisplay\\DataModel\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Viktor Milanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hristo Ivanov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }
