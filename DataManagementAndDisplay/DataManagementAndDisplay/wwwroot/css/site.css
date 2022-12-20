@@ -479,10 +479,6 @@ table tr td:first-child::before {
     min-width: 540px;
 }
 
-.add-new-enum-column{
-    min-width: 190px;
-}
-
 .add-new-text-column, .add-new-enum-column, .submit-button-for-create-model {
     border-radius: 5px;
     border: solid 3px white;
@@ -501,6 +497,14 @@ table tr td:first-child::before {
         border: solid 3px #007bff;
         border-radius: 5px;
     }
+
+.add-new-enum-column {
+    min-width: 190px;
+    margin: 5px;
+    margin-bottom: 7px;
+    padding: 2px;
+    padding-bottom: 0;
+}
 
 .create-model-form-element-for-custom-fields {
     width: auto;
