@@ -107,7 +107,7 @@ function AddTextColumn() {
     numberOfFields = $('.field-column-input').length;
     var divForTextColumn = $('<div></div>').addClass('field-column-input').attr('id', `field-column-input${numberOfFields}`);
     var inputForDisplayName = $('<input></input>').addClass('new-model-dispay-name').attr('type', 'text').attr('placeholder', 'Display Name').attr('required', '');
-    var inputForInternalName = $('<input></input>').addClass('new-model-internal-name').attr('type', 'text').attr('placeholder', 'Internal Name');
+    var inputForInternalName = $('<input></input>').addClass('new-model-internal-name').attr('type', 'text').attr('placeholder', 'Internal Name').attr('required', '');;
     var divForNewColumn = $('<div></div>').addClass('add-new-enum-column').attr('id', `add-new-enum-column${numberOfFields}`).attr('onclick', 'AddOptionValues(this.id)').text('+ Add possible values');
     divForTextColumn.append(inputForDisplayName);
     divForTextColumn.append(inputForInternalName);
