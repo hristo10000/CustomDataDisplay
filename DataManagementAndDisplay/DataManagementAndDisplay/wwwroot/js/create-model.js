@@ -21,11 +21,6 @@ $(document).ready(function () {
         }
     });
 });
-/*    $('body').on('submit', '#edit-model-form', function (event) {
-        event.preventDefault();
-        
-    });*/
-/*DeleteModel(modelName)*/
 function EditModel() {
     var Model = {};
     Model.Name = event.currentTarget[0].value;
@@ -143,7 +138,7 @@ function AddNewOption(id) {
     var div = button.parent();
     addedValuesCount++;
     var divForSingleValue = $('<div></div>').attr('id', `value-${addedValuesCount}`);
-    var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('placeholder', 'Value');
+    var inputForValue = $('<input></input>').attr('id', `value-${id}`).addClass('new-model-value').attr('type', 'text').attr('required', '').attr('placeholder', 'Value');
     var deleteForValue = $('<button></button>').addClass('delete-value-button').attr("onclick", `DeleteValue("value-${addedValuesCount}")`).attr("type", "button").text('❌');
     divForSingleValue.append(inputForValue);
     divForSingleValue.append(deleteForValue);
